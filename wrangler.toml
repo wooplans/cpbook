@@ -1,0 +1,6 @@
+# Cloudflare Pages configuration
+# No build step needed — pure static HTML
+
+[build]
+command = ""
+destination = "."
