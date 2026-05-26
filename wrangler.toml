@@ -1,6 +1,5 @@
-# Cloudflare Pages configuration
-# No build step needed — pure static HTML
+name = "cpbook"
+compatibility_date = "2026-05-26"
 
-[build]
-command = ""
-destination = "."
+[assets]
+directory = "."
