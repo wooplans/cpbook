@@ -358,8 +358,9 @@ src="https://www.facebook.com/tr?id=1651374605332302&ev=PageView&noscript=1"/></
   <p class="hero-sub">Le catalogue de référence pour préparer la construction de votre maison au Cameroun. Villas, duplex, plans, devis — tout est dedans.</p>
 
   <div class="vsl-wrap" id="vslWrap">
-    <video id="heroVid" src="https://wooplans.b-cdn.net/cp%20book%20wooplans/vsl_cp_book_202605262345.mp4" playsinline webkit-playsinline preload="metadata" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:none"></video>
-    <div class="vsl-inner" id="vslOverlay" onclick="playHeroVid()">
+    <video id="heroVid" src="https://wooplans.b-cdn.net/cp%20book%20wooplans/vsl_cp_book_202605262345.mp4" playsinline webkit-playsinline preload="metadata" crossorigin="anonymous" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:none"></video>
+    <img id="vslPoster" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:none" alt="">
+    <div class="vsl-inner" id="vslOverlay" onclick="playHeroVid()" style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px">
       <div class="vsl-play"></div>
       <span class="vsl-lbl">Voir la présentation du catalogue</span>
     </div>
@@ -380,9 +381,10 @@ src="https://www.facebook.com/tr?id=1651374605332302&ev=PageView&noscript=1"/></
 
   <div class="social-badge">
     <div class="avatar-stack">
-      <div class="avatar-mini"><img src="https://wooplans.b-cdn.net/faces/face1.jpg" alt="client" style="width:100%;height:100%;object-fit:cover;border-radius:50%"></div>
-      <div class="avatar-mini"><img src="https://wooplans.b-cdn.net/faces/face2.jpg" alt="client" style="width:100%;height:100%;object-fit:cover;border-radius:50%"></div>
-      <div class="avatar-mini"><img src="https://wooplans.b-cdn.net/faces/face3.jpg" alt="client" style="width:100%;height:100%;object-fit:cover;border-radius:50%"></div>
+      <div class="avatar-mini"><img src="https://wooplans.b-cdn.net/faces%20social%20proof/WhatsApp%20Image%202026-05-26%20at%2019.03.41%20(1).jpeg" alt="client" style="width:100%;height:100%;object-fit:cover;border-radius:50%"></div>
+      <div class="avatar-mini"><img src="https://wooplans.b-cdn.net/faces%20social%20proof/WhatsApp%20Image%202026-05-26%20at%2019.03.41%20(2).jpeg" alt="client" style="width:100%;height:100%;object-fit:cover;border-radius:50%"></div>
+      <div class="avatar-mini"><img src="https://wooplans.b-cdn.net/faces%20social%20proof/WhatsApp%20Image%202026-05-26%20at%2019.03.41%20(3).jpeg" alt="client" style="width:100%;height:100%;object-fit:cover;border-radius:50%"></div>
+      <div class="avatar-mini"><img src="https://wooplans.b-cdn.net/faces%20social%20proof/WhatsApp%20Image%202026-05-26%20at%2019.03.41%20(4).jpeg" alt="client" style="width:100%;height:100%;object-fit:cover;border-radius:50%"></div>
     </div>
     <span class="social-text">Déjà <strong>+735 commandes</strong></span>
   </div>
@@ -740,14 +742,14 @@ src="https://www.facebook.com/tr?id=1651374605332302&ev=PageView&noscript=1"/></
           <label class="pay-opt" id="pay-orange">
             <input type="radio" name="payment" value="Orange Money" checked>
             <div class="pay-card">
-              <span class="pay-icon"><img src="https://wooplans.b-cdn.net/logos/orange-money.png" alt="Orange Money" style="width:44px;height:44px;object-fit:contain" onerror="this.style.display='none';this.nextElementSibling.style.display='block'"><span style="display:none;font-size:22px">🟠</span></span>
+              <span class="pay-icon"><img src="https://wooplans.b-cdn.net/logos/logo%20om%20bon.jpg" alt="Orange Money" style="width:44px;height:44px;object-fit:contain" onerror="this.style.display='none';this.nextElementSibling.style.display='block'"><span style="display:none;font-size:22px">🟠</span></span>
               <span class="pay-name">Orange Money</span>
             </div>
           </label>
           <label class="pay-opt" id="pay-mtn">
             <input type="radio" name="payment" value="MTN MoMo">
             <div class="pay-card">
-              <span class="pay-icon"><img src="https://wooplans.b-cdn.net/logos/mtn-momo.png" alt="MTN MoMo" style="width:44px;height:44px;object-fit:contain" onerror="this.style.display='none';this.nextElementSibling.style.display='block'"><span style="display:none;font-size:22px">🟡</span></span>
+              <span class="pay-icon"><img src="https://wooplans.b-cdn.net/logos/momo%20logo.jpg" alt="MTN MoMo" style="width:44px;height:44px;object-fit:contain" onerror="this.style.display='none';this.nextElementSibling.style.display='block'"><span style="display:none;font-size:22px">🟡</span></span>
               <span class="pay-name">MTN MoMo</span>
             </div>
           </label>
@@ -862,14 +864,35 @@ function closeVideo(e){
 function playHeroVid(){
   const vid=document.getElementById('heroVid');
   const overlay=document.getElementById('vslOverlay');
+  const poster=document.getElementById('vslPoster');
   overlay.style.display='none';
+  if(poster) poster.style.display='none';
   vid.style.display='block';
   vid.controls=true;
   vid.play().catch(()=>{});
 }
-function playVSL(){
-  playHeroVid();
-}
+function playVSL(){ playHeroVid(); }
+
+/* ── Hero VSL — extract first frame as thumbnail ── */
+(function(){
+  var vid=document.getElementById('heroVid');
+  var poster=document.getElementById('vslPoster');
+  if(!vid||!poster) return;
+  var canvas=document.createElement('canvas');
+  var ctx=canvas.getContext('2d');
+  vid.addEventListener('loadeddata',function(){
+    vid.currentTime=0.01;
+  },{once:true});
+  vid.addEventListener('seeked',function(){
+    try{
+      canvas.width=vid.videoWidth||520;
+      canvas.height=vid.videoHeight||292;
+      ctx.drawImage(vid,0,0,canvas.width,canvas.height);
+      poster.src=canvas.toDataURL('image/jpeg',0.85);
+      poster.style.display='block';
+    }catch(e){}
+  },{once:true});
+})();
 
 /* ── ORDER ── */
 function openOrder(){
