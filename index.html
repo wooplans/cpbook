@@ -358,7 +358,7 @@ src="https://www.facebook.com/tr?id=1651374605332302&ev=PageView&noscript=1"/></
   <p class="hero-sub">Le catalogue de référence pour préparer la construction de votre maison au Cameroun. Villas, duplex, plans, devis — tout est dedans.</p>
 
   <div class="vsl-wrap" id="vslWrap">
-    <video id="heroVid" src="https://wooplans.b-cdn.net/cp%20book%20wooplans/vsl_cp_book_202605262345.mp4" playsinline webkit-playsinline preload="metadata" muted style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity 0.5s"></video>
+    <video id="heroVid" src="https://wooplans.b-cdn.net/cp%20book%20wooplans/vsl_cp_book_202605262345.mp4" playsinline webkit-playsinline preload="auto" muted style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity 0.5s"></video>
     <div class="vsl-inner" id="vslOverlay" onclick="playHeroVid()" style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;transition:background 0.5s">
       <div class="vsl-play"></div>
       <span class="vsl-lbl">Voir la présentation du catalogue</span>
@@ -502,7 +502,7 @@ src="https://www.facebook.com/tr?id=1651374605332302&ev=PageView&noscript=1"/></
   <div class="testi-grid-2x2" style="margin-top:20px">
     <div class="testi-card r" onclick="openVideo(0)">
       <div class="testi-video">
-        <video class="testi-vid-el" id="tvid0" src="https://wooplans.b-cdn.net/T%C3%A9moignage_Ibrahim-original%20(1).mp4" preload="metadata" playsinline muted loop></video>
+        <video class="testi-vid-el" id="tvid0" src="https://wooplans.b-cdn.net/T%C3%A9moignage_Ibrahim-original%20(1).mp4" preload="auto" playsinline muted loop></video>
         <img class="testi-poster" id="tposter0" alt="">
         <div class="testi-video-bg"></div><div class="testi-play"></div><span class="testi-video-lbl">▶ Vidéo</span>
       </div>
@@ -514,7 +514,7 @@ src="https://www.facebook.com/tr?id=1651374605332302&ev=PageView&noscript=1"/></
     </div>
     <div class="testi-card r d1" onclick="openVideo(1)">
       <div class="testi-video">
-        <video class="testi-vid-el" id="tvid1" src="https://wooplans.b-cdn.net/VID-20250121-WA0013-original.mp4" preload="metadata" playsinline muted loop></video>
+        <video class="testi-vid-el" id="tvid1" src="https://wooplans.b-cdn.net/VID-20250121-WA0013-original.mp4" preload="auto" playsinline muted loop></video>
         <img class="testi-poster" id="tposter1" alt="">
         <div class="testi-video-bg"></div><div class="testi-play"></div><span class="testi-video-lbl">▶ Vidéo</span>
       </div>
@@ -526,7 +526,7 @@ src="https://www.facebook.com/tr?id=1651374605332302&ev=PageView&noscript=1"/></
     </div>
     <div class="testi-card r d2" onclick="openVideo(2)">
       <div class="testi-video">
-        <video class="testi-vid-el" id="tvid2" src="https://wooplans.b-cdn.net/T%C3%A9moignages_Francis-original%20(1).mp4" preload="metadata" playsinline muted loop></video>
+        <video class="testi-vid-el" id="tvid2" src="https://wooplans.b-cdn.net/T%C3%A9moignages_Francis-original%20(1).mp4" preload="auto" playsinline muted loop></video>
         <img class="testi-poster" id="tposter2" alt="">
         <div class="testi-video-bg"></div><div class="testi-play"></div><span class="testi-video-lbl">▶ Vidéo</span>
       </div>
@@ -538,7 +538,7 @@ src="https://www.facebook.com/tr?id=1651374605332302&ev=PageView&noscript=1"/></
     </div>
     <div class="testi-card r d3" onclick="openVideo(3)">
       <div class="testi-video">
-        <video class="testi-vid-el" id="tvid3" src="https://wooplans.b-cdn.net/temoignage%20audio%20video.mp4" preload="metadata" playsinline muted loop></video>
+        <video class="testi-vid-el" id="tvid3" src="https://wooplans.b-cdn.net/temoignage%20audio%20video.mp4" preload="auto" playsinline muted loop></video>
         <img class="testi-poster" id="tposter3" alt="">
         <div class="testi-video-bg"></div><div class="testi-play"></div><span class="testi-video-lbl">▶ Vidéo</span>
       </div>
@@ -925,24 +925,40 @@ function submitOrder(){
 }
 document.addEventListener('keydown',e=>{if(e.key==='Escape'){closeVideo();closeOrder()}});
 
-/* ── VIDEO THUMBNAILS — first frame via video element (no canvas/CORS) ── */
+/* ── VIDEO THUMBNAILS — play/pause trick (no canvas, no CORS needed) ── */
 (function(){
-  // Hero VSL
-  var hv=document.getElementById('heroVid');
-  if(hv){
-    hv.addEventListener('loadedmetadata',function(){hv.currentTime=0.01;},{once:true});
-    hv.addEventListener('seeked',function(){
-      hv.style.opacity='1';
-      var ov=document.getElementById('vslOverlay');
-      if(ov) ov.style.background='linear-gradient(135deg,rgba(8,40,40,0.42) 0%,rgba(7,26,26,0.42) 100%)';
-    },{once:true});
-  }
-  // Testimonials
-  [0,1,2,3].forEach(function(i){
-    var vid=document.getElementById('tvid'+i);
+  function showThumb(vid,onReady){
     if(!vid) return;
-    vid.addEventListener('loadedmetadata',function(){vid.currentTime=0.1;},{once:true});
-    vid.addEventListener('seeked',function(){vid.style.opacity='1';},{once:true});
+    var done=false;
+    function show(){
+      if(done) return; done=true;
+      vid.style.opacity='1';
+      if(onReady) onReady();
+    }
+    if(vid.readyState>=2){show();return;}
+    vid.muted=true;
+    var p=vid.play();
+    if(p) p.then(function(){vid.pause();vid.currentTime=0;show();}).catch(function(){});
+    vid.addEventListener('canplay',show,{once:true});
+  }
+
+  showThumb(document.getElementById('heroVid'),function(){
+    var ov=document.getElementById('vslOverlay');
+    if(ov) ov.style.background='linear-gradient(135deg,rgba(8,40,40,0.42) 0%,rgba(7,26,26,0.42) 100%)';
+  });
+
+  var io=('IntersectionObserver' in window)&&new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(!e.isIntersecting) return;
+      showThumb(e.target,null);
+      io.unobserve(e.target);
+    });
+  },{rootMargin:'300px'});
+
+  [0,1,2,3].forEach(function(i){
+    var v=document.getElementById('tvid'+i);
+    if(!v) return;
+    if(io) io.observe(v); else showThumb(v,null);
   });
 })();
 </script>
