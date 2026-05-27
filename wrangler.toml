@@ -1,5 +1,12 @@
 name = "cpbook"
 compatibility_date = "2026-05-26"
+main = "worker.js"
+
+[vars]
+FB_PIXEL_ID = "1651374605332302"
+# FB_ACCESS_TOKEN : défini comme secret Cloudflare (ne jamais mettre ici)
+# Commande à exécuter une seule fois : wrangler secret put FB_ACCESS_TOKEN
 
 [assets]
 directory = "."
+binding = "ASSETS"
