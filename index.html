@@ -183,11 +183,11 @@ h2{font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;font-size:clamp(24
 .testi-card:hover .testi-play{transform:scale(1.08)}
 .testi-play::after{content:'';border-left:15px solid white;border-top:9px solid transparent;border-bottom:9px solid transparent;margin-left:4px}
 .testi-video-lbl{position:absolute;bottom:8px;left:8px;font-family:'Plus Jakarta Sans',sans-serif;font-size:10px;font-weight:600;letter-spacing:0.06em;color:rgba(255,255,255,0.6);text-transform:uppercase}
-.testi-vid-el{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0;opacity:0}
+.testi-vid-el{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:2;opacity:0;transition:opacity 0.5s}
 .testi-poster{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:1;background:var(--teal-dark)}
-.testi-video-bg{position:absolute;inset:0;background:linear-gradient(160deg,rgba(10,63,62,0.5) 0%,rgba(7,26,26,0.7) 100%);z-index:2}
-.testi-play{position:relative;z-index:3!important}
-.testi-video-lbl{z-index:3!important}
+.testi-video-bg{position:absolute;inset:0;background:linear-gradient(160deg,rgba(10,63,62,0.5) 0%,rgba(7,26,26,0.7) 100%);z-index:3}
+.testi-play{position:relative;z-index:4!important}
+.testi-video-lbl{z-index:4!important}
 .testi-body{padding:12px}
 .testi-stars{color:var(--gold);font-size:12px;letter-spacing:1px;margin-bottom:6px}
 .testi-quote{font-style:italic;font-size:13px;color:var(--dark);line-height:1.55;margin-bottom:10px}
@@ -358,9 +358,8 @@ src="https://www.facebook.com/tr?id=1651374605332302&ev=PageView&noscript=1"/></
   <p class="hero-sub">Le catalogue de référence pour préparer la construction de votre maison au Cameroun. Villas, duplex, plans, devis — tout est dedans.</p>
 
   <div class="vsl-wrap" id="vslWrap">
-    <video id="heroVid" src="https://wooplans.b-cdn.net/cp%20book%20wooplans/vsl_cp_book_202605262345.mp4" playsinline webkit-playsinline preload="metadata" crossorigin="anonymous" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:none"></video>
-    <img id="vslPoster" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:none" alt="">
-    <div class="vsl-inner" id="vslOverlay" onclick="playHeroVid()" style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px">
+    <video id="heroVid" src="https://wooplans.b-cdn.net/cp%20book%20wooplans/vsl_cp_book_202605262345.mp4" playsinline webkit-playsinline preload="metadata" muted style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity 0.5s"></video>
+    <div class="vsl-inner" id="vslOverlay" onclick="playHeroVid()" style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;transition:background 0.5s">
       <div class="vsl-play"></div>
       <span class="vsl-lbl">Voir la présentation du catalogue</span>
     </div>
@@ -862,37 +861,16 @@ function closeVideo(e){
 }
 
 function playHeroVid(){
-  const vid=document.getElementById('heroVid');
-  const overlay=document.getElementById('vslOverlay');
-  const poster=document.getElementById('vslPoster');
+  var vid=document.getElementById('heroVid');
+  var overlay=document.getElementById('vslOverlay');
   overlay.style.display='none';
-  if(poster) poster.style.display='none';
-  vid.style.display='block';
+  vid.muted=false;
+  vid.currentTime=0;
   vid.controls=true;
+  vid.style.opacity='1';
   vid.play().catch(()=>{});
 }
 function playVSL(){ playHeroVid(); }
-
-/* ── Hero VSL — extract first frame as thumbnail ── */
-(function(){
-  var vid=document.getElementById('heroVid');
-  var poster=document.getElementById('vslPoster');
-  if(!vid||!poster) return;
-  var canvas=document.createElement('canvas');
-  var ctx=canvas.getContext('2d');
-  vid.addEventListener('loadeddata',function(){
-    vid.currentTime=0.01;
-  },{once:true});
-  vid.addEventListener('seeked',function(){
-    try{
-      canvas.width=vid.videoWidth||520;
-      canvas.height=vid.videoHeight||292;
-      ctx.drawImage(vid,0,0,canvas.width,canvas.height);
-      poster.src=canvas.toDataURL('image/jpeg',0.85);
-      poster.style.display='block';
-    }catch(e){}
-  },{once:true});
-})();
 
 /* ── ORDER ── */
 function openOrder(){
@@ -947,25 +925,24 @@ function submitOrder(){
 }
 document.addEventListener('keydown',e=>{if(e.key==='Escape'){closeVideo();closeOrder()}});
 
-/* ── VIDEO THUMBNAILS — extract first frame ── */
+/* ── VIDEO THUMBNAILS — first frame via video element (no canvas/CORS) ── */
 (function(){
-  var canvas=document.createElement('canvas');
-  var ctx=canvas.getContext('2d');
+  // Hero VSL
+  var hv=document.getElementById('heroVid');
+  if(hv){
+    hv.addEventListener('loadedmetadata',function(){hv.currentTime=0.01;},{once:true});
+    hv.addEventListener('seeked',function(){
+      hv.style.opacity='1';
+      var ov=document.getElementById('vslOverlay');
+      if(ov) ov.style.background='linear-gradient(135deg,rgba(8,40,40,0.42) 0%,rgba(7,26,26,0.42) 100%)';
+    },{once:true});
+  }
+  // Testimonials
   [0,1,2,3].forEach(function(i){
     var vid=document.getElementById('tvid'+i);
-    var poster=document.getElementById('tposter'+i);
-    if(!vid||!poster) return;
-    vid.addEventListener('loadeddata',function(){
-      vid.currentTime=0.1;
-    },{once:true});
-    vid.addEventListener('seeked',function(){
-      try{
-        canvas.width=vid.videoWidth||320;
-        canvas.height=vid.videoHeight||568;
-        ctx.drawImage(vid,0,0,canvas.width,canvas.height);
-        poster.src=canvas.toDataURL('image/jpeg',0.8);
-      }catch(e){}
-    },{once:true});
+    if(!vid) return;
+    vid.addEventListener('loadedmetadata',function(){vid.currentTime=0.1;},{once:true});
+    vid.addEventListener('seeked',function(){vid.style.opacity='1';},{once:true});
   });
 })();
 </script>
