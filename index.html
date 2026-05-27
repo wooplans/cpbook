@@ -902,7 +902,7 @@ function submitOrder(){
     '💰 *Montant :* 39 000 FCFA (offre de lancement)\n\nMerci de confirmer les modalités. 🙏'
   );
   // 👇 Remplacez par votre vrai numéro WhatsApp
-  // ── Facebook Pixel: InitiateCheckout event ──
+  // ── Facebook Pixel events ──
   if(typeof fbq==='function'){
     fbq('track','InitiateCheckout',{
       content_name:'Catalogue Premium Wooplans',
@@ -912,12 +912,15 @@ function submitOrder(){
       num_items:1,
       payment_method: payMethod ? payMethod.value : 'Unknown'
     });
-    // Lead event for WhatsApp redirect
-    fbq('track','Lead',{
-      content_name:'Commander WhatsApp',
+    // Événement personnalisé : redirection WhatsApp confirmée
+    fbq('trackCustom','cpbook_Lead',{
+      content_name:'Catalogue Premium Wooplans',
       content_category:'Catalogue',
       value:39000,
-      currency:'XAF'
+      currency:'XAF',
+      city: city,
+      payment_method: pay,
+      redirect_channel:'WhatsApp'
     });
   }
   window.open('https://wa.me/237694327885?text='+msg,'_blank');
