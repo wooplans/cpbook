@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Analytics — Wooplans CPBook</title>
+<style>
+:root{--teal:#0F5B59;--teal-dk:#0A3F3E;--orange:#F08A2E;--red:#C75B3A;--gold:#E7C36C;--dark:#1E2933;--gray:#6B7280;--bg:#F0F4F4;--white:#fff;--border:rgba(15,91,89,0.12);--shadow:0 2px 16px rgba(15,91,89,0.10)}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html,body{height:100%;font-family:'Segoe UI',system-ui,sans-serif;background:var(--bg);color:var(--dark)}
+body{display:flex;flex-direction:column;min-height:100vh}
+header{background:var(--teal);color:#fff;padding:16px 24px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:10;box-shadow:0 2px 8px rgba(0,0,0,0.15)}
+header h1{font-size:18px;font-weight:700;letter-spacing:-.02em}
+header h1 span{color:var(--gold)}
+.period-sel{display:flex;gap:6px}
+.period-sel button{background:rgba(255,255,255,0.15);color:#fff;border:1px solid rgba(255,255,255,0.25);border-radius:6px;padding:6px 12px;font-size:13px;cursor:pointer;transition:background .15s}
+.period-sel button.active,.period-sel button:hover{background:rgba(255,255,255,0.3)}
+main{flex:1;padding:24px;max-width:1200px;margin:0 auto;width:100%}
+.grid-kpi{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:14px;margin-bottom:24px}
+.card{background:var(--white);border-radius:12px;padding:18px 20px;box-shadow:var(--shadow);border:1px solid var(--border)}
+.card-title{font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.06em;color:var(--gray);margin-bottom:8px}
+.card-value{font-size:28px;font-weight:700;color:var(--teal);line-height:1}
+.card-sub{font-size:12px;color:var(--gray);margin-top:4px}
+.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:24px}
+.grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-bottom:24px}
+h2{font-size:14px;font-weight:700;color:var(--teal);margin-bottom:12px;padding-bottom:6px;border-bottom:1px solid var(--border)}
+table{width:100%;border-collapse:collapse;font-size:13px}
+th{text-align:left;padding:7px 10px;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.05em;color:var(--gray);border-bottom:2px solid var(--border)}
+td{padding:8px 10px;border-bottom:1px solid var(--border)}
+tr:last-child td{border-bottom:none}
+tr:hover td{background:rgba(15,91,89,0.03)}
+.bar-wrap{display:flex;flex-direction:column;gap:8px}
+.bar-row{display:grid;grid-template-columns:80px 1fr 48px;align-items:center;gap:8px;font-size:12px}
+.bar-row label{text-align:right;color:var(--gray);font-size:11px}
+.bar-track{background:rgba(15,91,89,0.08);border-radius:4px;height:10px;overflow:hidden}
+.bar-fill{height:100%;border-radius:4px;background:var(--teal);transition:width .5s ease}
+.bar-val{font-size:11px;font-weight:600;color:var(--dark)}
+.funnel-wrap{display:flex;flex-direction:column;gap:6px}
+.funnel-row{display:flex;align-items:center;gap:10px;font-size:12px}
+.funnel-label{width:120px;text-align:right;color:var(--gray);font-size:11px;white-space:nowrap}
+.funnel-bar{flex:1;height:22px;background:rgba(15,91,89,0.08);border-radius:4px;overflow:hidden;position:relative}
+.funnel-fill{height:100%;border-radius:4px;display:flex;align-items:center;padding-left:8px;color:#fff;font-size:11px;font-weight:600;white-space:nowrap;min-width:4px;transition:width .5s ease}
+.funnel-count{width:60px;font-size:11px;color:var(--dark);font-weight:600}
+.chart-wrap{display:flex;align-items:flex-end;gap:3px;height:100px;margin-top:8px}
+.chart-col{display:flex;flex-direction:column;align-items:center;flex:1;min-width:0;cursor:default}
+.chart-bar{width:100%;border-radius:3px 3px 0 0;background:var(--teal);min-height:2px;transition:height .4s ease}
+.chart-lbl{font-size:9px;color:var(--gray);margin-top:3px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:30px;text-align:center}
+.badge{display:inline-block;padding:2px 8px;border-radius:99px;font-size:11px;font-weight:600}
+.badge-green{background:rgba(16,185,129,0.12);color:#059669}
+.badge-orange{background:rgba(240,138,46,0.12);color:var(--orange)}
+.metric-pct{font-size:13px;font-weight:700;color:var(--orange)}
+.loading{color:var(--gray);font-size:13px;padding:20px 0}
+.error-msg{color:var(--red);font-size:12px;padding:8px;background:rgba(199,91,58,0.08);border-radius:6px;margin-top:8px}
+footer{text-align:center;padding:16px;font-size:11px;color:var(--gray)}
+@media(max-width:640px){.grid-2,.grid-3{grid-template-columns:1fr}.grid-kpi{grid-template-columns:repeat(2,1fr)}main{padding:12px}}
+</style>
+</head>
+<body>
+
+<script>
+// ── AUTHENTIFICATION ──────────────────────────────────────
+(function(){
+  var KEY='_cpb_dash';
+  var PWD='DASHBOARD_PASSWORD';
+  var stored=sessionStorage.getItem(KEY);
+  if(stored===PWD)return;
+  var input=prompt('🔐 Mot de passe dashboard Wooplans :');
+  if(input!==PWD){document.body.innerHTML='<div style="display:flex;align-items:center;justify-content:center;height:100vh;font-family:system-ui"><p style="color:#C75B3A;font-size:16px">Accès refusé.</p></div>';throw new Error('auth');}
+  sessionStorage.setItem(KEY,input);
+})();
+</script>
+
+<header>
+  <h1>Analytics · Woo<span>plans</span> CPBook</h1>
+  <div class="period-sel">
+    <button onclick="setPeriod(7)" id="btn7">7j</button>
+    <button onclick="setPeriod(30)" id="btn30" class="active">30j</button>
+    <button onclick="setPeriod(90)" id="btn90">90j</button>
+  </div>
+</header>
+
+<main>
+  <!-- KPIs -->
+  <div class="grid-kpi" id="kpiGrid">
+    <div class="card"><div class="card-title">Visites</div><div class="card-value" id="kVisits">—</div><div class="card-sub" id="kDevice">—</div></div>
+    <div class="card"><div class="card-title">Sessions engagées</div><div class="card-value" id="kEngaged">—</div><div class="card-sub" id="kEngagedPct">—</div></div>
+    <div class="card"><div class="card-title">Soumissions</div><div class="card-value" id="kSubmit">—</div><div class="card-sub" id="kConvRate" style="color:var(--orange);font-weight:700">—</div></div>
+    <div class="card"><div class="card-title">Temps moyen</div><div class="card-value" id="kTime">—</div><div class="card-sub">sur la page</div></div>
+    <div class="card"><div class="card-title">Scroll moyen</div><div class="card-value" id="kScroll">—</div><div class="card-sub">de la page</div></div>
+    <div class="card"><div class="card-title">Plays VSL</div><div class="card-value" id="kVSL">—</div><div class="card-sub" id="kVSLPct">—</div></div>
+  </div>
+
+  <!-- Tendance journalière -->
+  <div class="card" style="margin-bottom:24px">
+    <h2>Tendance journalière</h2>
+    <div id="dailyChart" style="height:110px;display:flex;align-items:flex-end;gap:3px"></div>
+  </div>
+
+  <div class="grid-2">
+    <!-- Sources de trafic -->
+    <div class="card">
+      <h2>Sources de trafic</h2>
+      <table><thead><tr><th>Canal</th><th>Visites</th><th>Taux conv.</th></tr></thead>
+      <tbody id="sourcesTable"><tr><td colspan="3" class="loading">Chargement…</td></tr></tbody></table>
+    </div>
+
+    <!-- Entonnoir commande -->
+    <div class="card">
+      <h2>Entonnoir commande</h2>
+      <div class="funnel-wrap" id="orderFunnel"></div>
+    </div>
+  </div>
+
+  <div class="grid-2">
+    <!-- Entonnoir scroll -->
+    <div class="card">
+      <h2>Profondeur de scroll</h2>
+      <div class="bar-wrap" id="scrollBars"></div>
+    </div>
+
+    <!-- Entonnoir VSL -->
+    <div class="card">
+      <h2>Engagement vidéo VSL</h2>
+      <div class="bar-wrap" id="vslBars"></div>
+    </div>
+  </div>
+
+  <div class="grid-2">
+    <!-- Clics CTA -->
+    <div class="card">
+      <h2>Clics boutons CTA</h2>
+      <table><thead><tr><th>Bouton</th><th>Clics</th><th>% visites</th></tr></thead>
+      <tbody id="ctaTable"><tr><td colspan="3" class="loading">Chargement…</td></tr></tbody></table>
+    </div>
+
+    <!-- FAQ -->
+    <div class="card">
+      <h2>Questions FAQ ouvertes</h2>
+      <table><thead><tr><th>Question</th><th>Ouvertures</th></tr></thead>
+      <tbody id="faqTable"><tr><td colspan="2" class="loading">Chargement…</td></tr></tbody></table>
+    </div>
+  </div>
+
+  <!-- Témoignages -->
+  <div class="card" style="margin-bottom:24px">
+    <h2>Vidéos témoignages — plays</h2>
+    <div class="bar-wrap" id="testiBars"></div>
+  </div>
+</main>
+<footer>Wooplans Analytics · Données en temps réel via Supabase</footer>
+
+<script>
+var SB_URL='https://xlmwzvkqjnoijdldzrol.supabase.co';
+var SB_KEY='SERVICE_ROLE_KEY_PLACEHOLDER';
+var HDRS={'apikey':SB_KEY,'Authorization':'Bearer '+SB_KEY,'Content-Type':'application/json'};
+var DAYS=30;
+var _totalVisits=1;
+
+function setPeriod(d){
+  DAYS=d;
+  document.querySelectorAll('.period-sel button').forEach(function(b){b.classList.remove('active');});
+  document.getElementById('btn'+d).classList.add('active');
+  loadAll();
+}
+
+function sb(path){return fetch(SB_URL+'/rest/v1/'+path,{headers:HDRS}).then(function(r){return r.json();});}
+function rpc(fn,params){return fetch(SB_URL+'/rest/v1/rpc/'+fn,{method:'POST',headers:HDRS,body:JSON.stringify(params)}).then(function(r){return r.json();});}
+
+function fmtTime(s){if(!s)return'—';if(s<60)return s+'s';return Math.floor(s/60)+'m'+('0'+(s%60)).slice(-2)+'s';}
+function pct(a,b){if(!b)return'0%';return Math.round(a/b*100)+'%';}
+
+async function loadKPIs(){
+  var since=new Date(Date.now()-DAYS*86400000).toISOString();
+  var rows=await sb('page_sessions?select=session_id,did_bounce,form_submitted,time_on_page_s,max_scroll_pct,vsl_played,device_type&created_at=gte.'+since);
+  if(!Array.isArray(rows))return;
+  var total=rows.length;
+  _totalVisits=total||1;
+  var engaged=rows.filter(function(r){return!r.did_bounce;}).length;
+  var submitted=rows.filter(function(r){return r.form_submitted;}).length;
+  var vslPlays=rows.filter(function(r){return r.vsl_played;}).length;
+  var times=rows.map(function(r){return r.time_on_page_s;}).filter(Boolean);
+  var avgTime=times.length?Math.round(times.reduce(function(a,b){return a+b;},0)/times.length):0;
+  var scrolls=rows.map(function(r){return r.max_scroll_pct;}).filter(function(v){return v!=null;});
+  var avgScroll=scrolls.length?Math.round(scrolls.reduce(function(a,b){return a+b;},0)/scrolls.length):0;
+  var mob=rows.filter(function(r){return r.device_type==='mobile';}).length;
+  document.getElementById('kVisits').textContent=total.toLocaleString('fr');
+  document.getElementById('kDevice').textContent=Math.round(mob/Math.max(total,1)*100)+'% mobile';
+  document.getElementById('kEngaged').textContent=engaged.toLocaleString('fr');
+  document.getElementById('kEngagedPct').textContent=pct(engaged,total)+' des visites';
+  document.getElementById('kSubmit').textContent=submitted.toLocaleString('fr');
+  document.getElementById('kConvRate').textContent='Taux: '+pct(submitted,total);
+  document.getElementById('kTime').textContent=fmtTime(avgTime);
+  document.getElementById('kScroll').textContent=avgScroll+'%';
+  document.getElementById('kVSL').textContent=vslPlays.toLocaleString('fr');
+  document.getElementById('kVSLPct').textContent=pct(vslPlays,total)+' des visiteurs';
+}
+
+async function loadDaily(){
+  var since=new Date(Date.now()-DAYS*86400000).toISOString();
+  var rows=await sb('page_sessions?select=created_at,form_submitted&created_at=gte.'+since+'&order=created_at.asc');
+  if(!Array.isArray(rows))return;
+  var byDay={};
+  rows.forEach(function(r){
+    var day=r.created_at.slice(0,10);
+    if(!byDay[day])byDay[day]={v:0,s:0};
+    byDay[day].v++;
+    if(r.form_submitted)byDay[day].s++;
+  });
+  var days=Object.keys(byDay).sort();
+  var maxV=Math.max.apply(null,days.map(function(d){return byDay[d].v;}));
+  var el=document.getElementById('dailyChart');
+  el.innerHTML='';
+  days.forEach(function(d){
+    var data=byDay[d];
+    var h=maxV>0?Math.max(4,Math.round(data.v/maxV*90)):4;
+    var col=document.createElement('div');
+    col.className='chart-col';
+    col.title=d+' : '+data.v+' visites, '+data.s+' soumissions';
+    col.innerHTML='<div class="chart-bar" style="height:'+h+'px"></div><div class="chart-lbl">'+d.slice(5)+'</div>';
+    el.appendChild(col);
+  });
+}
+
+async function loadSources(){
+  var since=new Date(Date.now()-DAYS*86400000).toISOString();
+  var rows=await sb('page_sessions?select=channel,form_submitted&created_at=gte.'+since);
+  if(!Array.isArray(rows))return;
+  var map={};
+  rows.forEach(function(r){
+    var c=r.channel||'direct';
+    if(!map[c])map[c]={v:0,s:0};
+    map[c].v++;
+    if(r.form_submitted)map[c].s++;
+  });
+  var sorted=Object.keys(map).sort(function(a,b){return map[b].v-map[a].v;});
+  var tb=document.getElementById('sourcesTable');
+  tb.innerHTML=sorted.map(function(c){
+    return'<tr><td>'+c+'</td><td>'+map[c].v+'</td><td class="metric-pct">'+pct(map[c].s,map[c].v)+'</td></tr>';
+  }).join('')||'<tr><td colspan="3" style="color:var(--gray);font-size:12px">Aucune donnée</td></tr>';
+}
+
+async function loadOrderFunnel(){
+  var since=new Date(Date.now()-DAYS*86400000).toISOString();
+  var rows=await sb('events?select=event_name,session_id&event_name=in.(order_modal_open,order_form_submit)&created_at=gte.'+since);
+  if(!Array.isArray(rows))return;
+  var opens=new Set(),submits=new Set();
+  rows.forEach(function(r){if(r.event_name==='order_modal_open')opens.add(r.session_id);if(r.event_name==='order_form_submit')submits.add(r.session_id);});
+  var steps=[
+    {label:'Visites totales',count:_totalVisits,color:'#0F5B59'},
+    {label:'Modal ouvert',count:opens.size,color:'#F08A2E'},
+    {label:'Formulaire soumis',count:submits.size,color:'#10B981'}
+  ];
+  var maxC=steps[0].count||1;
+  var el=document.getElementById('orderFunnel');
+  el.innerHTML=steps.map(function(s){
+    var w=Math.max(4,Math.round(s.count/maxC*100));
+    return'<div class="funnel-row"><div class="funnel-label">'+s.label+'</div><div class="funnel-bar"><div class="funnel-fill" style="width:'+w+'%;background:'+s.color+'">'+s.count+'</div></div><div class="funnel-count">'+pct(s.count,steps[0].count)+'</div></div>';
+  }).join('');
+}
+
+async function loadScrollBars(){
+  var since=new Date(Date.now()-DAYS*86400000).toISOString();
+  var rows=await sb('events?select=value_num,session_id&event_name=eq.scroll_depth&created_at=gte.'+since);
+  if(!Array.isArray(rows))return;
+  var map={25:new Set(),50:new Set(),75:new Set(),100:new Set()};
+  rows.forEach(function(r){if(map[r.value_num])map[r.value_num].add(r.session_id);});
+  var maxV=map[25].size||1;
+  var el=document.getElementById('scrollBars');
+  el.innerHTML=[25,50,75,100].map(function(m){
+    var n=map[m].size;
+    var w=Math.max(2,Math.round(n/maxV*100));
+    return'<div class="bar-row"><label>'+m+'%</label><div class="bar-track"><div class="bar-fill" style="width:'+w+'%"></div></div><div class="bar-val">'+n+'</div></div>';
+  }).join('');
+}
+
+async function loadVSLBars(){
+  var since=new Date(Date.now()-DAYS*86400000).toISOString();
+  var plays=await sb('events?select=session_id&event_name=eq.vsl_play&created_at=gte.'+since);
+  var milestones=await sb('events?select=value_num,session_id&event_name=eq.vsl_milestone&created_at=gte.'+since);
+  var ended=await sb('events?select=session_id&event_name=eq.vsl_ended&created_at=gte.'+since);
+  if(!Array.isArray(plays))return;
+  var mMap={25:new Set(),50:new Set(),75:new Set(),100:new Set()};
+  if(Array.isArray(milestones))milestones.forEach(function(r){if(mMap[r.value_num])mMap[r.value_num].add(r.session_id);});
+  var endedSet=new Set();
+  if(Array.isArray(ended))ended.forEach(function(r){endedSet.add(r.session_id);});
+  var playCount=plays.length;
+  var steps=[
+    {label:'Play',count:playCount},
+    {label:'25%',count:mMap[25].size},
+    {label:'50%',count:mMap[50].size},
+    {label:'75%',count:mMap[75].size},
+    {label:'100%',count:mMap[100].size},
+    {label:'Terminée',count:endedSet.size}
+  ];
+  var maxC=playCount||1;
+  var el=document.getElementById('vslBars');
+  el.innerHTML=steps.map(function(s){
+    var w=Math.max(2,Math.round(s.count/maxC*100));
+    return'<div class="bar-row"><label>'+s.label+'</label><div class="bar-track"><div class="bar-fill" style="width:'+w+'%"></div></div><div class="bar-val">'+s.count+'</div></div>';
+  }).join('');
+}
+
+async function loadCTATable(){
+  var since=new Date(Date.now()-DAYS*86400000).toISOString();
+  var rows=await sb('events?select=label,session_id&event_name=eq.cta_click&created_at=gte.'+since);
+  if(!Array.isArray(rows))return;
+  var map={};
+  rows.forEach(function(r){var l=r.label||'unknown';if(!map[l])map[l]=new Set();map[l].add(r.session_id);});
+  var sorted=Object.keys(map).sort(function(a,b){return map[b].size-map[a].size;});
+  var tb=document.getElementById('ctaTable');
+  tb.innerHTML=sorted.map(function(l){
+    return'<tr><td>'+l+'</td><td>'+map[l].size+'</td><td class="metric-pct">'+pct(map[l].size,_totalVisits)+'</td></tr>';
+  }).join('')||'<tr><td colspan="3" style="color:var(--gray);font-size:12px">Aucune donnée</td></tr>';
+}
+
+async function loadFAQTable(){
+  var since=new Date(Date.now()-DAYS*86400000).toISOString();
+  var rows=await sb('events?select=label&event_name=eq.faq_open&created_at=gte.'+since);
+  if(!Array.isArray(rows))return;
+  var map={};
+  rows.forEach(function(r){var l=r.label||'?';map[l]=(map[l]||0)+1;});
+  var sorted=Object.keys(map).sort(function(a,b){return map[b]-map[a];});
+  var tb=document.getElementById('faqTable');
+  tb.innerHTML=sorted.map(function(l){
+    return'<tr><td style="font-size:12px">'+l+'</td><td>'+map[l]+'</td></tr>';
+  }).join('')||'<tr><td colspan="2" style="color:var(--gray);font-size:12px">Aucune donnée</td></tr>';
+}
+
+async function loadTestimonialBars(){
+  var since=new Date(Date.now()-DAYS*86400000).toISOString();
+  var rows=await sb('events?select=label,session_id&event_name=eq.testi_video_play&created_at=gte.'+since);
+  if(!Array.isArray(rows))return;
+  var names=['Ibrahim','Michel','Francis','Renaud'];
+  var map={};names.forEach(function(n){map[n]=new Set();});
+  rows.forEach(function(r){if(map[r.label])map[r.label].add(r.session_id);});
+  var maxC=Math.max.apply(null,names.map(function(n){return map[n].size;}))||1;
+  var el=document.getElementById('testiBars');
+  el.innerHTML=names.map(function(n){
+    var c=map[n].size;
+    var w=Math.max(2,Math.round(c/maxC*100));
+    return'<div class="bar-row"><label>'+n+'</label><div class="bar-track"><div class="bar-fill" style="width:'+w+'%"></div></div><div class="bar-val">'+c+'</div></div>';
+  }).join('');
+}
+
+async function loadAll(){
+  await loadKPIs();
+  loadDaily();
+  loadSources();
+  loadOrderFunnel();
+  loadScrollBars();
+  loadVSLBars();
+  loadCTATable();
+  loadFAQTable();
+  loadTestimonialBars();
+}
+
+loadAll();
+</script>
+</body>
+</html>
