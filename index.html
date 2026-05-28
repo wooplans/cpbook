@@ -330,13 +330,21 @@ fbq('track','PageView');
 <noscript><img height="1" width="1" style="display:none"
 src="https://www.facebook.com/tr?id=1651374605332302&ev=PageView&noscript=1"/></noscript>
 <!-- End Facebook Pixel -->
+<!-- Microsoft Clarity -->
+<script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "wy6xslslt4");
+</script>
 </head>
 <body>
 
 <!-- TOPBAR (appears after hero) -->
 <nav class="topbar" id="topbar">
   <div class="topbar-logo">Woo<span>plans</span></div>
-  <button class="topbar-btn" onclick="openOrder()">
+  <button class="topbar-btn" data-cta-id="topbar_btn" onclick="openOrder()">
     <svg class="wa-svg" style="width:16px;height:16px" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
     Commander
   </button>
@@ -373,7 +381,7 @@ src="https://www.facebook.com/tr?id=1651374605332302&ev=PageView&noscript=1"/></
     <div class="price-new">39 000<span class="price-fcfa"> FCFA</span></div>
   </div>
 
-  <button class="hero-cta" onclick="openOrder()">
+  <button class="hero-cta" data-cta-id="hero_cta" onclick="openOrder()">
     <svg class="wa-svg" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
     Commander maintenant
   </button>
@@ -590,7 +598,7 @@ src="https://www.facebook.com/tr?id=1651374605332302&ev=PageView&noscript=1"/></
         <div class="pinc bonus">🎁 Bonus 2 : Guide 5 étapes chantier (valeur 10 000 F)</div>
         <div class="pinc">Livraison partout au Cameroun</div>
       </div>
-      <button class="cta-primary" onclick="openOrder()">
+      <button class="cta-primary" data-cta-id="pricing_cta" onclick="openOrder()">
         <svg class="wa-svg" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
         Commander via WhatsApp
       </button>
@@ -662,7 +670,7 @@ src="https://www.facebook.com/tr?id=1651374605332302&ev=PageView&noscript=1"/></
       </div>
       <div style="margin-top:6px;font-size:11px;color:rgba(255,255,255,0.5)" id="gaugeSub2">—</div>
     </div>
-    <button class="cta-primary cta-pulse r" onclick="openOrder()" style="max-width:420px">
+    <button class="cta-primary cta-pulse r" data-cta-id="final_cta" onclick="openOrder()" style="max-width:420px">
       <svg class="wa-svg" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
       Commander via WhatsApp
     </button>
@@ -679,7 +687,7 @@ src="https://www.facebook.com/tr?id=1651374605332302&ev=PageView&noscript=1"/></
     <div class="s-price">39 000 FCFA</div>
     <div class="s-was">au lieu de 60 000 FCFA</div>
   </div>
-  <button class="sticky-btn" onclick="openOrder()">
+  <button class="sticky-btn" data-cta-id="sticky_btn" onclick="openOrder()">
     <svg style="width:16px;height:16px;fill:white;flex-shrink:0" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
     Commander
   </button>
@@ -969,6 +977,75 @@ document.addEventListener('keydown',e=>{if(e.key==='Escape'){closeVideo();closeO
     if(!v) return;
     if(io) io.observe(v); else showThumb(v,null);
   });
+})();
+</script>
+
+<!-- ══════════════════════════════════════════════════════════
+     ANALYTICS COMPORTEMENTAUX — cpbook.wooplans.com
+     Supabase (quantitatif) + Microsoft Clarity (qualitatif)
+     ══════════════════════════════════════════════════════════ -->
+<script>
+(function(){
+'use strict';
+var SB_URL='https://xlmwzvkqjnoijdldzrol.supabase.co';
+var SB_ANON='eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InhsbXd6dmtxam5vaWpkbGR6cm9sIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzQxMTAzMjAsImV4cCI6MjA4OTY4NjMyMH0.cQcRRHaaMiht2Tq9CB9l4_XN8-SOjixxhHFJDjytze4';
+var HDRS={'Content-Type':'application/json','apikey':SB_ANON,'Authorization':'Bearer '+SB_ANON,'Prefer':'return=minimal'};
+
+var SID=sessionStorage.getItem('_cpb_sid');
+if(!SID){SID=(typeof crypto!=='undefined'&&crypto.randomUUID)?crypto.randomUUID():Date.now().toString(36)+Math.random().toString(36).slice(2);sessionStorage.setItem('_cpb_sid',SID);}
+
+var qs=new URLSearchParams(location.search);
+var UTM={source:qs.get('utm_source')||'',medium:qs.get('utm_medium')||'',campaign:qs.get('utm_campaign')||'',content:qs.get('utm_content')||'',term:qs.get('utm_term')||''};
+function deriveChannel(s,m){if(s==='facebook'||s==='instagram'||m==='paid_social'||m==='cpc')return'paid_social';if(m==='email')return'email';if(s||m)return'campaign';if(document.referrer&&document.referrer.indexOf(location.hostname)===-1)return'referral';return'direct';}
+var CHANNEL=deriveChannel(UTM.source,UTM.medium);
+var W=screen.width;
+var DEVICE=W<768?'mobile':W<1024?'tablet':'desktop';
+
+function sbPost(table,data){fetch(SB_URL+'/rest/v1/'+table,{method:'POST',headers:HDRS,body:JSON.stringify(data),keepalive:true}).catch(function(){});}
+function fireEv(name,label,num,section,props){sbPost('events',{session_id:SID,event_name:name,label:label||null,value_num:num!=null?num:null,page_section:section||null,props:props||{}});}
+
+var T0=Date.now();
+sbPost('page_sessions',{session_id:SID,landed_at:new Date().toISOString(),utm_source:UTM.source||null,utm_medium:UTM.medium||null,utm_campaign:UTM.campaign||null,utm_content:UTM.content||null,utm_term:UTM.term||null,referrer:document.referrer.slice(0,500)||null,channel:CHANNEL,user_agent:navigator.userAgent.slice(0,300),device_type:DEVICE,screen_w:screen.width,screen_h:screen.height,language:navigator.language||null});
+fireEv('page_view',CHANNEL,null,null,{utm_source:UTM.source,utm_campaign:UTM.campaign,referrer:document.referrer.slice(0,200)});
+
+var _sp={did_bounce:true,hero_read_s:null,vsl_played:false,order_opened:false,form_submitted:false};
+var maxScroll=0,scrollMilestones={25:false,50:false,75:false,100:false},heroReadFired=false,heroStart=Date.now();
+
+window.addEventListener('scroll',function(){
+  var scrolled=window.scrollY||window.pageYOffset||0;
+  var docH=document.documentElement.scrollHeight-window.innerHeight;
+  var pct=docH>0?Math.round(scrolled/docH*100):0;
+  if(pct>maxScroll)maxScroll=pct;
+  if(!heroReadFired&&scrolled>10){heroReadFired=true;var s=Math.round((Date.now()-heroStart)/1000);_sp.hero_read_s=s;fireEv('hero_read_time',null,s,'hero',{seconds:s});}
+  [25,50,75,100].forEach(function(m){if(!scrollMilestones[m]&&pct>=m){scrollMilestones[m]=true;fireEv('scroll_depth',null,m,null,{percent:m});if(m>=25)_sp.did_bounce=false;}});
+},{passive:true});
+setTimeout(function(){_sp.did_bounce=false;},30000);
+
+document.addEventListener('click',function(e){var btn=e.target.closest('[data-cta-id]');if(!btn)return;fireEv('cta_click',btn.getAttribute('data-cta-id'),null,null,{button_id:btn.getAttribute('data-cta-id')});},true);
+
+function setCT(k,v){if(typeof window.clarity==='function')window.clarity('set',k,v);}
+function initCT(){setCT('channel',CHANNEL);setCT('utm_source',UTM.source||'direct');setCT('utm_campaign',UTM.campaign||'none');setCT('device',DEVICE);}
+if(document.readyState==='complete')initCT();else window.addEventListener('load',initCT);
+
+var _oo=window.openOrder;
+window.openOrder=function(){_sp.order_opened=true;fireEv('order_modal_open',null,null,null,{});setCT('modal_opened','yes');if(_oo)_oo.apply(this,arguments);};
+
+var _ophv=window.playHeroVid,_vslL=false,_vslM={25:false,50:false,75:false,100:false};
+window.playHeroVid=function(){if(_ophv)_ophv.apply(this,arguments);_sp.vsl_played=true;fireEv('vsl_play',null,null,'hero',{});setCT('vsl_played','yes');if(!_vslL){_vslL=true;var v=document.getElementById('heroVid');if(v){v.addEventListener('pause',function(){if(!v.ended)fireEv('vsl_pause',null,Math.round(v.currentTime),'hero',{time_s:Math.round(v.currentTime)});});v.addEventListener('ended',function(){fireEv('vsl_ended',null,Math.round(v.duration||0),'hero',{});});v.addEventListener('timeupdate',function(){if(!v.duration)return;var p=Math.round(v.currentTime/v.duration*100);[25,50,75,100].forEach(function(m){if(!_vslM[m]&&p>=m){_vslM[m]=true;fireEv('vsl_milestone',null,m,'hero',{percent:m,time_s:Math.round(v.currentTime)});}});});}}};
+window.playVSL=window.playHeroVid;
+
+var _otf=window.toggleFaq;
+window.toggleFaq=function(btn){if(_otf)_otf.apply(this,arguments);var item=btn&&btn.closest('.faq-item');if(item&&item.classList.contains('open')){var q=((btn.childNodes[0]&&btn.childNodes[0].textContent)||'').trim().slice(0,80);fireEv('faq_open',q,null,'faq',{question:q});}};
+
+var _tN=['Ibrahim','Michel','Francis','Renaud'],_oov=window.openVideo;
+window.openVideo=function(i){if(_oov)_oov.apply(this,arguments);fireEv('testi_video_play',_tN[i]||'unknown',i,'testimonials',{index:i,name:_tN[i]});};
+
+var _oso=window.submitOrder;
+window.submitOrder=function(){var nm=document.getElementById('fName')&&document.getElementById('fName').value.trim(),ph=document.getElementById('fPhone')&&document.getElementById('fPhone').value.trim(),ct=document.getElementById('fCity')&&document.getElementById('fCity').value,py=document.querySelector('input[name="payment"]:checked');if(nm&&ph&&ct){_sp.form_submitted=true;fireEv('order_form_submit',ct,null,'order_modal',{city:ct,payment_method:py?py.value:''});setCT('form_submitted','yes');}if(_oso)_oso.apply(this,arguments);};
+
+function sessionEnd(){fetch(SB_URL+'/rest/v1/page_sessions?session_id=eq.'+SID,{method:'PATCH',headers:HDRS,body:JSON.stringify({time_on_page_s:Math.round((Date.now()-T0)/1000),max_scroll_pct:maxScroll,hero_read_s:_sp.hero_read_s,did_bounce:_sp.did_bounce&&(Date.now()-T0)<30000,vsl_played:_sp.vsl_played,order_opened:_sp.order_opened,form_submitted:_sp.form_submitted}),keepalive:true}).catch(function(){});}
+document.addEventListener('visibilitychange',function(){if(document.visibilityState==='hidden')sessionEnd();});
+window.addEventListener('pagehide',sessionEnd,{once:true});
 })();
 </script>
 </body>
