@@ -59,14 +59,31 @@ footer{text-align:center;padding:16px;font-size:11px;color:var(--gray)}
 
 <script>
 // ── AUTHENTIFICATION ──────────────────────────────────────
+// Le mot de passe et la service_role key sont saisis à la connexion
+// et stockés uniquement en sessionStorage (jamais dans le code)
 (function(){
-  var KEY='_cpb_dash';
-  var PWD='DASHBOARD_PASSWORD';
-  var stored=sessionStorage.getItem(KEY);
-  if(stored===PWD)return;
-  var input=prompt('🔐 Mot de passe dashboard Wooplans :');
-  if(input!==PWD){document.body.innerHTML='<div style="display:flex;align-items:center;justify-content:center;height:100vh;font-family:system-ui"><p style="color:#C75B3A;font-size:16px">Accès refusé.</p></div>';throw new Error('auth');}
-  sessionStorage.setItem(KEY,input);
+  var PWD_KEY='_cpb_pwd';
+  var SRK_KEY='_cpb_srk';
+  var CORRECT_PWD='1010';
+
+  if(sessionStorage.getItem(PWD_KEY)===CORRECT_PWD&&sessionStorage.getItem(SRK_KEY)){return;}
+
+  var pwd=prompt('🔐 Mot de passe dashboard Wooplans :');
+  if(pwd!==CORRECT_PWD){
+    document.body.innerHTML='<div style="display:flex;align-items:center;justify-content:center;height:100vh;font-family:system-ui"><p style="color:#C75B3A;font-size:16px">Accès refusé.</p></div>';
+    throw new Error('auth');
+  }
+  sessionStorage.setItem(PWD_KEY,pwd);
+
+  var srk=sessionStorage.getItem(SRK_KEY);
+  if(!srk){
+    srk=prompt('🔑 Entrez votre Supabase service_role key :');
+    if(!srk){
+      document.body.innerHTML='<div style="display:flex;align-items:center;justify-content:center;height:100vh;font-family:system-ui"><p style="color:#C75B3A;font-size:16px">Clé manquante.</p></div>';
+      throw new Error('no key');
+    }
+    sessionStorage.setItem(SRK_KEY,srk);
+  }
 })();
 </script>
 
@@ -151,7 +168,7 @@ footer{text-align:center;padding:16px;font-size:11px;color:var(--gray)}
 
 <script>
 var SB_URL='https://xlmwzvkqjnoijdldzrol.supabase.co';
-var SB_KEY='SERVICE_ROLE_KEY_PLACEHOLDER';
+var SB_KEY=sessionStorage.getItem('_cpb_srk')||'';
 var HDRS={'apikey':SB_KEY,'Authorization':'Bearer '+SB_KEY,'Content-Type':'application/json'};
 var DAYS=30;
 var _totalVisits=1;
