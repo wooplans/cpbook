@@ -446,15 +446,29 @@ src="https://www.facebook.com/tr?id=1651374605332302&ev=PageView&noscript=1"/></
   </div>
 </section>
 
-<!-- SPECS -->
+<!-- APERÇU CATALOGUE -->
 <section class="s-teal">
-  <span class="section-label section-label-gold r">Le catalogue en chiffres</span>
-  <h2 class="r"><span class="aw">Un catalogue</span> <span class="ag">de prestige</span></h2>
-  <div class="specs-grid">
-    <div class="spec-card r"><div class="spec-val">50</div><div class="spec-key">Modèles de maisons</div></div>
-    <div class="spec-card r d1"><div class="spec-val">PDF</div><div class="spec-key">Format A3 haute déf.</div></div>
-    <div class="spec-card r d2"><div class="spec-val">50+</div><div class="spec-key">Pages imprimables</div></div>
-    <div class="spec-card r d3"><div class="spec-val">2</div><div class="spec-key">Types : Villa & Duplex</div></div>
+  <span class="section-label section-label-gold r">Aperçu du Catalogue</span>
+  <h2 class="r"><span class="aw">Quelques pages</span> <span class="ag">à l'intérieur</span></h2>
+  <div class="catalog-slider r" style="margin-top:24px;position:relative;width:100%;max-width:480px;margin-left:auto;margin-right:auto">
+    <div class="cslider-track" id="csliderTrack" style="display:flex;overflow:hidden;border-radius:12px;box-shadow:0 8px 32px rgba(0,0,0,0.35)">
+      <img class="cslide" src="https://wooplans.b-cdn.net/cp%20book%20wooplans/cp%20book%20samples/2.png" alt="Page catalogue 1" style="min-width:100%;width:100%;object-fit:cover;display:block;user-select:none;-webkit-user-drag:none">
+      <img class="cslide" src="https://wooplans.b-cdn.net/cp%20book%20wooplans/cp%20book%20samples/3.png" alt="Page catalogue 2" style="min-width:100%;width:100%;object-fit:cover;display:block;user-select:none;-webkit-user-drag:none">
+      <img class="cslide" src="https://wooplans.b-cdn.net/cp%20book%20wooplans/cp%20book%20samples/1.png" alt="Page catalogue 3" style="min-width:100%;width:100%;object-fit:cover;display:block;user-select:none;-webkit-user-drag:none">
+    </div>
+    <!-- Arrows -->
+    <button onclick="cSlide(-1)" aria-label="Précédent" style="position:absolute;left:-14px;top:50%;transform:translateY(-50%);background:var(--white);border:none;border-radius:50%;width:36px;height:36px;display:flex;align-items:center;justify-content:center;cursor:pointer;box-shadow:0 2px 10px rgba(0,0,0,0.2);z-index:2;padding:0">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--teal)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15,18 9,12 15,6"/></svg>
+    </button>
+    <button onclick="cSlide(1)" aria-label="Suivant" style="position:absolute;right:-14px;top:50%;transform:translateY(-50%);background:var(--white);border:none;border-radius:50%;width:36px;height:36px;display:flex;align-items:center;justify-content:center;cursor:pointer;box-shadow:0 2px 10px rgba(0,0,0,0.2);z-index:2;padding:0">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--teal)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9,18 15,12 9,6"/></svg>
+    </button>
+    <!-- Dots -->
+    <div id="csliderDots" style="display:flex;justify-content:center;gap:8px;margin-top:16px">
+      <button onclick="cGoTo(0)" class="cdot active" style="width:8px;height:8px;border-radius:50%;border:none;cursor:pointer;background:var(--gold);opacity:1;transition:opacity 0.2s,transform 0.2s;padding:0"></button>
+      <button onclick="cGoTo(1)" class="cdot" style="width:8px;height:8px;border-radius:50%;border:none;cursor:pointer;background:var(--gold);opacity:0.35;transition:opacity 0.2s,transform 0.2s;padding:0"></button>
+      <button onclick="cGoTo(2)" class="cdot" style="width:8px;height:8px;border-radius:50%;border:none;cursor:pointer;background:var(--gold);opacity:0.35;transition:opacity 0.2s,transform 0.2s;padding:0"></button>
+    </div>
   </div>
 </section>
 
@@ -917,6 +931,27 @@ function submitOrder(){
   closeOrder();
 }
 document.addEventListener('keydown',e=>{if(e.key==='Escape'){closeVideo();closeOrder()}});
+
+/* ── CATALOG SLIDER ── */
+(function(){
+  var cur=0,total=3;
+  var track=document.getElementById('csliderTrack');
+  var dots=document.querySelectorAll('.cdot');
+  function goTo(n){
+    cur=(n+total)%total;
+    track.style.transform='translateX(-'+(cur*100)+'%)';
+    track.style.transition='transform 0.4s cubic-bezier(0.4,0,0.2,1)';
+    dots.forEach(function(d,i){d.style.opacity=i===cur?'1':'0.35';d.style.transform=i===cur?'scale(1.25)':'scale(1)'});
+  }
+  window.cSlide=function(d){goTo(cur+d)};
+  window.cGoTo=function(n){goTo(n)};
+  // Touch swipe
+  var tx=0;
+  track.addEventListener('touchstart',function(e){tx=e.touches[0].clientX},{passive:true});
+  track.addEventListener('touchend',function(e){var dx=e.changedTouches[0].clientX-tx;if(Math.abs(dx)>40)goTo(cur+(dx<0?1:-1))},{passive:true});
+  // Auto-advance every 4s
+  setInterval(function(){goTo(cur+1)},4000);
+})();
 
 /* ── VIDEO THUMBNAILS — play/pause trick (no canvas, no CORS needed) ── */
 (function(){
