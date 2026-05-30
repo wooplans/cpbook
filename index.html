@@ -66,7 +66,7 @@ body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--dark);overf
 .rating-text{font-size:13px;color:rgba(255,255,255,0.75);font-weight:500}
 .rating-text strong{color:var(--white);font-weight:700}
 
-.hero-sub{font-size:15px;color:rgba(255,255,255,0.7);line-height:1.65;margin-bottom:28px;max-width:460px;font-weight:400}
+.hero-sub{font-size:15px;color:rgba(255,255,255,0.82);line-height:1.65;margin-bottom:28px;max-width:460px;font-weight:400}
 
 /* VSL */
 .vsl-wrap{border-radius:12px;overflow:hidden;background:var(--teal-dark);aspect-ratio:16/9;position:relative;margin-bottom:24px;box-shadow:0 8px 32px rgba(0,0,0,0.35);cursor:pointer;width:100%;max-width:520px}
@@ -241,7 +241,7 @@ h2{font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;font-size:clamp(24
 .trust-item svg{flex-shrink:0}
 
 /* ── STICKY BAR ── */
-.sticky-bar{position:fixed;bottom:0;left:0;right:0;z-index:300;background:var(--white);border-top:1px solid var(--border);padding:12px 16px;display:flex;align-items:center;gap:10px;box-shadow:0 -4px 24px rgba(0,0,0,0.1);transform:translateY(100%);transition:transform 0.35s cubic-bezier(0.4,0,0.2,1)}
+.sticky-bar{position:fixed;bottom:0;left:0;right:0;z-index:300;background:var(--white);border-top:1px solid var(--border);padding:12px 16px calc(12px + env(safe-area-inset-bottom));display:flex;align-items:center;gap:10px;box-shadow:0 -4px 24px rgba(0,0,0,0.1);transform:translateY(100%);transition:transform 0.35s cubic-bezier(0.4,0,0.2,1)}
 .sticky-bar.visible{transform:translateY(0)}
 .sticky-price{flex:1}
 .s-price{font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;font-size:18px;color:var(--teal);line-height:1}
@@ -300,7 +300,7 @@ h2{font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;font-size:clamp(24
   .hero,.final-section{padding-left:32px;padding-right:32px}
   section{padding-left:28px;padding-right:28px}
   .topbar,.gauge-section,.proof-bar,.offre-banner,.order-body{padding-left:28px;padding-right:28px}
-  .sticky-bar{padding:14px 28px}
+  .sticky-bar{padding:14px 28px calc(14px + env(safe-area-inset-bottom))}
 }
 
 /* ── PAYMENT OPTIONS ── */
@@ -338,7 +338,7 @@ src="https://www.facebook.com/tr?id=1651374605332302&ev=PageView&noscript=1"/></
   <div class="topbar-logo">Woo<span>plans</span></div>
   <button class="topbar-btn" onclick="openOrder()">
     <svg class="wa-svg" style="width:16px;height:16px" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
-    Commander
+    Recevoir mon catalogue
   </button>
 </nav>
 
@@ -355,7 +355,7 @@ src="https://www.facebook.com/tr?id=1651374605332302&ev=PageView&noscript=1"/></
     <span class="rating-text"><strong>4,9</strong> · +129 avis</span>
   </div>
 
-  <p class="hero-sub">Le catalogue de référence pour préparer la construction de votre maison au Cameroun. Villas, duplex, plans, devis — tout est dedans.</p>
+  <p class="hero-sub">50 modèles avec plans de distribution, rendus 3D et devis calibrés aux prix du marché camerounais — construisez et budgétisez en confiance.</p>
 
   <div class="vsl-wrap" id="vslWrap">
     <video id="heroVid" src="https://wooplans.b-cdn.net/cp%20book%20wooplans/vsl_cp_book_202605262345.mp4" playsinline webkit-playsinline preload="auto" muted style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity 0.5s"></video>
@@ -375,8 +375,9 @@ src="https://www.facebook.com/tr?id=1651374605332302&ev=PageView&noscript=1"/></
 
   <button class="hero-cta" onclick="openOrder()">
     <svg class="wa-svg" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
-    Commander maintenant
+    Recevoir mon catalogue
   </button>
+  <p style="font-size:12px;color:rgba(255,255,255,0.65);margin-top:-12px;margin-bottom:20px;text-align:center">Paiement Orange Money / MTN MoMo · Lien PDF reçu sur WhatsApp en quelques minutes</p>
 
   <div class="social-badge">
     <div class="avatar-stack">
@@ -414,7 +415,7 @@ src="https://www.facebook.com/tr?id=1651374605332302&ev=PageView&noscript=1"/></
 </div>
 <div class="gauge-section">
   <div class="gauge-top">
-    <span class="gauge-label">📦 Catalogues disponibles aujourd'hui</span>
+    <span class="gauge-label">🎯 Places au tarif de lancement — aujourd'hui</span>
     <span class="gauge-count" id="gaugeCount">—</span>
   </div>
   <div class="gauge-bg"><div class="gauge-fill" id="gaugeFill" style="width:0%"></div></div>
@@ -589,15 +590,15 @@ src="https://www.facebook.com/tr?id=1651374605332302&ev=PageView&noscript=1"/></
         <div class="pinc bonus">🎁 Bonus 1 : Accès numérique à vie (valeur 25 000 F)</div>
         <div class="pinc bonus">🎁 Bonus 2 : Guide 5 étapes chantier (valeur 10 000 F)</div>
         <div class="pinc">Livraison partout au Cameroun</div>
+        <div class="pinc" style="border-top:1px solid var(--border);padding-top:12px;margin-top:4px;color:var(--orange-dk);font-weight:600">💎 Valeur des bonus : 35 000 F — aujourd'hui inclus pour 39 000 FCFA</div>
       </div>
       <button class="cta-primary" onclick="openOrder()">
         <svg class="wa-svg" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
-        Commander via WhatsApp
+        Recevoir mon catalogue
       </button>
       <div class="trust-row">
-        <div class="trust-item"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="var(--teal)" stroke-width="2.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>Paiement Mobile Money</div>
-        <div class="trust-item"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="var(--teal)" stroke-width="2.5"><polyline points="20,6 9,17 4,12"/></svg>Offre limitée</div>
-        <div class="trust-item"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="var(--teal)" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>Livraison rapide</div>
+        <div class="trust-item"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="var(--teal)" stroke-width="2.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>Orange Money / MTN MoMo</div>
+        <div class="trust-item"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="var(--teal)" stroke-width="2.5"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>Lien PDF reçu par WhatsApp</div>
       </div>
     </div>
   </div>
@@ -627,6 +628,18 @@ src="https://www.facebook.com/tr?id=1651374605332302&ev=PageView&noscript=1"/></
     <div class="faq-item r">
       <button class="faq-btn" onclick="toggleFaq(this)">Le prix va augmenter ?<span class="faq-chevron">▾</span></button>
       <div class="faq-ans"><div class="faq-ans-inner">Oui. 39 000 FCFA est le prix de lancement, valable uniquement sur le stock initial. Une fois l'offre terminée, le catalogue revient à 60 000 FCFA.</div></div>
+    </div>
+    <div class="faq-item r d1">
+      <button class="faq-btn" onclick="toggleFaq(this)">Est-ce adapté à ma région ?<span class="faq-chevron">▾</span></button>
+      <div class="faq-ans"><div class="faq-ans-inner">Oui. Tous les devis estimatifs sont calibrés selon les prix du marché camerounais — main-d'œuvre, matériaux et coûts locaux. Le catalogue couvre les besoins de construction partout au Cameroun.</div></div>
+    </div>
+    <div class="faq-item r d2">
+      <button class="faq-btn" onclick="toggleFaq(this)">Puis-je donner les plans à mon entrepreneur ?<span class="faq-chevron">▾</span></button>
+      <div class="faq-ans"><div class="faq-ans-inner">Absolument. Les plans de distribution sont prêts à l'emploi : chaque pièce et chaque dimension sont clairement indiquées. Vous pouvez les remettre directement à votre entrepreneur ou maître d'œuvre.</div></div>
+    </div>
+    <div class="faq-item r d3">
+      <button class="faq-btn" onclick="toggleFaq(this)">Et si j'ai un souci pour payer ou recevoir mon catalogue ?<span class="faq-chevron">▾</span></button>
+      <div class="faq-ans"><div class="faq-ans-inner">Contactez-nous directement sur WhatsApp au +237 694 327 885. Notre équipe vous assiste en temps réel pour tout problème de paiement ou de réception.</div></div>
     </div>
   </div>
 </section>
@@ -664,11 +677,11 @@ src="https://www.facebook.com/tr?id=1651374605332302&ev=PageView&noscript=1"/></
     </div>
     <button class="cta-primary cta-pulse r" onclick="openOrder()" style="max-width:420px">
       <svg class="wa-svg" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
-      Commander via WhatsApp
+      Recevoir mon catalogue
     </button>
     <div class="trust-row r">
-      <div class="trust-item trust-item-light"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.5)" stroke-width="2.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>Paiement Mobile Money</div>
-      <div class="trust-item trust-item-light"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.5)" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>Livraison rapide</div>
+      <div class="trust-item trust-item-light"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.5)" stroke-width="2.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>Orange Money / MTN MoMo</div>
+      <div class="trust-item trust-item-light"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.5)" stroke-width="2.5"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>Lien PDF reçu par WhatsApp</div>
     </div>
   </div>
 </section>
@@ -676,12 +689,15 @@ src="https://www.facebook.com/tr?id=1651374605332302&ev=PageView&noscript=1"/></
 <!-- STICKY BAR -->
 <div class="sticky-bar" id="stickyBar">
   <div class="sticky-price">
-    <div class="s-price">39 000 FCFA</div>
+    <div style="display:flex;align-items:center;gap:8px">
+      <div class="s-price">39 000 FCFA</div>
+      <span style="background:var(--red);color:white;font-family:'Plus Jakarta Sans',sans-serif;font-weight:700;font-size:11px;padding:2px 8px;border-radius:4px">–35%</span>
+    </div>
     <div class="s-was">au lieu de 60 000 FCFA</div>
   </div>
   <button class="sticky-btn" onclick="openOrder()">
     <svg style="width:16px;height:16px;fill:white;flex-shrink:0" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
-    Commander
+    Recevoir mon catalogue
   </button>
 </div>
 
@@ -711,6 +727,7 @@ src="https://www.facebook.com/tr?id=1651374605332302&ev=PageView&noscript=1"/></
       <h3>Commander mon Catalogue</h3>
       <p>Remplissez vos informations</p>
     </div>
+    <p style="font-size:13px;color:var(--teal);background:rgba(15,91,89,0.07);border-left:3px solid var(--teal);padding:10px 14px;margin:0 0 0;line-height:1.5">Vous finalisez la commande et le paiement sur WhatsApp — aucun paiement sur cette page.</p>
     <div class="order-body">
       <div class="ff" id="ff-name">
         <label for="fName">Votre nom complet</label>
@@ -719,7 +736,8 @@ src="https://www.facebook.com/tr?id=1651374605332302&ev=PageView&noscript=1"/></
       </div>
       <div class="ff" id="ff-phone">
         <label for="fPhone">Numéro WhatsApp</label>
-        <input type="tel" id="fPhone" placeholder="Ex : 655 123 456" autocomplete="tel">
+        <input type="tel" id="fPhone" placeholder="Ex : 655 123 456" autocomplete="tel" inputmode="numeric">
+        <p style="font-size:12px;color:var(--gray);margin-top:4px">Le numéro où vous recevrez le PDF</p>
         <div class="err-msg">Veuillez entrer votre numéro</div>
       </div>
       <div class="ff" id="ff-city">
@@ -756,10 +774,15 @@ src="https://www.facebook.com/tr?id=1651374605332302&ev=PageView&noscript=1"/></
       </div>
       <div class="order-sum">
         <div class="os-lbl">
-          <strong>Catalogue Premium</strong>
-          <span style="font-size:11px;color:var(--gray);display:block;margin-top:2px">+ 2 bonus offerts inclus</span>
+          <strong>Catalogue Premium + 2 Bonus</strong>
+          <span style="font-size:11px;color:var(--orange-dk);display:block;margin-top:2px">Valeur bonus : 35 000 F · inclus à ce tarif</span>
         </div>
         <div class="os-price">39 000 FCFA</div>
+      </div>
+      <div class="trust-row" style="margin-bottom:16px">
+        <div class="trust-item"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="var(--teal)" stroke-width="2.5"><polyline points="20,6 9,17 4,12"/></svg>Accès immédiat</div>
+        <div class="trust-item"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="var(--teal)" stroke-width="2.5"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>PDF par WhatsApp</div>
+        <div class="trust-item"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="var(--teal)" stroke-width="2.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>Mobile Money</div>
       </div>
       <button class="submit-btn" onclick="submitOrder()">
         <svg class="wa-svg" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
@@ -781,13 +804,13 @@ src="https://www.facebook.com/tr?id=1651374605332302&ev=PageView&noscript=1"/></
   var rem=Math.round(MAX_STOCK-(progress*(MAX_STOCK-MIN_STOCK)));
   // Jauge SE VIDE: représente les catalogues RESTANTS
   var pct=Math.round((rem/MAX_STOCK)*100);
-  var subTxt='Prix de lancement — offre valable aujourd\'hui uniquement';
+  var subTxt='Tarif de lancement — se termine bientôt';
 
   ['','2'].forEach(function(sfx){
     var gc=document.getElementById('gaugeCount'+sfx);
     var gf=document.getElementById('gaugeFill'+sfx);
     var gs=document.getElementById('gaugeSub'+sfx);
-    if(gc) gc.textContent=rem+' Catalogues restants';
+    if(gc) gc.textContent='Tarif actif';
     if(gs) gs.textContent=subTxt;
     if(gf) setTimeout(function(){gf.style.width=pct+'%'},sfx===''?300:600);
   });
@@ -891,6 +914,13 @@ function chk(id,ffId){
 function submitOrder(){
   const v1=chk('fName','ff-name'),v2=chk('fPhone','ff-phone'),v3=chk('fCity','ff-city');
   if(!v1||!v2||!v3)return;
+  const phoneRaw=document.getElementById('fPhone').value.trim();
+  if(phoneRaw.replace(/\D/g,'').length<8){
+    const ffPh=document.getElementById('ff-phone');
+    ffPh.classList.add('has-error');
+    ffPh.querySelector('.err-msg').textContent='Numéro trop court — vérifiez votre numéro';
+    return;
+  }
   const name=document.getElementById('fName').value.trim();
   const phone=document.getElementById('fPhone').value.trim();
   const city=document.getElementById('fCity').value;
