@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
-<title>Wooplans — 50 Plans de Maison au Cameroun</title>
-<meta name="description" content="Le catalogue de référence pour préparer la construction de votre maison au Cameroun. 50 modèles, villas, duplex, plans, devis.">
+<title>Wooplans — 50 Plans de Maison · Catalogue Premium</title>
+<meta name="description" content="Le catalogue de référence pour préparer la construction de votre maison. 50 modèles — villas, duplex, plans de distribution, rendus 3D et devis estimatifs en FCFA.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
@@ -169,8 +169,8 @@ h2{font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;font-size:clamp(24
 .bonus-card.featured .bonus-value-tag{background:rgba(231,195,108,0.12);color:var(--orange-dk);border:1px solid rgba(231,195,108,0.35)}
 .bonus-card.std .bonus-value-tag{background:rgba(15,91,89,0.07);color:var(--teal);border:1px solid rgba(15,91,89,0.2)}
 .bonus-card p{font-size:13px;color:var(--gray);line-height:1.6;margin-bottom:14px}
-.bonus-feats{display:flex;flex-direction:column;gap:8px}
-.bfeat{display:flex;align-items:center;gap:9px;font-size:13px;color:var(--dark)}
+.bonus-feats{display:flex;flex-direction:column;gap:14px}
+.bfeat{display:flex;align-items:center;gap:10px;font-size:13px;color:var(--dark);line-height:1.4}
 .bfeat::before{content:'✓';width:19px;height:19px;background:var(--teal);color:white;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:800;flex-shrink:0}
 
 /* ── TÉMOIGNAGES 2x2 9:16 ── */
@@ -222,8 +222,8 @@ h2{font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;font-size:clamp(24
 .pricing-top .p-was{font-size:14px;color:rgba(255,255,255,0.45);text-decoration:line-through;margin-top:6px}
 .pricing-badge{display:inline-block;background:var(--red);color:white;font-family:'Plus Jakarta Sans',sans-serif;font-weight:700;font-size:12px;padding:5px 14px;border-radius:4px;margin-top:12px}
 .pricing-body{padding:24px 20px}
-.pricing-incs{display:flex;flex-direction:column;gap:12px;margin-bottom:24px}
-.pinc{display:flex;align-items:center;gap:10px;font-size:14px;color:var(--dark);font-weight:500}
+.pricing-incs{display:flex;flex-direction:column;gap:18px;margin-bottom:24px}
+.pinc{display:flex;align-items:center;gap:12px;font-size:14px;color:var(--dark);font-weight:500;line-height:1.45}
 .pinc::before{content:'✓';width:22px;height:22px;background:rgba(15,91,89,0.1);color:var(--teal);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:800;flex-shrink:0}
 .pinc.bonus{color:var(--orange-dk);font-weight:600}
 .pinc.bonus::before{background:rgba(240,138,46,0.12);color:var(--orange)}
@@ -244,7 +244,7 @@ h2{font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;font-size:clamp(24
 .sticky-bar{position:fixed;bottom:0;left:0;right:0;z-index:300;background:var(--white);border-top:1px solid var(--border);padding:12px 16px calc(12px + env(safe-area-inset-bottom));display:flex;align-items:center;gap:10px;box-shadow:0 -4px 24px rgba(0,0,0,0.1);transform:translateY(100%);transition:transform 0.35s cubic-bezier(0.4,0,0.2,1)}
 .sticky-bar.visible{transform:translateY(0)}
 .sticky-price{flex:1}
-.s-price{font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;font-size:18px;color:var(--teal);line-height:1}
+.s-price{font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;font-size:18px;color:var(--teal);line-height:1;white-space:nowrap}
 .s-was{font-size:11px;color:var(--gray);text-decoration:line-through}
 .sticky-btn{background:var(--orange);color:var(--white);font-family:'Plus Jakarta Sans',sans-serif;font-weight:700;font-size:14px;padding:13px 18px;border:none;border-radius:8px;cursor:pointer;display:flex;align-items:center;gap:7px;box-shadow:0 4px 16px rgba(240,138,46,0.35);transition:all 0.2s;white-space:nowrap}
 .sticky-btn:active{transform:scale(0.97);background:var(--orange-dk)}
@@ -271,17 +271,22 @@ h2{font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;font-size:clamp(24
 .order-head h3{font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;font-size:19px;color:var(--white);margin-bottom:3px}
 .order-head p{font-size:13px;color:rgba(255,255,255,0.6)}
 .order-body{padding:22px 20px}
-.ff{margin-bottom:16px}
-.ff label{display:block;font-family:'Plus Jakarta Sans',sans-serif;font-weight:700;font-size:11px;letter-spacing:0.08em;text-transform:uppercase;color:var(--teal);margin-bottom:7px}
-.ff input,.ff select{width:100%;padding:13px 15px;border:1.5px solid var(--border);border-radius:8px;font-family:'Inter',sans-serif;font-size:15px;color:var(--dark);background:var(--bg);outline:none;transition:border-color 0.2s;-webkit-appearance:none;appearance:none}
-.ff input:focus,.ff select:focus{border-color:var(--teal);background:white}
-.ff input::placeholder{color:#B0B8C1}
+.ff{margin-bottom:18px}
+.ff label{display:block;font-family:'Plus Jakarta Sans',sans-serif;font-weight:700;font-size:12px;letter-spacing:0.04em;color:var(--dark);margin-bottom:8px}
+.ff input,.ff select{width:100%;padding:15px 16px;border:2px solid #E2E8EC;border-radius:12px;font-family:'Inter',sans-serif;font-size:16px;color:var(--dark);background:var(--white);outline:none;transition:border-color 0.2s,box-shadow 0.2s,background 0.2s;-webkit-appearance:none;appearance:none}
+.ff input:hover,.ff select:hover{border-color:#C9D4D9}
+.ff input:focus,.ff select:focus{border-color:var(--teal);background:white;box-shadow:0 0 0 4px rgba(15,91,89,0.12)}
+.ff input::placeholder{color:#AEB8C0}
 .sel-wrap{position:relative}
 .sel-wrap::after{content:'▾';position:absolute;right:13px;top:50%;transform:translateY(-50%);color:var(--teal);pointer-events:none}
-.order-sum{display:flex;align-items:center;justify-content:space-between;background:rgba(15,91,89,0.05);border:1px solid rgba(15,91,89,0.15);border-radius:8px;padding:14px 16px;margin-bottom:18px}
+.order-sum{display:flex;align-items:center;justify-content:center;background:rgba(15,91,89,0.05);border:1px solid rgba(15,91,89,0.15);border-radius:8px;padding:14px 16px;margin-bottom:18px}
 .os-lbl{font-size:13px;color:var(--gray)}
 .os-lbl strong{display:block;font-size:14px;color:var(--dark);font-weight:600}
+.os-price-wrap{text-align:center;flex-shrink:0}
+.os-was{display:block;font-size:13px;color:var(--gray);text-decoration:line-through;margin-bottom:2px}
+.os-price-row{display:flex;align-items:center;gap:8px;justify-content:center}
 .os-price{font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;font-size:22px;color:var(--teal)}
+.os-badge{font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;font-size:11px;color:var(--white);background:var(--red);padding:3px 7px;border-radius:6px;line-height:1}
 .submit-btn{width:100%;display:flex;align-items:center;justify-content:center;gap:10px;background:#25D366;color:white;font-family:'Plus Jakarta Sans',sans-serif;font-weight:700;font-size:16px;padding:17px 20px;border:none;border-radius:10px;cursor:pointer;transition:all 0.2s;box-shadow:0 4px 20px rgba(37,211,102,0.25)}
 .submit-btn:active{transform:scale(0.98);background:#1FAD57}
 .submit-btn .wa-svg{width:22px;height:22px;fill:white;flex-shrink:0}
@@ -314,8 +319,31 @@ h2{font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;font-size:clamp(24
 /* ── PULSE CTA ── */
 @keyframes pulse-btn{0%,100%{box-shadow:0 4px 20px rgba(240,138,46,0.3),0 0 0 0 rgba(240,138,46,0.4)}70%{box-shadow:0 4px 20px rgba(240,138,46,0.3),0 0 0 12px rgba(240,138,46,0)}}
 .cta-pulse{animation:pulse-btn 2s infinite}
-@keyframes blink-count{0%,100%{opacity:1;color:var(--gold)}50%{opacity:0.4;color:#fff}}
+@keyframes blink-count{0%,100%{opacity:1}50%{opacity:0.45}}
 .gauge-count-blink{animation:blink-count 2s ease-in-out infinite}
+
+/* ── TABLETTE & DESKTOP ── */
+@media(min-width:768px){
+  /* Contenu centré dans une colonne lisible plutôt qu'étiré ou collé à gauche */
+  section{padding:72px 32px}
+  section > *{max-width:780px;margin-left:auto;margin-right:auto}
+  .proof-bar{justify-content:center;gap:30px}
+  .gauge-top,.gauge-bg,.gauge-sub{max-width:780px;margin-left:auto;margin-right:auto}
+  /* Grilles multi-colonnes */
+  .inside-list{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+  .bonus-stack{display:grid;grid-template-columns:1fr 1fr;gap:20px;align-items:start}
+  .delivery-opts{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+  .testi-grid-2x2{grid-template-columns:repeat(4,1fr);max-width:980px;margin-left:auto;margin-right:auto}
+  .faq-list{max-width:780px;margin-left:auto;margin-right:auto}
+}
+@media(min-width:1024px){
+  .hero{padding-top:72px;padding-bottom:60px}
+  .hero h1{font-size:56px}
+  .hero-sub{font-size:16px;max-width:560px}
+  section{padding:92px 40px}
+  section > *{max-width:860px}
+  .testi-grid-2x2{max-width:1060px}
+}
 </style>
 <!-- Facebook Pixel -->
 <script>
@@ -355,7 +383,7 @@ src="https://www.facebook.com/tr?id=1651374605332302&ev=PageView&noscript=1"/></
     <span class="rating-text"><strong>4,9</strong> · +129 avis</span>
   </div>
 
-  <p class="hero-sub">50 modèles avec plans de distribution, rendus 3D et devis calibrés aux prix du marché camerounais — construisez et budgétisez en confiance.</p>
+  <p class="hero-sub">50 modèles avec plans de distribution, rendus 3D et devis en FCFA calibrés sur les prix réels du marché.</p>
 
   <div class="vsl-wrap" id="vslWrap">
     <video id="heroVid" src="https://wooplans.b-cdn.net/cp%20book%20wooplans/AI%20captions%20-%20vsl_malik_H_sub.mp4" playsinline webkit-playsinline preload="auto" muted style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity 0.5s"></video>
@@ -377,7 +405,7 @@ src="https://www.facebook.com/tr?id=1651374605332302&ev=PageView&noscript=1"/></
     <svg class="wa-svg" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
     Recevoir mon catalogue
   </button>
-  <p style="font-size:12px;color:rgba(255,255,255,0.65);margin-top:-12px;margin-bottom:20px;text-align:center">Paiement Orange Money / MTN MoMo · Lien PDF reçu sur WhatsApp en quelques minutes</p>
+  <p style="font-size:12px;color:rgba(255,255,255,0.65);margin-top:-12px;margin-bottom:20px;text-align:center">Paiement mobile money · Catalogue reçu sur WhatsApp</p>
 
   <div class="social-badge">
     <div class="avatar-stack">
@@ -390,33 +418,11 @@ src="https://www.facebook.com/tr?id=1651374605332302&ev=PageView&noscript=1"/></
   </div>
 </section>
 
-<!-- PROOF BAR -->
-<div class="proof-bar">
-  <div class="proof-item">
-    <div><div class="proof-num">50</div><div class="proof-text">Modèles<br>de maisons</div></div>
-  </div>
-  <div class="proof-sep"></div>
-  <div class="proof-item">
-    <div><div class="proof-num">PDF</div><div class="proof-text">Téléchargement<br>immédiat</div></div>
-  </div>
-  <div class="proof-sep"></div>
-  <div class="proof-item">
-    <div><div class="proof-num">3D</div><div class="proof-text">Rendus<br>professionnels</div></div>
-  </div>
-  <div class="proof-sep"></div>
-  <div class="proof-item">
-    <div><div class="proof-num">∞</div><div class="proof-text">Accès numérique<br>offert</div></div>
-  </div>
-</div>
-
-<!-- OFFRE LIMITÉE + JAUGE -->
-<div class="offre-banner">
-  <span>🔥 Offre de lancement limitée · Prix revient à 60 000 FCFA</span>
-</div>
+<!-- JAUGE -->
 <div class="gauge-section">
   <div class="gauge-top">
-    <span class="gauge-label">🎯 Places au tarif de lancement — aujourd'hui</span>
-    <span class="gauge-count" id="gaugeCount">—</span>
+    <span class="gauge-label">🎯 Restants aujourd'hui</span>
+    <span class="gauge-count gauge-count-blink" id="gaugeCount">—</span>
   </div>
   <div class="gauge-bg"><div class="gauge-fill" id="gaugeFill" style="width:0%"></div></div>
   <div class="gauge-sub"><div class="gauge-dot"></div><span id="gaugeSub">Chargement…</span></div>
@@ -426,7 +432,7 @@ src="https://www.facebook.com/tr?id=1651374605332302&ev=PageView&noscript=1"/></
 <section class="s-bg">
   <span class="section-label r">Ce que vous recevez</span>
   <h2 class="r">Tout pour <span class="ao">construire mieux</span></h2>
-  <p class="section-intro r">Chaque modèle est documenté de A à Z, adapté aux prix du marché camerounais.</p>
+  <p class="section-intro r">Chaque modèle réunit rendus 3D, plans de distribution et devis en FCFA calibrés sur les prix réels du marché.</p>
   <div class="inside-list">
     <div class="inside-item r">
       <div class="inside-icon">🏗️</div>
@@ -434,11 +440,11 @@ src="https://www.facebook.com/tr?id=1651374605332302&ev=PageView&noscript=1"/></
     </div>
     <div class="inside-item r d1">
       <div class="inside-icon">📐</div>
-      <div class="inside-text"><h3>Plans de distribution</h3><p>Chaque pièce, chaque dimension. Prêts à donner à votre entrepreneur.</p></div>
+      <div class="inside-text"><h3>Plans de distribution</h3><p>Visualisez l'agencement : chaque pièce et chaque dimension clairement indiquées.</p></div>
     </div>
     <div class="inside-item r d2">
       <div class="inside-icon">💰</div>
-      <div class="inside-text"><h3>Devis estimatifs</h3><p>Combien ça coûte vraiment ? Estimation détaillée selon les prix du marché 2026.</p></div>
+      <div class="inside-text"><h3>Devis estimatifs en FCFA</h3><p>Combien ça coûte vraiment ? Estimation détaillée en FCFA sur les prix du marché 2026.</p></div>
     </div>
     <div class="inside-item r d3">
       <div class="inside-icon">📥</div>
@@ -481,30 +487,28 @@ src="https://www.facebook.com/tr?id=1651374605332302&ev=PageView&noscript=1"/></
 
   <div class="bonus-stack">
     <div class="bonus-card featured r">
-      <div class="bonus-value-tag">🎁 Bonus 1 &nbsp;·&nbsp; Valeur 25 000 FCFA — Offert</div>
+      <div class="bonus-value-tag">🎁 Bonus 1 &nbsp;·&nbsp; Valeur 35 000 FCFA — Offert</div>
       <div class="bonus-header">
         <div class="bonus-num">1</div>
         <h3>Accès numérique à vie &amp; illimité</h3>
       </div>
-      <p>Consultez les 50 plans et devis interactifs depuis votre téléphone, à n'importe quel moment.</p>
+      <p>Consultez les 50 plans et devis depuis votre téléphone, à tout moment.</p>
       <div class="bonus-feats">
         <div class="bfeat">50 plans interactifs sur mobile</div>
-        <div class="bfeat">Devis mis à jour aux prix 2026</div>
         <div class="bfeat">Aucun abonnement — accès à vie</div>
       </div>
     </div>
 
     <div class="bonus-card std r d1">
-      <div class="bonus-value-tag">🎁 Bonus 2 &nbsp;·&nbsp; Valeur 10 000 FCFA — Offert</div>
+      <div class="bonus-value-tag">🎁 Bonus 2 &nbsp;·&nbsp; Valeur 15 000 FCFA — Offert</div>
       <div class="bonus-header">
         <div class="bonus-num">2</div>
         <h3>Les 5 étapes pour réussir votre chantier</h3>
       </div>
-      <p>Le guide pratique pour éviter les dépenses inutiles et mener votre construction de bout en bout.</p>
+      <p>Le guide pratique pour éviter les dépenses inutiles et mener votre chantier de bout en bout.</p>
       <div class="bonus-feats">
         <div class="bfeat">5 étapes clés détaillées</div>
         <div class="bfeat">Erreurs fréquentes à éviter</div>
-        <div class="bfeat">Conseils adaptés au Cameroun</div>
       </div>
     </div>
   </div>
@@ -522,8 +526,6 @@ src="https://www.facebook.com/tr?id=1651374605332302&ev=PageView&noscript=1"/></
         <div class="testi-video-bg"></div><div class="testi-play"></div><span class="testi-video-lbl">▶ Vidéo</span>
       </div>
       <div class="testi-body">
-        <div class="testi-stars">★★★★★</div>
-        <p class="testi-quote">"Le devis était très proche de la réalité. Je recommande à tous."</p>
         <div class="testi-name">Ibrahim</div><div class="testi-loc">Cameroun</div>
       </div>
     </div>
@@ -534,8 +536,6 @@ src="https://www.facebook.com/tr?id=1651374605332302&ev=PageView&noscript=1"/></
         <div class="testi-video-bg"></div><div class="testi-play"></div><span class="testi-video-lbl">▶ Vidéo</span>
       </div>
       <div class="testi-body">
-        <div class="testi-stars">★★★★★</div>
-        <p class="testi-quote">"Les plans sont clairs et bien détaillés. Très bon investissement."</p>
         <div class="testi-name">Bassirou</div><div class="testi-loc">Cameroun</div>
       </div>
     </div>
@@ -546,8 +546,6 @@ src="https://www.facebook.com/tr?id=1651374605332302&ev=PageView&noscript=1"/></
         <div class="testi-video-bg"></div><div class="testi-play"></div><span class="testi-video-lbl">▶ Vidéo</span>
       </div>
       <div class="testi-body">
-        <div class="testi-stars">★★★★★</div>
-        <p class="testi-quote">"Les rendus 3D m'ont aidé à visualiser exactement ce que je voulais."</p>
         <div class="testi-name">Francis</div><div class="testi-loc">Cameroun</div>
       </div>
     </div>
@@ -558,30 +556,9 @@ src="https://www.facebook.com/tr?id=1651374605332302&ev=PageView&noscript=1"/></
         <div class="testi-video-bg"></div><div class="testi-play"></div><span class="testi-video-lbl">▶ Vidéo</span>
       </div>
       <div class="testi-body">
-        <div class="testi-stars">★★★★★</div>
-        <p class="testi-quote">"Les devis collent avec les prix réels ici. Ça m'a aidé à budgétiser."</p>
         <div class="testi-name">Renaud</div><div class="testi-loc">Cameroun</div>
       </div>
     </div>
-  </div>
-</section>
-
-<!-- LIVRAISON NUMÉRIQUE -->
-<section class="s-teal">
-  <span class="section-label section-label-gold r">Réception instantanée</span>
-  <h2 class="r"><span class="aw">Reçu en quelques minutes,</span><br><span class="ag">peu importe où vous êtes</span></h2>
-  <div class="delivery-opts" style="margin-top:20px">
-    <div class="delivery-opt r">
-      <div class="delivery-icon">⚡</div>
-      <div><h4>Accès immédiat après paiement</h4><p>Votre lien de téléchargement PDF est envoyé par WhatsApp dans les minutes suivant la confirmation.</p></div>
-    </div>
-    <div class="delivery-opt r d1">
-      <div class="delivery-icon">🌍</div>
-      <div><h4>Disponible partout dans le monde</h4><p>Téléchargez depuis votre téléphone ou ordinateur, où que vous soyez.</p></div>
-    </div>
-  </div>
-  <div class="cities-wrap r d2">
-    <span class="city-pill">Yaoundé</span><span class="city-pill">Douala</span><span class="city-pill">Bafoussam</span><span class="city-pill">Garoua</span><span class="city-pill">Bamenda</span><span class="city-pill">Ngaoundéré</span><span class="city-pill">Bertoua</span><span class="city-pill">Maroua</span><span class="city-pill">+ monde entier</span>
   </div>
 </section>
 
@@ -598,20 +575,18 @@ src="https://www.facebook.com/tr?id=1651374605332302&ev=PageView&noscript=1"/></
     </div>
     <div class="pricing-body">
       <div class="pricing-incs">
-        <div class="pinc">Catalogue Premium PDF haute définition (format A3)</div>
-        <div class="pinc">50 modèles — villas &amp; duplex</div>
-        <div class="pinc">Rendus 3D + Plans + Devis estimatifs</div>
-        <div class="pinc bonus">🎁 Bonus 1 : Accès numérique à vie (valeur 25 000 F)</div>
-        <div class="pinc bonus">🎁 Bonus 2 : Guide 5 étapes chantier (valeur 10 000 F)</div>
-        <div class="pinc">Lien de téléchargement envoyé par WhatsApp</div>
-        <div class="pinc" style="border-top:1px solid var(--border);padding-top:12px;margin-top:4px;color:var(--orange-dk);font-weight:600">💎 Valeur des bonus : 35 000 F — aujourd'hui inclus pour 39 000 FCFA</div>
+        <div class="pinc">Catalogue Premium — 50 modèles</div>
+        <div class="pinc">Rendus 3D + plans de distribution + devis</div>
+        <div class="pinc bonus">🎁 Bonus 1 : Accès numérique à vie (valeur 35 000 FCFA)</div>
+        <div class="pinc bonus">🎁 Bonus 2 : Guide 5 étapes chantier (valeur 15 000 FCFA)</div>
+        <div class="pinc" style="border-top:1px solid var(--border);padding-top:12px;margin-top:4px;color:var(--orange-dk);font-weight:600">💎 Valeur des bonus : 50 000 FCFA — offert aujourd'hui</div>
       </div>
       <button class="cta-primary" onclick="openOrder()">
         <svg class="wa-svg" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
         Recevoir mon catalogue
       </button>
       <div class="trust-row">
-        <div class="trust-item"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="var(--teal)" stroke-width="2.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>Orange Money / MTN MoMo</div>
+        <div class="trust-item"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="var(--teal)" stroke-width="2.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>Mobile Money</div>
         <div class="trust-item"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="var(--teal)" stroke-width="2.5"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>Lien PDF reçu par WhatsApp</div>
       </div>
     </div>
@@ -629,11 +604,11 @@ src="https://www.facebook.com/tr?id=1651374605332302&ev=PageView&noscript=1"/></
     </div>
     <div class="faq-item r d1">
       <button class="faq-btn" onclick="toggleFaq(this)">Quand vais-je recevoir mon catalogue ?<span class="faq-chevron">▾</span></button>
-      <div class="faq-ans"><div class="faq-ans-inner">Votre lien de téléchargement PDF est envoyé par WhatsApp dans les minutes suivant la confirmation de paiement. Accès immédiat, peu importe votre ville.</div></div>
+      <div class="faq-ans"><div class="faq-ans-inner">Votre lien de téléchargement PDF est envoyé par WhatsApp dans les minutes suivant la confirmation de paiement. Accès immédiat, peu importe votre pays.</div></div>
     </div>
     <div class="faq-item r d2">
       <button class="faq-btn" onclick="toggleFaq(this)">Comment payer ?<span class="faq-chevron">▾</span></button>
-      <div class="faq-ans"><div class="faq-ans-inner">Orange Money ou MTN Mobile Money uniquement. Le paiement se fait lors de la commande sur WhatsApp pour confirmer votre commande.</div></div>
+      <div class="faq-ans"><div class="faq-ans-inner">Par Mobile Money uniquement. Le paiement se fait lors de la commande sur WhatsApp, avant la réception de votre catalogue et des 2 bonus.</div></div>
     </div>
     <div class="faq-item r d3">
       <button class="faq-btn" onclick="toggleFaq(this)">C'est quoi l'accès numérique bonus ?<span class="faq-chevron">▾</span></button>
@@ -641,19 +616,19 @@ src="https://www.facebook.com/tr?id=1651374605332302&ev=PageView&noscript=1"/></
     </div>
     <div class="faq-item r">
       <button class="faq-btn" onclick="toggleFaq(this)">Le prix va augmenter ?<span class="faq-chevron">▾</span></button>
-      <div class="faq-ans"><div class="faq-ans-inner">Oui. 39 000 FCFA est le prix de lancement, valable uniquement sur le stock initial. Une fois l'offre terminée, le catalogue revient à 60 000 FCFA.</div></div>
+      <div class="faq-ans"><div class="faq-ans-inner">Oui. 39 000 FCFA est le prix de lancement, valable uniquement pendant une période très limitée. Le catalogue revient à 60 000 FCFA après.</div></div>
     </div>
     <div class="faq-item r d1">
-      <button class="faq-btn" onclick="toggleFaq(this)">Est-ce adapté à ma région ?<span class="faq-chevron">▾</span></button>
-      <div class="faq-ans"><div class="faq-ans-inner">Oui. Tous les devis estimatifs sont calibrés selon les prix du marché camerounais — main-d'œuvre, matériaux et coûts locaux. Le catalogue couvre les besoins de construction partout au Cameroun.</div></div>
+      <button class="faq-btn" onclick="toggleFaq(this)">Est-ce adapté à mon pays ?<span class="faq-chevron">▾</span></button>
+      <div class="faq-ans"><div class="faq-ans-inner">Oui. Les devis sont une base de référence en FCFA, calibrée sur les prix réels du marché — main-d'œuvre, matériaux et coûts locaux. Elle s'ajuste facilement aux coûts de votre pays : Cameroun, Côte d'Ivoire, Sénégal, Gabon, Congo, Bénin, Togo, Mali, Burkina… toute la zone FCFA. Les plans, eux, sont universels.</div></div>
     </div>
     <div class="faq-item r d2">
-      <button class="faq-btn" onclick="toggleFaq(this)">Puis-je donner les plans à mon entrepreneur ?<span class="faq-chevron">▾</span></button>
-      <div class="faq-ans"><div class="faq-ans-inner">Absolument. Les plans de distribution sont prêts à l'emploi : chaque pièce et chaque dimension sont clairement indiquées. Vous pouvez les imprimer ou montrer le PDF directement à votre entrepreneur ou maître d'œuvre.</div></div>
+      <button class="faq-btn" onclick="toggleFaq(this)">Comment utiliser le catalogue pour mon projet ?<span class="faq-chevron">▾</span></button>
+      <div class="faq-ans"><div class="faq-ans-inner">Le catalogue est votre point de départ : il vous aide à choisir un modèle, à visualiser l'agencement et à estimer votre budget en toute clarté. Votre entrepreneur — ou nous-mêmes — pouvons ensuite modifier et adapter le plan de votre choix à votre terrain. Résultat : vous arrivez avec une idée précise, vous gagnez un temps précieux et vous évitez les études coûteuses dans le vide.</div></div>
     </div>
     <div class="faq-item r d3">
       <button class="faq-btn" onclick="toggleFaq(this)">Et si j'ai un souci pour payer ou recevoir mon catalogue ?<span class="faq-chevron">▾</span></button>
-      <div class="faq-ans"><div class="faq-ans-inner">Contactez-nous directement sur WhatsApp au +237 694 327 885. Notre équipe vous assiste en temps réel pour tout problème de paiement ou de réception du lien PDF.</div></div>
+      <div class="faq-ans"><div class="faq-ans-inner">Le paiement se fait sur WhatsApp et, en cas de difficulté, nous vous assistons en temps réel pour tout problème.</div></div>
     </div>
   </div>
 </section>
@@ -670,7 +645,7 @@ src="https://www.facebook.com/tr?id=1651374605332302&ev=PageView&noscript=1"/></
 
   <span class="section-label section-label-gold r" style="display:block;text-align:center">Votre maison commence ici</span>
   <h2 class="r" style="color:var(--white);text-align:center;margin-bottom:8px"><span class="ag">50 plans.</span> Un seul catalogue.</h2>
-  <p class="section-intro section-intro-light r" style="text-align:center;margin-bottom:24px">Livré chez vous partout au Cameroun.</p>
+  <p class="section-intro section-intro-light r" style="text-align:center;margin-bottom:24px">Reçu directement sur votre WhatsApp, en quelques minutes.</p>
 
   <div style="max-width:400px;margin:0 auto">
     <div class="r" style="display:flex;align-items:center;justify-content:center;gap:12px;margin-bottom:18px">
@@ -681,7 +656,7 @@ src="https://www.facebook.com/tr?id=1651374605332302&ev=PageView&noscript=1"/></
     <!-- Mini gauge final section -->
     <div class="r" style="background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.15);border-radius:10px;padding:14px 16px;margin-bottom:18px;width:100%;max-width:400px;text-align:left">
       <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:8px">
-        <span style="font-family:'Plus Jakarta Sans',sans-serif;font-weight:700;font-size:13px;color:rgba(255,255,255,0.9)">🎯 Offre disponible aujourd'hui</span>
+        <span style="font-family:'Plus Jakarta Sans',sans-serif;font-weight:700;font-size:13px;color:rgba(255,255,255,0.9)">🎯 Restants aujourd'hui</span>
         <span style="font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;font-size:13px;color:var(--gold)" id="gaugeCount2" class="gauge-count-blink">—</span>
       </div>
       <div style="height:8px;background:rgba(255,255,255,0.12);border-radius:99px;overflow:hidden">
@@ -694,7 +669,7 @@ src="https://www.facebook.com/tr?id=1651374605332302&ev=PageView&noscript=1"/></
       Recevoir mon catalogue
     </button>
     <div class="trust-row r">
-      <div class="trust-item trust-item-light"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.5)" stroke-width="2.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>Orange Money / MTN MoMo</div>
+      <div class="trust-item trust-item-light"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.5)" stroke-width="2.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>Mobile Money</div>
       <div class="trust-item trust-item-light"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.5)" stroke-width="2.5"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>Lien PDF reçu par WhatsApp</div>
     </div>
   </div>
@@ -703,10 +678,7 @@ src="https://www.facebook.com/tr?id=1651374605332302&ev=PageView&noscript=1"/></
 <!-- STICKY BAR -->
 <div class="sticky-bar" id="stickyBar">
   <div class="sticky-price">
-    <div style="display:flex;align-items:center;gap:8px">
-      <div class="s-price">39 000 FCFA</div>
-      <span style="background:var(--red);color:white;font-family:'Plus Jakarta Sans',sans-serif;font-weight:700;font-size:11px;padding:2px 8px;border-radius:4px">–35%</span>
-    </div>
+    <div class="s-price">39 000 FCFA</div>
     <div class="s-was">au lieu de 60 000 FCFA</div>
   </div>
   <button class="sticky-btn" onclick="openOrder()">
@@ -738,11 +710,19 @@ src="https://www.facebook.com/tr?id=1651374605332302&ev=PageView&noscript=1"/></
   <div class="order-sheet">
     <div class="order-handle"></div>
     <div class="order-head">
-      <h3>Recevoir mon Catalogue PDF</h3>
+      <h3>Recevoir mon catalogue + 2 Bonus</h3>
       <p>Remplissez vos informations</p>
     </div>
-    <p style="font-size:13px;color:var(--teal);background:rgba(15,91,89,0.07);border-left:3px solid var(--teal);padding:10px 14px;margin:0;line-height:1.5">Vous finalisez la commande et le paiement sur WhatsApp — aucun paiement sur cette page.</p>
     <div class="order-body">
+      <div class="order-sum">
+        <div class="os-price-wrap">
+          <span class="os-was">60 000 FCFA</span>
+          <div class="os-price-row">
+            <span class="os-price">39 000 FCFA</span>
+            <span class="os-badge">-35%</span>
+          </div>
+        </div>
+      </div>
       <div class="ff" id="ff-name">
         <label for="fName">Votre nom complet</label>
         <input type="text" id="fName" placeholder="Ex : Marie Nguema" autocomplete="name">
@@ -751,45 +731,14 @@ src="https://www.facebook.com/tr?id=1651374605332302&ev=PageView&noscript=1"/></
       <div class="ff" id="ff-phone">
         <label for="fPhone">Numéro WhatsApp</label>
         <input type="tel" id="fPhone" placeholder="Ex : 655 123 456" autocomplete="tel" inputmode="numeric">
-        <p style="font-size:12px;color:var(--gray);margin-top:4px">Le numéro où vous recevrez le PDF</p>
+        <p style="font-size:12px;color:var(--gray);margin-top:6px">C'est sur ce numéro que vous recevrez votre catalogue.</p>
         <div class="err-msg">Veuillez entrer votre numéro</div>
-      </div>
-      <div class="ff" id="ff-pay">
-        <label>Moyen de paiement</label>
-        <div style="display:flex;gap:10px;margin-top:2px">
-          <label class="pay-opt" id="pay-orange">
-            <input type="radio" name="payment" value="Orange Money" checked>
-            <div class="pay-card">
-              <span class="pay-icon"><img src="https://wooplans.b-cdn.net/logos/logo%20om%20bon.jpg" alt="Orange Money" style="width:44px;height:44px;object-fit:contain" onerror="this.style.display='none';this.nextElementSibling.style.display='block'"><span style="display:none;font-size:22px">🟠</span></span>
-              <span class="pay-name">Orange Money</span>
-            </div>
-          </label>
-          <label class="pay-opt" id="pay-mtn">
-            <input type="radio" name="payment" value="MTN MoMo">
-            <div class="pay-card">
-              <span class="pay-icon"><img src="https://wooplans.b-cdn.net/logos/momo%20logo.jpg" alt="MTN MoMo" style="width:44px;height:44px;object-fit:contain" onerror="this.style.display='none';this.nextElementSibling.style.display='block'"><span style="display:none;font-size:22px">🟡</span></span>
-              <span class="pay-name">MTN MoMo</span>
-            </div>
-          </label>
-        </div>
-      </div>
-      <div class="order-sum">
-        <div class="os-lbl">
-          <strong>Catalogue Premium + 2 Bonus</strong>
-          <span style="font-size:11px;color:var(--orange-dk);display:block;margin-top:2px">Valeur bonus : 35 000 F · inclus à ce tarif</span>
-        </div>
-        <div class="os-price">39 000 FCFA</div>
-      </div>
-      <div class="trust-row" style="margin-bottom:16px">
-        <div class="trust-item"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="var(--teal)" stroke-width="2.5"><polyline points="20,6 9,17 4,12"/></svg>Accès immédiat</div>
-        <div class="trust-item"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="var(--teal)" stroke-width="2.5"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>PDF par WhatsApp</div>
-        <div class="trust-item"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="var(--teal)" stroke-width="2.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>Mobile Money</div>
       </div>
       <button class="submit-btn" onclick="submitOrder()">
         <svg class="wa-svg" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
         Confirmer sur WhatsApp
       </button>
-      <p class="form-note">Vous serez redirigé vers WhatsApp pour effectuer le paiement</p>
+      <p class="form-note">🔒 Vous finalisez le paiement Mobile Money sur WhatsApp — aucun paiement sur cette page.</p>
     </div>
   </div>
 </div>
@@ -805,13 +754,13 @@ src="https://www.facebook.com/tr?id=1651374605332302&ev=PageView&noscript=1"/></
   var rem=Math.round(MAX_STOCK-(progress*(MAX_STOCK-MIN_STOCK)));
   // Jauge SE VIDE: représente les catalogues RESTANTS
   var pct=Math.round((rem/MAX_STOCK)*100);
-  var subTxt='Tarif de lancement — se termine bientôt';
+  var subTxt='Prix de lancement — se termine bientôt';
 
   ['','2'].forEach(function(sfx){
     var gc=document.getElementById('gaugeCount'+sfx);
     var gf=document.getElementById('gaugeFill'+sfx);
     var gs=document.getElementById('gaugeSub'+sfx);
-    if(gc) gc.textContent='Tarif actif';
+    if(gc) gc.textContent='Offre limitée';
     if(gs) gs.textContent=subTxt;
     if(gf) setTimeout(function(){gf.style.width=pct+'%'},sfx===''?300:600);
   });
@@ -924,11 +873,10 @@ function submitOrder(){
   }
   const name=document.getElementById('fName').value.trim();
   const phone=document.getElementById('fPhone').value.trim();
-  const payMethod=document.querySelector('input[name="payment"]:checked');
-  const pay=payMethod?payMethod.value:'Orange Money';
+  const pay='Mobile Money';
   const msg=encodeURIComponent(
     'Bonjour Wooplans ! 👋\n\nJe voudrais commander le *Catalogue Premium Wooplans* en téléchargement (50 plans de maison — Édition 2026).\n\n'+
-    '📋 *Mes informations :*\n• Nom : '+name+'\n• Téléphone : '+phone+'\n• Paiement : '+pay+'\n\n'+
+    '📋 *Mes informations :*\n• Nom : '+name+'\n• Téléphone : '+phone+'\n\n'+
     '💰 *Montant :* 39 000 FCFA (offre de lancement)\n\nMerci de confirmer les modalités. 🙏'
   );
   // ── Tracking dual : Browser Pixel + Conversions API (déduplication par event_id) ──
@@ -940,7 +888,7 @@ function submitOrder(){
       value:39000,
       currency:'XAF',
       num_items:1,
-      payment_method: payMethod ? payMethod.value : 'Unknown'
+      payment_method:pay
     });
     fbq('trackCustom','cpbook_Lead',{
       content_name:'Catalogue Premium Wooplans',
