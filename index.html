@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
-<title>Wooplans — 50 Plans de Maison au Cameroun</title>
-<meta name="description" content="Le catalogue de référence pour préparer la construction de votre maison au Cameroun. 50 modèles, villas, duplex, plans, devis.">
+<title>Wooplans — 50 Plans de Maison · Afrique Francophone</title>
+<meta name="description" content="Le catalogue de référence pour préparer la construction de votre maison en Afrique francophone. 50 modèles, villas, duplex, plans et devis en FCFA — une base ajustable à votre pays.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
@@ -316,6 +316,29 @@ h2{font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;font-size:clamp(24
 .cta-pulse{animation:pulse-btn 2s infinite}
 @keyframes blink-count{0%,100%{opacity:1;color:var(--gold)}50%{opacity:0.4;color:#fff}}
 .gauge-count-blink{animation:blink-count 2s ease-in-out infinite}
+
+/* ── TABLETTE & DESKTOP ── */
+@media(min-width:768px){
+  /* Contenu centré dans une colonne lisible plutôt qu'étiré ou collé à gauche */
+  section{padding:72px 32px}
+  section > *{max-width:780px;margin-left:auto;margin-right:auto}
+  .proof-bar{justify-content:center;gap:30px}
+  .gauge-top,.gauge-bg,.gauge-sub{max-width:780px;margin-left:auto;margin-right:auto}
+  /* Grilles multi-colonnes */
+  .inside-list{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+  .bonus-stack{display:grid;grid-template-columns:1fr 1fr;gap:20px;align-items:start}
+  .delivery-opts{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+  .testi-grid-2x2{grid-template-columns:repeat(4,1fr);max-width:980px;margin-left:auto;margin-right:auto}
+  .faq-list{max-width:780px;margin-left:auto;margin-right:auto}
+}
+@media(min-width:1024px){
+  .hero{padding-top:72px;padding-bottom:60px}
+  .hero h1{font-size:56px}
+  .hero-sub{font-size:16px;max-width:560px}
+  section{padding:92px 40px}
+  section > *{max-width:860px}
+  .testi-grid-2x2{max-width:1060px}
+}
 </style>
 <!-- Facebook Pixel -->
 <script>
@@ -345,7 +368,7 @@ src="https://www.facebook.com/tr?id=1651374605332302&ev=PageView&noscript=1"/></
 <!-- HERO -->
 <section class="hero" id="heroSection">
   <div class="hero-eyebrow">
-    <span>📘 Catalogue Premium · Édition 2026</span>
+    <span>📘 Catalogue Premium · Afrique Francophone 2026</span>
   </div>
 
   <h1>50 Plans de Maison<br>dans un seul <span class="hl">catalogue</span></h1>
@@ -355,7 +378,7 @@ src="https://www.facebook.com/tr?id=1651374605332302&ev=PageView&noscript=1"/></
     <span class="rating-text"><strong>4,9</strong> · +129 avis</span>
   </div>
 
-  <p class="hero-sub">50 modèles avec plans de distribution, rendus 3D et devis calibrés aux prix du marché camerounais — construisez et budgétisez en confiance.</p>
+  <p class="hero-sub">50 modèles avec plans de distribution, rendus 3D et devis en FCFA calibrés sur les prix réels du marché — une base fiable, ajustable à votre pays. Construisez et budgétisez en confiance, partout en Afrique francophone.</p>
 
   <div class="vsl-wrap" id="vslWrap">
     <video id="heroVid" src="https://wooplans.b-cdn.net/cp%20book%20wooplans/AI%20captions%20-%20vsl_malik_H_sub.mp4" playsinline webkit-playsinline preload="auto" muted style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity 0.5s"></video>
@@ -426,7 +449,7 @@ src="https://www.facebook.com/tr?id=1651374605332302&ev=PageView&noscript=1"/></
 <section class="s-bg">
   <span class="section-label r">Ce que vous recevez</span>
   <h2 class="r">Tout pour <span class="ao">construire mieux</span></h2>
-  <p class="section-intro r">Chaque modèle est documenté de A à Z, adapté aux prix du marché camerounais.</p>
+  <p class="section-intro r">Chaque modèle est documenté de A à Z, avec des devis en FCFA calibrés sur les prix réels du marché — une base de référence ajustable à votre pays.</p>
   <div class="inside-list">
     <div class="inside-item r">
       <div class="inside-icon">🏗️</div>
@@ -438,7 +461,7 @@ src="https://www.facebook.com/tr?id=1651374605332302&ev=PageView&noscript=1"/></
     </div>
     <div class="inside-item r d2">
       <div class="inside-icon">💰</div>
-      <div class="inside-text"><h3>Devis estimatifs</h3><p>Combien ça coûte vraiment ? Estimation détaillée selon les prix du marché 2026.</p></div>
+      <div class="inside-text"><h3>Devis estimatifs en FCFA</h3><p>Combien ça coûte vraiment ? Estimation détaillée en FCFA sur les prix du marché 2026 — une base de référence à ajuster à votre pays.</p></div>
     </div>
     <div class="inside-item r d3">
       <div class="inside-icon">📥</div>
@@ -504,7 +527,7 @@ src="https://www.facebook.com/tr?id=1651374605332302&ev=PageView&noscript=1"/></
       <div class="bonus-feats">
         <div class="bfeat">5 étapes clés détaillées</div>
         <div class="bfeat">Erreurs fréquentes à éviter</div>
-        <div class="bfeat">Conseils adaptés au Cameroun</div>
+        <div class="bfeat">Conseils adaptés à l'Afrique francophone</div>
       </div>
     </div>
   </div>
@@ -581,7 +604,7 @@ src="https://www.facebook.com/tr?id=1651374605332302&ev=PageView&noscript=1"/></
     </div>
   </div>
   <div class="cities-wrap r d2">
-    <span class="city-pill">Yaoundé</span><span class="city-pill">Douala</span><span class="city-pill">Bafoussam</span><span class="city-pill">Garoua</span><span class="city-pill">Bamenda</span><span class="city-pill">Ngaoundéré</span><span class="city-pill">Bertoua</span><span class="city-pill">Maroua</span><span class="city-pill">+ monde entier</span>
+    <span class="city-pill">Yaoundé</span><span class="city-pill">Douala</span><span class="city-pill">Abidjan</span><span class="city-pill">Dakar</span><span class="city-pill">Libreville</span><span class="city-pill">Brazzaville</span><span class="city-pill">Lomé</span><span class="city-pill">Cotonou</span><span class="city-pill">Bamako</span><span class="city-pill">Ouagadougou</span><span class="city-pill">N'Djamena</span><span class="city-pill">+ toute la zone FCFA</span>
   </div>
 </section>
 
@@ -629,7 +652,7 @@ src="https://www.facebook.com/tr?id=1651374605332302&ev=PageView&noscript=1"/></
     </div>
     <div class="faq-item r d1">
       <button class="faq-btn" onclick="toggleFaq(this)">Quand vais-je recevoir mon catalogue ?<span class="faq-chevron">▾</span></button>
-      <div class="faq-ans"><div class="faq-ans-inner">Votre lien de téléchargement PDF est envoyé par WhatsApp dans les minutes suivant la confirmation de paiement. Accès immédiat, peu importe votre ville.</div></div>
+      <div class="faq-ans"><div class="faq-ans-inner">Votre lien de téléchargement PDF est envoyé par WhatsApp dans les minutes suivant la confirmation de paiement. Accès immédiat, peu importe votre pays.</div></div>
     </div>
     <div class="faq-item r d2">
       <button class="faq-btn" onclick="toggleFaq(this)">Comment payer ?<span class="faq-chevron">▾</span></button>
@@ -644,8 +667,8 @@ src="https://www.facebook.com/tr?id=1651374605332302&ev=PageView&noscript=1"/></
       <div class="faq-ans"><div class="faq-ans-inner">Oui. 39 000 FCFA est le prix de lancement, valable uniquement sur le stock initial. Une fois l'offre terminée, le catalogue revient à 60 000 FCFA.</div></div>
     </div>
     <div class="faq-item r d1">
-      <button class="faq-btn" onclick="toggleFaq(this)">Est-ce adapté à ma région ?<span class="faq-chevron">▾</span></button>
-      <div class="faq-ans"><div class="faq-ans-inner">Oui. Tous les devis estimatifs sont calibrés selon les prix du marché camerounais — main-d'œuvre, matériaux et coûts locaux. Le catalogue couvre les besoins de construction partout au Cameroun.</div></div>
+      <button class="faq-btn" onclick="toggleFaq(this)">Est-ce adapté à mon pays ?<span class="faq-chevron">▾</span></button>
+      <div class="faq-ans"><div class="faq-ans-inner">Oui. Les devis sont une base de référence en FCFA, calibrée sur les prix réels du marché — main-d'œuvre, matériaux et coûts locaux. Elle s'ajuste facilement aux coûts de votre pays : Cameroun, Côte d'Ivoire, Sénégal, Gabon, Congo, Bénin, Togo, Mali, Burkina… toute la zone FCFA. Les plans, eux, sont universels.</div></div>
     </div>
     <div class="faq-item r d2">
       <button class="faq-btn" onclick="toggleFaq(this)">Puis-je donner les plans à mon entrepreneur ?<span class="faq-chevron">▾</span></button>
@@ -670,7 +693,7 @@ src="https://www.facebook.com/tr?id=1651374605332302&ev=PageView&noscript=1"/></
 
   <span class="section-label section-label-gold r" style="display:block;text-align:center">Votre maison commence ici</span>
   <h2 class="r" style="color:var(--white);text-align:center;margin-bottom:8px"><span class="ag">50 plans.</span> Un seul catalogue.</h2>
-  <p class="section-intro section-intro-light r" style="text-align:center;margin-bottom:24px">Livré chez vous partout au Cameroun.</p>
+  <p class="section-intro section-intro-light r" style="text-align:center;margin-bottom:24px">Reçu partout en Afrique francophone — directement sur votre WhatsApp.</p>
 
   <div style="max-width:400px;margin:0 auto">
     <div class="r" style="display:flex;align-items:center;justify-content:center;gap:12px;margin-bottom:18px">
@@ -772,6 +795,7 @@ src="https://www.facebook.com/tr?id=1651374605332302&ev=PageView&noscript=1"/></
             </div>
           </label>
         </div>
+        <p style="font-size:12px;color:var(--gray);margin-top:8px">Autre Mobile Money (Wave, Moov…) ? Indiquez-le sur WhatsApp, on s'adapte.</p>
       </div>
       <div class="order-sum">
         <div class="os-lbl">
