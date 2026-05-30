@@ -458,10 +458,19 @@ src="https://www.facebook.com/tr?id=1651374605332302&ev=PageView&noscript=1"/></
   <span class="section-label section-label-gold r">Aperçu du Catalogue</span>
   <h2 class="r"><span class="aw">Quelques pages</span> <span class="ag">à l'intérieur</span></h2>
   <div class="catalog-slider r" style="margin-top:24px;position:relative;width:100%;max-width:480px;margin-left:auto;margin-right:auto">
-    <div class="cslider-track" id="csliderTrack" style="display:flex;overflow:hidden;border-radius:12px;box-shadow:0 8px 32px rgba(0,0,0,0.35)">
-      <img class="cslide" src="https://wooplans.b-cdn.net/cp%20book%20wooplans/cp%20book%20samples/2.png" alt="Page catalogue 1" style="min-width:100%;width:100%;object-fit:cover;display:block;user-select:none;-webkit-user-drag:none">
-      <img class="cslide" src="https://wooplans.b-cdn.net/cp%20book%20wooplans/cp%20book%20samples/3.png" alt="Page catalogue 2" style="min-width:100%;width:100%;object-fit:cover;display:block;user-select:none;-webkit-user-drag:none">
-      <img class="cslide" src="https://wooplans.b-cdn.net/cp%20book%20wooplans/cp%20book%20samples/1.png" alt="Page catalogue 3" style="min-width:100%;width:100%;object-fit:cover;display:block;user-select:none;-webkit-user-drag:none">
+    <div style="overflow:hidden;border-radius:12px;box-shadow:0 8px 32px rgba(0,0,0,0.35)">
+      <div class="cslider-track" id="csliderTrack" style="display:flex;will-change:transform">
+        <img class="cslide" src="https://wooplans.b-cdn.net/cp%20book%20wooplans/cp%20book%20samples/2.png" alt="Page catalogue 1" style="min-width:100%;width:100%;object-fit:cover;display:block;user-select:none;-webkit-user-drag:none">
+        <img class="cslide" src="https://wooplans.b-cdn.net/cp%20book%20wooplans/cp%20book%20samples/3.png" alt="Page catalogue 2" style="min-width:100%;width:100%;object-fit:cover;display:block;user-select:none;-webkit-user-drag:none">
+        <img class="cslide" src="https://wooplans.b-cdn.net/cp%20book%20wooplans/cp%20book%20samples/1.png" alt="Page catalogue 3" style="min-width:100%;width:100%;object-fit:cover;display:block;user-select:none;-webkit-user-drag:none">
+        <div class="cslide" style="min-width:100%;width:100%;display:flex;align-items:center;justify-content:center;background:#0d3b2b;min-height:360px">
+          <div style="text-align:center;padding:32px 24px">
+            <div style="font-size:4rem;font-weight:900;color:var(--gold);line-height:1">+47</div>
+            <div style="font-size:1.25rem;font-weight:700;color:#fff;margin-top:8px;letter-spacing:0.02em">autres plans</div>
+            <div style="font-size:0.9rem;color:rgba(255,255,255,0.6);margin-top:10px">disponibles dans le catalogue complet</div>
+          </div>
+        </div>
+      </div>
     </div>
     <!-- Arrows -->
     <button onclick="cSlide(-1)" aria-label="Précédent" style="position:absolute;left:-14px;top:50%;transform:translateY(-50%);background:var(--white);border:none;border-radius:50%;width:36px;height:36px;display:flex;align-items:center;justify-content:center;cursor:pointer;box-shadow:0 2px 10px rgba(0,0,0,0.2);z-index:2;padding:0">
@@ -475,6 +484,7 @@ src="https://www.facebook.com/tr?id=1651374605332302&ev=PageView&noscript=1"/></
       <button onclick="cGoTo(0)" class="cdot active" style="width:8px;height:8px;border-radius:50%;border:none;cursor:pointer;background:var(--gold);opacity:1;transition:opacity 0.2s,transform 0.2s;padding:0"></button>
       <button onclick="cGoTo(1)" class="cdot" style="width:8px;height:8px;border-radius:50%;border:none;cursor:pointer;background:var(--gold);opacity:0.35;transition:opacity 0.2s,transform 0.2s;padding:0"></button>
       <button onclick="cGoTo(2)" class="cdot" style="width:8px;height:8px;border-radius:50%;border:none;cursor:pointer;background:var(--gold);opacity:0.35;transition:opacity 0.2s,transform 0.2s;padding:0"></button>
+      <button onclick="cGoTo(3)" class="cdot" style="width:8px;height:8px;border-radius:50%;border:none;cursor:pointer;background:var(--gold);opacity:0.35;transition:opacity 0.2s,transform 0.2s;padding:0"></button>
     </div>
   </div>
 </section>
@@ -912,7 +922,7 @@ document.addEventListener('keydown',e=>{if(e.key==='Escape'){closeVideo();closeO
 
 /* ── CATALOG SLIDER ── */
 (function(){
-  var cur=0,total=3;
+  var cur=0,total=4;
   var track=document.getElementById('csliderTrack');
   var dots=document.querySelectorAll('.cdot');
   function goTo(n){
