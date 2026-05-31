@@ -2,7 +2,7 @@
 <html lang="fr">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Wooplans — 50 Plans de Maison · Catalogue Premium</title>
 <meta name="description" content="Le catalogue de référence pour préparer la construction de votre maison. 50 modèles — villas, duplex, plans de distribution, rendus 3D et devis estimatifs en FCFA.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -391,8 +391,8 @@ src="https://www.facebook.com/tr?id=1651374605332302&ev=PageView&noscript=1"/></
 
   <div class="hero-price">
     <div class="price-row">
-      <span class="price-old">60 000 FCFA</span>
-      <span class="price-badge">–35%</span>
+      <span class="price-old">78 000 FCFA</span>
+      <span class="price-badge">–50%</span>
     </div>
     <div class="price-new">39 000<span class="price-fcfa"> FCFA</span></div>
   </div>
@@ -570,7 +570,7 @@ src="https://www.facebook.com/tr?id=1651374605332302&ev=PageView&noscript=1"/></
   <div class="testi-grid-2x2" style="margin-top:20px">
     <div class="testi-card r" onclick="openVideo(0)">
       <div class="testi-video">
-        <video class="testi-vid-el" id="tvid0" src="https://wooplans.b-cdn.net/T%C3%A9moignage_Ibrahim-original%20(1).mp4" preload="auto" playsinline muted loop></video>
+        <video class="testi-vid-el" id="tvid0" src="https://wooplans.b-cdn.net/T%C3%A9moignage_Ibrahim-original%20(1).mp4" preload="none" playsinline muted loop></video>
         <img class="testi-poster" id="tposter0" alt="">
         <div class="testi-video-bg"></div><div class="testi-play"></div><span class="testi-video-lbl">▶ Vidéo</span>
       </div>
@@ -580,7 +580,7 @@ src="https://www.facebook.com/tr?id=1651374605332302&ev=PageView&noscript=1"/></
     </div>
     <div class="testi-card r d1" onclick="openVideo(1)">
       <div class="testi-video">
-        <video class="testi-vid-el" id="tvid1" src="https://wooplans.b-cdn.net/VID-20250121-WA0013-original.mp4" preload="auto" playsinline muted loop></video>
+        <video class="testi-vid-el" id="tvid1" src="https://wooplans.b-cdn.net/VID-20250121-WA0013-original.mp4" preload="none" playsinline muted loop></video>
         <img class="testi-poster" id="tposter1" alt="">
         <div class="testi-video-bg"></div><div class="testi-play"></div><span class="testi-video-lbl">▶ Vidéo</span>
       </div>
@@ -590,7 +590,7 @@ src="https://www.facebook.com/tr?id=1651374605332302&ev=PageView&noscript=1"/></
     </div>
     <div class="testi-card r d2" onclick="openVideo(2)">
       <div class="testi-video">
-        <video class="testi-vid-el" id="tvid2" src="https://wooplans.b-cdn.net/T%C3%A9moignages_Francis-original%20(1).mp4" preload="auto" playsinline muted loop></video>
+        <video class="testi-vid-el" id="tvid2" src="https://wooplans.b-cdn.net/T%C3%A9moignages_Francis-original%20(1).mp4" preload="none" playsinline muted loop></video>
         <img class="testi-poster" id="tposter2" alt="">
         <div class="testi-video-bg"></div><div class="testi-play"></div><span class="testi-video-lbl">▶ Vidéo</span>
       </div>
@@ -600,7 +600,7 @@ src="https://www.facebook.com/tr?id=1651374605332302&ev=PageView&noscript=1"/></
     </div>
     <div class="testi-card r d3" onclick="openVideo(3)">
       <div class="testi-video">
-        <video class="testi-vid-el" id="tvid3" src="https://wooplans.b-cdn.net/temoignage%20audio%20video.mp4" preload="auto" playsinline muted loop></video>
+        <video class="testi-vid-el" id="tvid3" src="https://wooplans.b-cdn.net/temoignage%20audio%20video.mp4" preload="none" playsinline muted loop></video>
         <img class="testi-poster" id="tposter3" alt="">
         <div class="testi-video-bg"></div><div class="testi-play"></div><span class="testi-video-lbl">▶ Vidéo</span>
       </div>
@@ -813,7 +813,7 @@ src="https://www.facebook.com/tr?id=1651374605332302&ev=PageView&noscript=1"/></
     var gc=document.getElementById('gaugeCount'+sfx);
     var gf=document.getElementById('gaugeFill'+sfx);
     var gs=document.getElementById('gaugeSub'+sfx);
-    if(gc) gc.textContent='Offre limitée';
+    if(gc) gc.textContent=rem+' / '+MAX_STOCK+' catalogues';
     if(gs) gs.textContent=subTxt;
     if(gf) setTimeout(function(){gf.style.width=pct+'%'},sfx===''?300:600);
   });
