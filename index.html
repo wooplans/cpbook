@@ -322,6 +322,61 @@ h2{font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;font-size:clamp(24
 @keyframes blink-count{0%,100%{opacity:1}50%{opacity:0.45}}
 .gauge-count-blink{animation:blink-count 2s ease-in-out infinite}
 
+/* ── BADGE BLINK -50% (Q21) ── */
+@keyframes badge-pop{0%,100%{transform:scale(1);opacity:1}50%{transform:scale(1.12);opacity:0.85}}
+.badge-blink{animation:badge-pop 1.8s ease-in-out infinite;display:inline-block}
+
+/* ── TESTI PLAY ANIMÉ (Q10) ── */
+@keyframes play-pulse{0%,100%{box-shadow:0 0 0 0 rgba(240,138,46,0.7),0 4px 12px rgba(240,138,46,0.35)}70%{box-shadow:0 0 0 18px rgba(240,138,46,0),0 4px 12px rgba(240,138,46,0.35)}}
+.testi-play{animation:play-pulse 2.2s infinite}
+
+/* ── PHONE FIELD AVEC PAYS (Q43) ── */
+.phone-input-wrap{display:flex;border:2px solid #E2E8EC;border-radius:12px;overflow:hidden;transition:border-color 0.2s,box-shadow 0.2s;background:var(--white);position:relative}
+.phone-input-wrap:focus-within{border-color:var(--teal);box-shadow:0 0 0 4px rgba(15,91,89,0.12)}
+.country-sel-btn{background:rgba(15,91,89,0.05);border:none;border-right:2px solid #E2E8EC;padding:0 10px 0 12px;font-size:14px;font-weight:600;color:var(--dark);cursor:pointer;outline:none;height:54px;white-space:nowrap;min-width:88px;display:flex;align-items:center;gap:3px;flex-shrink:0}
+.country-sel-btn::after{content:'▾';font-size:10px;color:var(--teal);margin-left:2px}
+.country-dropdown{display:none;position:absolute;top:100%;left:0;background:var(--white);border:2px solid var(--teal);border-radius:10px;z-index:400;max-height:240px;overflow-y:auto;box-shadow:0 8px 24px rgba(0,0,0,0.18);min-width:240px;margin-top:4px}
+.country-dropdown.open{display:block}
+.country-opt{padding:11px 14px;cursor:pointer;font-size:13px;color:var(--dark);display:flex;align-items:center;gap:10px;transition:background 0.15s}
+.country-opt:hover,.country-opt.sel-active{background:rgba(15,91,89,0.07)}
+.country-opt .co-code{font-weight:700;color:var(--teal);font-size:12px;min-width:42px}
+.phone-num-input{flex:1;padding:15px 16px 15px 12px;border:none;outline:none;font-family:'Inter',sans-serif;font-size:16px;color:var(--dark);background:transparent;min-width:0;height:54px}
+.phone-num-input::placeholder{color:#AEB8C0}
+
+/* ── COUNTDOWN (Q34) ── */
+.countdown-wrap{display:inline-flex;align-items:center;gap:8px;background:rgba(199,91,58,0.1);border:1px solid rgba(199,91,58,0.25);border-radius:8px;padding:8px 14px;margin-bottom:14px}
+.countdown-label{font-size:12px;color:var(--red);font-weight:600}
+.countdown-val{font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;font-size:15px;color:var(--red);letter-spacing:0.02em;min-width:82px;text-align:center}
+
+/* ── SECTION RISQUES (Q37) ── */
+.risk-list{display:flex;flex-direction:column;gap:12px;margin-top:20px}
+.risk-item{display:flex;align-items:flex-start;gap:14px;background:rgba(199,91,58,0.04);border:1px solid rgba(199,91,58,0.18);border-radius:10px;padding:16px}
+.risk-icon{width:42px;height:42px;background:rgba(199,91,58,0.1);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0}
+.risk-text h3{font-family:'Plus Jakarta Sans',sans-serif;font-weight:700;font-size:14px;color:var(--dark);margin-bottom:3px}
+.risk-text p{font-size:13px;color:var(--gray);line-height:1.5}
+
+/* ── SECTION POUR QUI (Q39) ── */
+.forqui-list{display:flex;flex-direction:column;gap:10px;margin-top:20px}
+.forqui-item{display:flex;align-items:center;gap:12px;background:var(--white);border:1.5px solid rgba(15,91,89,0.15);border-radius:10px;padding:14px 16px}
+.forqui-check{width:26px;height:26px;background:var(--teal);border-radius:50%;display:flex;align-items:center;justify-content:center;color:white;font-size:12px;font-weight:800;flex-shrink:0}
+.forqui-item p{font-size:14px;color:var(--dark);font-weight:500;line-height:1.4}
+
+/* ── SUMMARY BAR (Q36) ── */
+.summary-bar{display:flex;justify-content:center;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:18px;padding:14px 16px;background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.18);border-radius:10px;width:100%;max-width:420px}
+.summary-item{display:flex;align-items:center;gap:5px;font-size:13px;font-weight:600;color:rgba(255,255,255,0.92)}
+.summary-check{color:var(--gold);font-weight:800;font-size:15px}
+.summary-sep{width:1px;height:16px;background:rgba(255,255,255,0.2)}
+
+/* ── CRED BAR ARCHITECTES (Q12) ── */
+.cred-bar{background:rgba(15,91,89,0.05);padding:10px 20px;display:flex;align-items:center;justify-content:center;gap:8px;border-bottom:1px solid var(--border);flex-wrap:wrap}
+.cred-bar span{font-size:12px;color:var(--gray);text-align:center}
+.cred-bar strong{color:var(--teal);font-weight:700}
+
+@media(min-width:768px){
+  .risk-list{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px}
+  .forqui-list{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+}
+
 /* ── TABLETTE & DESKTOP ── */
 @media(min-width:768px){
   /* Contenu centré dans une colonne lisible plutôt qu'étiré ou collé à gauche */
@@ -361,6 +416,11 @@ src="https://www.facebook.com/tr?id=1651374605332302&ev=PageView&noscript=1"/></
 </head>
 <body>
 
+<!-- CRED BAR ARCHITECTES (Q12) -->
+<div class="cred-bar">
+  <span>🏛️ <strong>Plans conçus par des architectes expérimentés</strong> — Validés sur les réalités du marché FCFA</span>
+</div>
+
 <!-- TOPBAR (appears after hero) -->
 <nav class="topbar" id="topbar">
   <div class="topbar-logo">Woo<span>plans</span></div>
@@ -373,30 +433,30 @@ src="https://www.facebook.com/tr?id=1651374605332302&ev=PageView&noscript=1"/></
 <!-- HERO -->
 <section class="hero" id="heroSection">
   <div class="hero-eyebrow">
-    <span>📘 Catalogue Premium · Édition 2026</span>
+    <span>✏️ Architectes expérimentés !</span>
   </div>
 
-  <h1>50 Plans de Maison<br>dans un seul <span class="hl">catalogue</span></h1>
+  <h1>Avant de dépenser des millions au chantier, <span class="hl">choisissez d'abord un bon plan</span> parmi nos 50 modèles</h1>
 
   <div class="hero-rating">
     <span class="rating-stars">★★★★★</span>
     <span class="rating-text"><strong>4,9</strong> · +129 avis</span>
   </div>
 
-  <p class="hero-sub">50 modèles avec plans de distribution, rendus 3D et devis en FCFA calibrés sur les prix réels du marché.</p>
+  <p class="hero-sub">Construire avec un mauvais plan coûte 3× plus cher. Voici 50 modèles qui vous facilitent le choix.</p>
 
   <div class="vsl-wrap" id="vslWrap">
     <video id="heroVid" src="https://wooplans.b-cdn.net/cp%20book%20wooplans/AI%20captions%20-%20vsl_malik_H_sub.mp4" playsinline webkit-playsinline preload="auto" muted style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity 0.5s"></video>
     <div class="vsl-inner" id="vslOverlay" onclick="playHeroVid()" style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;transition:background 0.5s">
       <div class="vsl-play"></div>
-      <span class="vsl-lbl">Voir la présentation du catalogue</span>
+      <span class="vsl-lbl">▶ Présentation du catalogue · <span id="vslDur">chargement…</span></span>
     </div>
   </div>
 
   <div class="hero-price">
     <div class="price-row">
-      <span class="price-old">60 000 FCFA</span>
-      <span class="price-badge">–35%</span>
+      <span class="price-old">78 000 FCFA</span>
+      <span class="price-badge badge-blink">–50%</span>
     </div>
     <div class="price-new">39 000<span class="price-fcfa"> FCFA</span></div>
   </div>
@@ -436,19 +496,74 @@ src="https://www.facebook.com/tr?id=1651374605332302&ev=PageView&noscript=1"/></
   <div class="inside-list">
     <div class="inside-item r">
       <div class="inside-icon">🏗️</div>
-      <div class="inside-text"><h3>Rendus 3D professionnels</h3><p>Visualisez chaque maison avant de construire. Vues extérieures haute définition.</p></div>
+      <div class="inside-text"><h3>Rendus 3D professionnels</h3><p>Montrez la maison à votre famille avant même de poser la première pierre — elle voit exactement ce que ça donnera.</p></div>
     </div>
     <div class="inside-item r d1">
       <div class="inside-icon">📐</div>
-      <div class="inside-text"><h3>Plans de distribution</h3><p>Visualisez l'agencement : chaque pièce et chaque dimension clairement indiquées.</p></div>
+      <div class="inside-text"><h3>Plans de distribution</h3><p>Donnez ce plan à votre maçon — il comprend immédiatement. Chaque pièce, chaque dimension, sans ambiguïté.</p></div>
     </div>
     <div class="inside-item r d2">
       <div class="inside-icon">💰</div>
-      <div class="inside-text"><h3>Devis estimatifs en FCFA</h3><p>Combien ça coûte vraiment ? Estimation détaillée en FCFA sur les prix du marché 2026.</p></div>
+      <div class="inside-text"><h3>Devis estimatifs en FCFA</h3><p>Sachez combien ça coûte vraiment avant de négocier avec les entrepreneurs. Évitez les mauvaises surprises en cours de chantier.</p></div>
     </div>
     <div class="inside-item r d3">
       <div class="inside-icon">📥</div>
-      <div class="inside-text"><h3>Catalogue Premium PDF</h3><p>Fichier haute définition format A3, imprimable. Reçu par WhatsApp dès confirmation.</p></div>
+      <div class="inside-text"><h3>Catalogue Premium PDF</h3><p>Reçu sur WhatsApp en moins de 5 minutes. Format A3 haute définition, imprimable, consultable sur téléphone.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION RISQUES (Q37) -->
+<section class="s-white">
+  <span class="section-label r" style="color:var(--red)">⚠️ Attention</span>
+  <h2 class="r">Construire sans choisir parmi<br>plusieurs plans, <span style="color:var(--red)">c'est très risqué</span></h2>
+  <p class="section-intro r">La plupart des chantiers qui dérapent commencent par un mauvais point de départ. Voici les 3 erreurs les plus coûteuses.</p>
+  <div class="risk-list">
+    <div class="risk-item r">
+      <div class="risk-icon">💸</div>
+      <div class="risk-text">
+        <h3>Des modifications coûteuses en cours de chantier</h3>
+        <p>Changer un mur, déplacer une pièce, revoir l'agencement après le coulage — chaque modification imprévue peut coûter des centaines de milliers de FCFA.</p>
+      </div>
+    </div>
+    <div class="risk-item r d1">
+      <div class="risk-icon">🤝</div>
+      <div class="risk-text">
+        <h3>Impossible de contrôler votre entrepreneur</h3>
+        <p>Sans plan précis en main, vous ne pouvez pas vérifier si les dimensions sont respectées. L'entrepreneur fait ce qu'il veut — et vous payez.</p>
+      </div>
+    </div>
+    <div class="risk-item r d2">
+      <div class="risk-icon">😤</div>
+      <div class="risk-text">
+        <h3>Un résultat qui ne ressemble pas à ce que vous vouliez</h3>
+        <p>Sans render 3D ni plan validé, la maison construite ne correspond souvent pas aux attentes. Trop tard pour revenir en arrière.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION POUR QUI (Q39) -->
+<section class="s-bg">
+  <span class="section-label r">Pour qui ?</span>
+  <h2 class="r">Ce catalogue est fait <span class="ao">pour vous si…</span></h2>
+  <p class="section-intro r">Ce n'est pas pour tout le monde. Vérifiez que vous cochez au moins un de ces points.</p>
+  <div class="forqui-list">
+    <div class="forqui-item r">
+      <div class="forqui-check">✓</div>
+      <p>Vous planifiez construire votre maison dans les 1 à 3 prochaines années</p>
+    </div>
+    <div class="forqui-item r d1">
+      <div class="forqui-check">✓</div>
+      <p>Vous ne savez pas encore quel type de maison correspond à votre budget et vos besoins</p>
+    </div>
+    <div class="forqui-item r d2">
+      <div class="forqui-check">✓</div>
+      <p>Vous voulez contrôler votre chantier et éviter de vous faire arnaquer par les entreprises</p>
+    </div>
+    <div class="forqui-item r d3">
+      <div class="forqui-check">✓</div>
+      <p>Vous cherchez à montrer un plan concret à votre famille ou à votre banque</p>
     </div>
   </div>
 </section>
@@ -502,10 +617,11 @@ src="https://www.facebook.com/tr?id=1651374605332302&ev=PageView&noscript=1"/></
         <div class="bonus-num">1</div>
         <h3>Accès numérique à vie &amp; illimité</h3>
       </div>
-      <p>Consultez les 50 plans et devis depuis votre téléphone, à tout moment.</p>
+      <p>Consultez les 50 plans et devis depuis votre téléphone, à tout moment. Filtrez par budget, surface et nombre de pièces.</p>
       <div class="bonus-feats">
-        <div class="bfeat">50 plans interactifs sur mobile</div>
-        <div class="bfeat">Aucun abonnement — accès à vie</div>
+        <div class="bfeat">50 plans interactifs sur mobile, dès maintenant</div>
+        <div class="bfeat">Vous recevez automatiquement les nouveaux plans ajoutés chaque mois</div>
+        <div class="bfeat">Aucun abonnement — accès à vie garanti</div>
       </div>
     </div>
 
@@ -513,12 +629,24 @@ src="https://www.facebook.com/tr?id=1651374605332302&ev=PageView&noscript=1"/></
       <div class="bonus-value-tag">🎁 Bonus 2 &nbsp;·&nbsp; Valeur 15 000 FCFA — Offert</div>
       <div class="bonus-header">
         <div class="bonus-num">2</div>
-        <h3>Les 5 étapes pour réussir votre chantier</h3>
+        <h3>Guide Anti-Arnaques Chantier</h3>
       </div>
-      <p>Le guide pratique pour éviter les dépenses inutiles et mener votre chantier de bout en bout.</p>
+      <p>Le guide pratique pour ne pas se faire rouler par les entrepreneurs et mener votre chantier de bout en bout sans mauvaises surprises.</p>
       <div class="bonus-feats">
-        <div class="bfeat">5 étapes clés détaillées</div>
-        <div class="bfeat">Erreurs fréquentes à éviter</div>
+        <div class="bfeat">5 étapes clés pour éviter les arnaques fréquentes</div>
+        <div class="bfeat">Comment vérifier que les travaux sont bien exécutés</div>
+      </div>
+    </div>
+    <div class="bonus-card std r d2">
+      <div class="bonus-value-tag">🎁 Bonus 3 &nbsp;·&nbsp; Valeur 25 000 FCFA — Offert</div>
+      <div class="bonus-header">
+        <div class="bonus-num">3</div>
+        <h3>Consultation gratuite avec un architecte Wooplans</h3>
+      </div>
+      <p>Posez vos questions directement à un architecte par WhatsApp. Budget, choix du plan, adaptations — vous n'êtes pas seul.</p>
+      <div class="bonus-feats">
+        <div class="bfeat">Session de 30 min par WhatsApp avec un professionnel</div>
+        <div class="bfeat">Conseils personnalisés selon votre budget et votre pays</div>
       </div>
     </div>
   </div>
@@ -531,42 +659,50 @@ src="https://www.facebook.com/tr?id=1651374605332302&ev=PageView&noscript=1"/></
   <div class="testi-grid-2x2" style="margin-top:20px">
     <div class="testi-card r" onclick="openVideo(0)">
       <div class="testi-video">
-        <video class="testi-vid-el" id="tvid0" src="https://wooplans.b-cdn.net/T%C3%A9moignage_Ibrahim-original%20(1).mp4" preload="auto" playsinline muted loop></video>
+        <video class="testi-vid-el" id="tvid0" src="https://wooplans.b-cdn.net/T%C3%A9moignage_Ibrahim-original%20(1).mp4" preload="none" playsinline muted loop></video>
         <img class="testi-poster" id="tposter0" alt="">
         <div class="testi-video-bg"></div><div class="testi-play"></div><span class="testi-video-lbl">▶ Vidéo</span>
       </div>
       <div class="testi-body">
-        <div class="testi-name">Ibrahim</div><div class="testi-loc">Cameroun</div>
+        <div class="testi-stars">★★★★★</div>
+        <div class="testi-name">Ibrahim</div><div class="testi-loc">Cameroun 🇨🇲</div>
+        <div class="testi-loc" style="font-size:10px;margin-top:3px;color:var(--gray);font-style:italic">A commandé il y a 2 mois · Chantier démarré à Douala</div>
       </div>
     </div>
     <div class="testi-card r d1" onclick="openVideo(1)">
       <div class="testi-video">
-        <video class="testi-vid-el" id="tvid1" src="https://wooplans.b-cdn.net/VID-20250121-WA0013-original.mp4" preload="auto" playsinline muted loop></video>
+        <video class="testi-vid-el" id="tvid1" src="https://wooplans.b-cdn.net/VID-20250121-WA0013-original.mp4" preload="none" playsinline muted loop></video>
         <img class="testi-poster" id="tposter1" alt="">
         <div class="testi-video-bg"></div><div class="testi-play"></div><span class="testi-video-lbl">▶ Vidéo</span>
       </div>
       <div class="testi-body">
-        <div class="testi-name">Bassirou</div><div class="testi-loc">Cameroun</div>
+        <div class="testi-stars">★★★★★</div>
+        <div class="testi-name">Bassirou</div><div class="testi-loc">Cameroun 🇨🇲</div>
+        <div class="testi-loc" style="font-size:10px;margin-top:3px;color:var(--gray);font-style:italic">A commandé il y a 3 mois · Projet finalisé à Yaoundé</div>
       </div>
     </div>
     <div class="testi-card r d2" onclick="openVideo(2)">
       <div class="testi-video">
-        <video class="testi-vid-el" id="tvid2" src="https://wooplans.b-cdn.net/T%C3%A9moignages_Francis-original%20(1).mp4" preload="auto" playsinline muted loop></video>
+        <video class="testi-vid-el" id="tvid2" src="https://wooplans.b-cdn.net/T%C3%A9moignages_Francis-original%20(1).mp4" preload="none" playsinline muted loop></video>
         <img class="testi-poster" id="tposter2" alt="">
         <div class="testi-video-bg"></div><div class="testi-play"></div><span class="testi-video-lbl">▶ Vidéo</span>
       </div>
       <div class="testi-body">
-        <div class="testi-name">Francis</div><div class="testi-loc">Cameroun</div>
+        <div class="testi-stars">★★★★★</div>
+        <div class="testi-name">Francis</div><div class="testi-loc">Côte d'Ivoire 🇨🇮</div>
+        <div class="testi-loc" style="font-size:10px;margin-top:3px;color:var(--gray);font-style:italic">A commandé il y a 1 mois · Chantier en cours à Abidjan</div>
       </div>
     </div>
     <div class="testi-card r d3" onclick="openVideo(3)">
       <div class="testi-video">
-        <video class="testi-vid-el" id="tvid3" src="https://wooplans.b-cdn.net/temoignage%20audio%20video.mp4" preload="auto" playsinline muted loop></video>
+        <video class="testi-vid-el" id="tvid3" src="https://wooplans.b-cdn.net/temoignage%20audio%20video.mp4" preload="none" playsinline muted loop></video>
         <img class="testi-poster" id="tposter3" alt="">
         <div class="testi-video-bg"></div><div class="testi-play"></div><span class="testi-video-lbl">▶ Vidéo</span>
       </div>
       <div class="testi-body">
-        <div class="testi-name">Renaud</div><div class="testi-loc">Cameroun</div>
+        <div class="testi-stars">★★★★★</div>
+        <div class="testi-name">Renaud</div><div class="testi-loc">Guinée Conakry 🇬🇳</div>
+        <div class="testi-loc" style="font-size:10px;margin-top:3px;color:var(--gray);font-style:italic">A commandé il y a 2 mois · Plans validés à Conakry</div>
       </div>
     </div>
   </div>
@@ -580,16 +716,30 @@ src="https://www.facebook.com/tr?id=1651374605332302&ev=PageView&noscript=1"/></
     <div class="pricing-top">
       <div class="lbl">Catalogue Premium Wooplans · Édition 2026</div>
       <div class="p-main">39 000<span class="p-fcfa"> FCFA</span></div>
-      <div class="p-was">au lieu de 60 000 FCFA</div>
-      <div class="pricing-badge">Offre de lancement — –35%</div>
+      <div class="p-was">au lieu de 78 000 FCFA</div>
+      <div class="pricing-badge badge-blink">Offre de lancement — –50%</div>
+      <div style="margin-top:14px;display:flex;flex-direction:column;align-items:center;gap:4px">
+        <div class="countdown-wrap">
+          <span class="countdown-label">⏳ Offre expire dans</span>
+          <span class="countdown-val" id="countdownVal">--:--:--</span>
+        </div>
+      </div>
     </div>
     <div class="pricing-body">
       <div class="pricing-incs">
         <div class="pinc">Catalogue Premium — 50 modèles</div>
         <div class="pinc">Rendus 3D + plans de distribution + devis</div>
-        <div class="pinc bonus">🎁 Bonus 1 : Accès numérique à vie (valeur 35 000 FCFA)</div>
-        <div class="pinc bonus">🎁 Bonus 2 : Guide 5 étapes chantier (valeur 15 000 FCFA)</div>
-        <div class="pinc" style="border-top:1px solid var(--border);padding-top:12px;margin-top:4px;color:var(--orange-dk);font-weight:600">💎 Valeur des bonus : 50 000 FCFA — offert aujourd'hui</div>
+        <div class="pinc bonus">🎁 Bonus 1 : Accès numérique à vie + nouveaux plans mensuels (valeur 35 000 FCFA)</div>
+        <div class="pinc bonus">🎁 Bonus 2 : Guide Anti-Arnaques Chantier (valeur 15 000 FCFA)</div>
+        <div class="pinc bonus">🎁 Bonus 3 : Consultation architecte par WhatsApp (valeur 25 000 FCFA)</div>
+        <div class="pinc" style="border-top:1px solid var(--border);padding-top:12px;margin-top:4px;color:var(--orange-dk);font-weight:600">💎 Valeur totale des bonus : 75 000 FCFA — offert aujourd'hui</div>
+      </div>
+      <div style="display:flex;justify-content:center;gap:8px;flex-wrap:wrap;margin-bottom:16px;padding:12px 14px;background:rgba(15,91,89,0.05);border:1px solid rgba(15,91,89,0.12);border-radius:10px">
+        <span style="display:flex;align-items:center;gap:5px;font-size:12px;font-weight:600;color:var(--teal)"><span style="font-weight:800;font-size:14px">✓</span>50 plans + devis FCFA</span>
+        <span style="width:1px;background:rgba(15,91,89,0.15)"></span>
+        <span style="display:flex;align-items:center;gap:5px;font-size:12px;font-weight:600;color:var(--teal)"><span style="font-weight:800;font-size:14px">✓</span>3 bonus offerts</span>
+        <span style="width:1px;background:rgba(15,91,89,0.15)"></span>
+        <span style="display:flex;align-items:center;gap:5px;font-size:12px;font-weight:600;color:var(--teal)"><span style="font-weight:800;font-size:14px">✓</span>Livré sur WhatsApp en 5 min</span>
       </div>
       <button class="cta-primary" onclick="openOrder()">
         <svg class="wa-svg" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
@@ -626,11 +776,19 @@ src="https://www.facebook.com/tr?id=1651374605332302&ev=PageView&noscript=1"/></
     </div>
     <div class="faq-item r">
       <button class="faq-btn" onclick="toggleFaq(this)">Le prix va augmenter ?<span class="faq-chevron">▾</span></button>
-      <div class="faq-ans"><div class="faq-ans-inner">Oui. 39 000 FCFA est le prix de lancement, valable uniquement pendant une période très limitée. Le catalogue revient à 60 000 FCFA après.</div></div>
+      <div class="faq-ans"><div class="faq-ans-inner">Oui. 39 000 FCFA est le prix de lancement, valable uniquement pendant une période très limitée. Le catalogue revient à 78 000 FCFA après. Profitez-en maintenant.</div></div>
     </div>
     <div class="faq-item r d1">
       <button class="faq-btn" onclick="toggleFaq(this)">Est-ce adapté à mon pays ?<span class="faq-chevron">▾</span></button>
       <div class="faq-ans"><div class="faq-ans-inner">Oui. Les devis sont une base de référence en FCFA, calibrée sur les prix réels du marché — main-d'œuvre, matériaux et coûts locaux. Elle s'ajuste facilement aux coûts de votre pays : Cameroun, Côte d'Ivoire, Sénégal, Gabon, Congo, Bénin, Togo, Mali, Burkina… toute la zone FCFA. Les plans, eux, sont universels.</div></div>
+    </div>
+    <div class="faq-item r d1">
+      <button class="faq-btn" onclick="toggleFaq(this)">Puis-je modifier les plans selon mes besoins ?<span class="faq-chevron">▾</span></button>
+      <div class="faq-ans"><div class="faq-ans-inner">Le catalogue vous fournit des plans de référence. Vous pouvez les utiliser comme base pour discuter des adaptations avec un architecte local ou avec notre équipe via le Bonus 3 (consultation gratuite incluse). Les dimensions, le nombre de pièces ou les finitions peuvent être ajustés selon votre terrain et votre budget.</div></div>
+    </div>
+    <div class="faq-item r d2">
+      <button class="faq-btn" onclick="toggleFaq(this)">Les plans respectent-ils les normes de construction locales ?<span class="faq-chevron">▾</span></button>
+      <div class="faq-ans"><div class="faq-ans-inner">Les plans sont conçus selon les standards de construction en vigueur dans la zone FCFA (Afrique centrale et de l'Ouest). Les principes structurels sont valables dans toute la sous-région. Pour toute exigence réglementaire spécifique à votre commune (permis de construire, distance aux voisins, hauteur maximale), nous vous recommandons de vérifier avec les services d'urbanisme locaux — votre architecte ou notre équipe peut vous y aider.</div></div>
     </div>
     <div class="faq-item r d2">
       <button class="faq-btn" onclick="toggleFaq(this)">Comment utiliser le catalogue pour mon projet ?<span class="faq-chevron">▾</span></button>
@@ -654,14 +812,28 @@ src="https://www.facebook.com/tr?id=1651374605332302&ev=PageView&noscript=1"/></
   </div>
 
   <span class="section-label section-label-gold r" style="display:block;text-align:center">Votre maison commence ici</span>
+  <p class="r" style="font-family:'Plus Jakarta Sans',sans-serif;font-weight:600;font-size:17px;color:rgba(255,255,255,0.85);margin-bottom:20px;line-height:1.5">Construire sa maison, c'est le projet d'une vie.<br>Choisissez le bon plan.</p>
   <h2 class="r" style="color:var(--white);text-align:center;margin-bottom:8px"><span class="ag">50 plans.</span> Un seul catalogue.</h2>
   <p class="section-intro section-intro-light r" style="text-align:center;margin-bottom:24px">Reçu directement sur votre WhatsApp, en quelques minutes.</p>
 
   <div style="max-width:400px;margin:0 auto">
     <div class="r" style="display:flex;align-items:center;justify-content:center;gap:12px;margin-bottom:18px">
-      <span style="font-family:'Plus Jakarta Sans',sans-serif;font-weight:500;font-size:16px;color:rgba(255,255,255,0.4);text-decoration:line-through">60 000</span>
+      <span style="font-family:'Plus Jakarta Sans',sans-serif;font-weight:500;font-size:16px;color:rgba(255,255,255,0.4);text-decoration:line-through">78 000</span>
       <span style="font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;font-size:48px;color:var(--white);letter-spacing:-0.03em;line-height:1">39 000</span>
       <span style="font-family:'Plus Jakarta Sans',sans-serif;font-weight:600;font-size:16px;color:rgba(255,255,255,0.6)">FCFA</span>
+    </div>
+    <!-- Summary bar final (Q36) -->
+    <div class="r summary-bar" style="margin:0 auto 14px">
+      <span class="summary-item"><span class="summary-check">✓</span>50 plans</span>
+      <span class="summary-sep"></span>
+      <span class="summary-item"><span class="summary-check">✓</span>Devis FCFA</span>
+      <span class="summary-sep"></span>
+      <span class="summary-item"><span class="summary-check">✓</span>Livré sur WhatsApp en 5 min</span>
+    </div>
+    <!-- Countdown final -->
+    <div class="r countdown-wrap" style="margin:0 auto 14px">
+      <span class="countdown-label">⏳ Offre expire dans</span>
+      <span class="countdown-val" id="countdownVal2">--:--:--</span>
     </div>
     <!-- Mini gauge final section -->
     <div class="r" style="background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.15);border-radius:10px;padding:14px 16px;margin-bottom:18px;width:100%;max-width:400px;text-align:left">
@@ -689,7 +861,7 @@ src="https://www.facebook.com/tr?id=1651374605332302&ev=PageView&noscript=1"/></
 <div class="sticky-bar" id="stickyBar">
   <div class="sticky-price">
     <div class="s-price">39 000 FCFA</div>
-    <div class="s-was">au lieu de 60 000 FCFA</div>
+    <div class="s-was">au lieu de 78 000 FCFA</div>
   </div>
   <button class="sticky-btn" onclick="openOrder()">
     <svg style="width:16px;height:16px;fill:white;flex-shrink:0" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
@@ -726,27 +898,38 @@ src="https://www.facebook.com/tr?id=1651374605332302&ev=PageView&noscript=1"/></
     <div class="order-body">
       <div class="order-sum">
         <div class="os-price-wrap">
-          <span class="os-was">60 000 FCFA</span>
+          <span class="os-was">78 000 FCFA</span>
           <div class="os-price-row">
             <span class="os-price">39 000 FCFA</span>
-            <span class="os-badge">-35%</span>
+            <span class="os-badge badge-blink">-50%</span>
           </div>
         </div>
       </div>
       <div class="ff" id="ff-name">
         <label for="fName">Votre nom complet</label>
-        <input type="text" id="fName" placeholder="Ex : Marie Nguema" autocomplete="name">
+        <input type="text" id="fName" placeholder="Ex : Jean-Baptiste Mbeki" autocomplete="name">
         <div class="err-msg">Veuillez entrer votre nom</div>
       </div>
       <div class="ff" id="ff-phone">
-        <label for="fPhone">Numéro WhatsApp</label>
-        <input type="tel" id="fPhone" placeholder="Ex : 655 123 456" autocomplete="tel" inputmode="numeric">
+        <label>Numéro WhatsApp</label>
+        <div class="phone-input-wrap" id="phoneWrap">
+          <button type="button" class="country-sel-btn" id="countryBtn" onclick="toggleCountryDropdown(event)">
+            <span id="selectedFlag">🇨🇲</span>
+            <span id="selectedCode">+237</span>
+          </button>
+          <div class="country-dropdown" id="countryDropdown"></div>
+          <input type="tel" id="fPhone" class="phone-num-input" placeholder="6XX XXX XXX" autocomplete="tel" inputmode="numeric">
+        </div>
         <p style="font-size:12px;color:var(--gray);margin-top:6px">C'est sur ce numéro que vous recevrez votre catalogue.</p>
         <div class="err-msg">Veuillez entrer votre numéro</div>
       </div>
+      <div class="ff" id="ff-email">
+        <label for="fEmail">Email <span style="font-weight:400;color:var(--gray)">(optionnel)</span></label>
+        <input type="email" id="fEmail" placeholder="Ex : jean@gmail.com" autocomplete="email">
+      </div>
       <button class="submit-btn" onclick="submitOrder()">
         <svg class="wa-svg" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
-        Confirmer sur WhatsApp
+        Envoyer ma commande → Je reçois mon catalogue en 5 min
       </button>
       <p class="form-note">🔒 Vous finalisez le paiement Mobile Money sur WhatsApp — aucun paiement sur cette page.</p>
     </div>
@@ -815,10 +998,10 @@ function toggleFaq(btn){
 
 /* ── VIDEO MODAL ── */
 const tData=[
-  {name:'Ibrahim',loc:'Cameroun',src:'https://wooplans.b-cdn.net/T%C3%A9moignage_Ibrahim-original%20(1).mp4'},
-  {name:'Bassirou',loc:'Cameroun',src:'https://wooplans.b-cdn.net/VID-20250121-WA0013-original.mp4'},
-  {name:'Francis',loc:'Cameroun',src:'https://wooplans.b-cdn.net/T%C3%A9moignages_Francis-original%20(1).mp4'},
-  {name:'Renaud',loc:'Cameroun',src:'https://wooplans.b-cdn.net/temoignage%20audio%20video.mp4'},
+  {name:'Ibrahim',loc:'Cameroun 🇨🇲',src:'https://wooplans.b-cdn.net/T%C3%A9moignage_Ibrahim-original%20(1).mp4'},
+  {name:'Bassirou',loc:'Cameroun 🇨🇲',src:'https://wooplans.b-cdn.net/VID-20250121-WA0013-original.mp4'},
+  {name:'Francis',loc:"Côte d'Ivoire 🇨🇮",src:'https://wooplans.b-cdn.net/T%C3%A9moignages_Francis-original%20(1).mp4'},
+  {name:'Renaud',loc:'Guinée Conakry 🇬🇳',src:'https://wooplans.b-cdn.net/temoignage%20audio%20video.mp4'},
 ];
 
 function openVideo(i){
@@ -843,6 +1026,30 @@ function closeVideo(e){
   }
 }
 
+/* ── VSL DURÉE DYNAMIQUE (Q16) ── */
+(function(){
+  var vid=document.getElementById('heroVid');
+  if(!vid) return;
+  function setDur(){
+    if(!isFinite(vid.duration)||vid.duration<=0) return;
+    var tot=Math.round(vid.duration);
+    var m=Math.floor(tot/60), s=tot%60;
+    var el=document.getElementById('vslDur');
+    if(el) el.textContent=m+'min'+(s?String(s).padStart(2,'0')+'s':'');
+  }
+  vid.addEventListener('loadedmetadata',setDur);
+  if(vid.readyState>=1) setDur();
+})();
+
+/* ── VSL AUTOPLAY MUET (Q15) ── */
+(function(){
+  var vid=document.getElementById('heroVid');
+  if(!vid) return;
+  vid.muted=true;
+  var p=vid.play();
+  if(p) p.then(function(){vid.style.opacity='1';}).catch(function(){});
+})();
+
 function playHeroVid(){
   var vid=document.getElementById('heroVid');
   var overlay=document.getElementById('vslOverlay');
@@ -854,6 +1061,104 @@ function playHeroVid(){
   vid.play().catch(()=>{});
 }
 function playVSL(){ playHeroVid(); }
+
+/* ── COUNTDOWN 72H (Q34) ── */
+(function(){
+  var KEY='cpbook_dl_v2';
+  var dl=+localStorage.getItem(KEY)||0;
+  if(!dl||dl<Date.now()){
+    dl=Date.now()+72*60*60*1000;
+    localStorage.setItem(KEY,dl);
+  }
+  function fmt(n){return String(Math.floor(n)).padStart(2,'0')}
+  function tick(){
+    var diff=Math.max(0,dl-Date.now());
+    var h=Math.floor(diff/3600000);
+    var m=Math.floor((diff%3600000)/60000);
+    var s=Math.floor((diff%60000)/1000);
+    var str=h+'h '+fmt(m)+'min '+fmt(s)+'s';
+    document.querySelectorAll('.countdown-val').forEach(function(el){el.textContent=str});
+    if(diff>0) requestAnimationFrame(tick);
+  }
+  tick();
+})();
+
+/* ── SÉLECTEUR PAYS (Q43) ── */
+var PAYS=[
+  {code:'+237',flag:'🇨🇲',name:'Cameroun',fmt:'6XX XXX XXX'},
+  {code:'+225',flag:'🇨🇮',name:"Côte d'Ivoire",fmt:'XX XX XX XX XX'},
+  {code:'+221',flag:'🇸🇳',name:'Sénégal',fmt:'7X XXX XX XX'},
+  {code:'+224',flag:'🇬🇳',name:'Guinée Conakry',fmt:'6XX XXX XXX'},
+  {code:'+241',flag:'🇬🇦',name:'Gabon',fmt:'06 XX XX XX XX'},
+  {code:'+242',flag:'🇨🇬',name:'Congo Brazzaville',fmt:'06 XXX XXXX'},
+  {code:'+243',flag:'🇨🇩',name:'RD Congo',fmt:'0XX XXX XXXX'},
+  {code:'+229',flag:'🇧🇯',name:'Bénin',fmt:'XX XX XX XX'},
+  {code:'+228',flag:'🇹🇬',name:'Togo',fmt:'XX XX XX XX'},
+  {code:'+223',flag:'🇲🇱',name:'Mali',fmt:'XX XX XX XX'},
+  {code:'+226',flag:'🇧🇫',name:'Burkina Faso',fmt:'XX XX XX XX'},
+  {code:'+235',flag:'🇹🇩',name:'Tchad',fmt:'XX XX XX XX'},
+  {code:'+236',flag:'🇨🇫',name:'Centrafrique',fmt:'XX XX XX XX'},
+  {code:'+227',flag:'🇳🇪',name:'Niger',fmt:'XX XX XX XX'},
+  {code:'+33',flag:'🇫🇷',name:'France',fmt:'06 XX XX XX XX'},
+];
+var selPaysIdx=0;
+
+function buildCountryDropdown(){
+  var dd=document.getElementById('countryDropdown');
+  if(!dd) return;
+  dd.innerHTML='';
+  PAYS.forEach(function(p,i){
+    var div=document.createElement('div');
+    div.className='country-opt'+(i===selPaysIdx?' sel-active':'');
+    div.innerHTML='<span>'+p.flag+'</span><span class="co-code">'+p.code+'</span><span>'+p.name+'</span>';
+    div.onclick=function(){selectPays(i);};
+    dd.appendChild(div);
+  });
+}
+
+function selectPays(i){
+  selPaysIdx=i;
+  var p=PAYS[i];
+  var btn=document.getElementById('selectedFlag');
+  var code=document.getElementById('selectedCode');
+  var inp=document.getElementById('fPhone');
+  if(btn) btn.textContent=p.flag;
+  if(code) code.textContent=p.code;
+  if(inp) inp.placeholder=p.fmt;
+  toggleCountryDropdown(null);
+  buildCountryDropdown();
+}
+
+function toggleCountryDropdown(e){
+  if(e) e.stopPropagation();
+  var dd=document.getElementById('countryDropdown');
+  if(!dd) return;
+  var open=dd.classList.contains('open');
+  dd.classList.toggle('open',!open);
+  if(!open) buildCountryDropdown();
+}
+
+document.addEventListener('click',function(e){
+  var dd=document.getElementById('countryDropdown');
+  var btn=document.getElementById('countryBtn');
+  if(dd&&!dd.contains(e.target)&&e.target!==btn&&!btn.contains(e.target)){
+    dd.classList.remove('open');
+  }
+});
+
+/* Auto-détection du pays par fuseau horaire */
+(function(){
+  var tz=Intl.DateTimeFormat().resolvedOptions().timeZone||'';
+  var tzMap={
+    'Africa/Douala':0,'Africa/Abidjan':1,'Africa/Dakar':2,
+    'Africa/Conakry':3,'Africa/Libreville':4,'Africa/Brazzaville':5,
+    'Africa/Kinshasa':6,'Africa/Porto-Novo':7,'Africa/Lome':8,
+    'Africa/Bamako':9,'Africa/Ouagadougou':10,'Africa/Ndjamena':11,
+    'Africa/Bangui':12,'Africa/Niamey':13,'Europe/Paris':14
+  };
+  var idx=tzMap[tz];
+  if(idx!==undefined) selectPays(idx);
+})();
 
 /* ── ORDER ── */
 function openOrder(){
@@ -874,20 +1179,25 @@ function chk(id,ffId){
 function submitOrder(){
   const v1=chk('fName','ff-name'),v2=chk('fPhone','ff-phone');
   if(!v1||!v2)return;
-  const phoneRaw=document.getElementById('fPhone').value.trim();
-  if(phoneRaw.replace(/\D/g,'').length<8){
+  const _phoneRaw=document.getElementById('fPhone').value.trim();
+  if(_phoneRaw.replace(/\D/g,'').length<6){
     const ffPh=document.getElementById('ff-phone');
     ffPh.classList.add('has-error');
     ffPh.querySelector('.err-msg').textContent='Numéro trop court — vérifiez votre numéro';
     return;
   }
   const name=document.getElementById('fName').value.trim();
-  const phone=document.getElementById('fPhone').value.trim();
+  const phoneRaw=document.getElementById('fPhone').value.trim();
+  const countryCode=PAYS[selPaysIdx]?PAYS[selPaysIdx].code:'+237';
+  const countryName=PAYS[selPaysIdx]?PAYS[selPaysIdx].name:'';
+  const phone=countryCode+' '+phoneRaw;
+  const email=(document.getElementById('fEmail')?.value||'').trim();
   const pay='Mobile Money';
   const msg=encodeURIComponent(
     'Bonjour Wooplans ! 👋\n\nJe voudrais commander le *Catalogue Premium Wooplans* en téléchargement (50 plans de maison — Édition 2026).\n\n'+
-    '📋 *Mes informations :*\n• Nom : '+name+'\n• Téléphone : '+phone+'\n\n'+
-    '💰 *Montant :* 39 000 FCFA (offre de lancement)\n\nMerci de confirmer les modalités. 🙏'
+    '📋 *Mes informations :*\n• Nom : '+name+'\n• Pays : '+countryName+'\n• WhatsApp : '+phone+
+    (email?'\n• Email : '+email:'')+'\n\n'+
+    '💰 *Montant :* 39 000 FCFA (offre de lancement –50%)\n\nMerci de confirmer les modalités. 🙏'
   );
   // ── Tracking dual : Browser Pixel + Conversions API (déduplication par event_id) ──
   const eventId='cpbook_'+Date.now()+'_'+Math.random().toString(36).slice(2,9);
