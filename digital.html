@@ -903,7 +903,7 @@ function redirectToCheckout(ctaId) {
       currency:'XAF',
       num_items:1,
       payment_method: 'Chariow'
-    });
+    },{eventID:eventId});
     fbq('trackCustom','cpbook_Lead',{
       content_name:'Catalogue Premium Wooplans',
       content_category:'Catalogue',

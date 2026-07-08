@@ -30,27 +30,31 @@ async function handleCapi(request, env) {
       sha256(name.split(' ')[0].toLowerCase().trim())
     ]);
 
+    const baseEvent = {
+      event_time: Math.floor(Date.now() / 1000),
+      event_id,
+      event_source_url: request.headers.get('Referer') || '',
+      action_source: 'website',
+      user_data: {
+        ph: [hashedPhone],
+        fn: [hashedFirstName],
+        client_ip_address: request.headers.get('CF-Connecting-IP') || '',
+        client_user_agent: request.headers.get('User-Agent') || '',
+      },
+      custom_data: {
+        content_name: 'Catalogue Premium Wooplans',
+        value: 39000,
+        currency: 'XAF',
+        city,
+        payment_method,
+      }
+    };
+
     const payload = {
-      data: [{
-        event_name: 'cpbook_Lead',
-        event_time: Math.floor(Date.now() / 1000),
-        event_id,
-        event_source_url: request.headers.get('Referer') || '',
-        action_source: 'website',
-        user_data: {
-          ph: [hashedPhone],
-          fn: [hashedFirstName],
-          client_ip_address: request.headers.get('CF-Connecting-IP') || '',
-          client_user_agent: request.headers.get('User-Agent') || '',
-        },
-        custom_data: {
-          content_name: 'Catalogue Premium Wooplans',
-          value: 39000,
-          currency: 'XAF',
-          city,
-          payment_method,
-        }
-      }]
+      data: [
+        { ...baseEvent, event_name: 'cpbook_Lead' },
+        { ...baseEvent, event_name: 'InitiateCheckout' }
+      ]
     };
 
     const fb = await fetch(

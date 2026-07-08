@@ -1011,7 +1011,7 @@ function submitOrder(){
       currency:'XAF',
       num_items:1,
       payment_method: orderData.payment_method
-    });
+    },{eventID:eventId});
     fbq('trackCustom','cpbook_Lead',{
       content_name:'Catalogue Premium Wooplans',
       content_category:'Catalogue',
