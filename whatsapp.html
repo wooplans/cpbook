@@ -449,7 +449,7 @@ src="https://www.facebook.com/tr?id=1651374605332302&ev=PageView&noscript=1"/></
   <p class="hero-sub">Le catalogue de référence pour préparer la construction de votre maison. Villas, duplex, plans, devis — tout est dedans.</p>
 
   <div class="vsl-wrap" id="vslWrap" onclick="playHeroVid()">
-    <video id="heroVid" src="https://wooplans.b-cdn.net/cp%20book%20wooplans/vsl_cp_book_202605262345.mp4" playsinline webkit-playsinline preload="auto" muted autoplay loop style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity 0.5s"></video>
+    <video id="heroVid" src="https://wooplans.b-cdn.net/cp%20book%20wooplans/vsl%20cpbook%20digital.mp4" playsinline webkit-playsinline preload="auto" muted autoplay loop style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity 0.5s"></video>
     <div class="vsl-inner" id="vslOverlay" onclick="playHeroVid()" style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;transition:background 0.5s">
       <div class="vsl-play"></div>
       <span class="vsl-lbl">Voir la présentation du catalogue</span>
@@ -902,13 +902,33 @@ function closeVideo(e){
 function playHeroVid(){
   var vid=document.getElementById('heroVid');
   var overlay=document.getElementById('vslOverlay');
-  overlay.style.display='none';
+  if(overlay) overlay.style.display='none';
   vid.muted=false;
   vid.controls=true;
   vid.style.opacity='1';
   vid.play().catch(()=>{});
 }
 function playVSL(){ playHeroVid(); }
+
+// Autoplay with sound trigger
+window.addEventListener('DOMContentLoaded', function() {
+  var vid=document.getElementById('heroVid');
+  if(vid) {
+    vid.muted=false;
+    vid.play().then(function() {
+      // Success: browser allowed autoplay with sound
+      var overlay=document.getElementById('vslOverlay');
+      if(overlay) overlay.style.display='none';
+      vid.controls=true;
+      vid.style.opacity='1';
+    }).catch(function() {
+      // Blocked: browser requires user interaction for sound.
+      // Fallback: play muted in the background (overlay remains visible)
+      vid.muted=true;
+      vid.play().catch(function(){});
+    });
+  }
+});
 
 /* ── ORDER ── */
 function openOrder(){
