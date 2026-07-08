@@ -17,6 +17,11 @@ export default {
       return env.ASSETS.fetch(new Request(url.toString(), request));
     }
 
+    if (url.pathname === '/whatsapp' || url.pathname === '/whatsapp/') {
+      url.pathname = '/whatsapp.html';
+      return env.ASSETS.fetch(new Request(url.toString(), request));
+    }
+
     return env.ASSETS.fetch(request);
   }
 };
