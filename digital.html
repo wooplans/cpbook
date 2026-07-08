@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
-<title>Wooplans — 50 Plans de Maison au Cameroun</title>
-<meta name="description" content="Le catalogue de référence pour préparer la construction de votre maison au Cameroun. 50 modèles, villas, duplex, plans, devis.">
+<title>Wooplans — 50 Plans de Maison (Téléchargement Instantané)</title>
+<meta name="description" content="Le catalogue de référence pour préparer la construction de votre maison. 50 modèles, villas, duplex, plans, devis en téléchargement PDF direct.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
@@ -427,9 +427,9 @@ src="https://www.facebook.com/tr?id=1651374605332302&ev=PageView&noscript=1"/></
   <div class="topbar-logo">
     <img src="./assets/wooplans-logo-negative.webp" alt="Wooplans" width="196" height="34" loading="eager" decoding="async">
   </div>
-  <button class="topbar-btn" data-cta-id="topbar_btn" onclick="openOrder()">
-    <svg class="wa-svg" style="width:16px;height:16px" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
-    Commander
+  <button class="topbar-btn" data-cta-id="topbar_btn" onclick="redirectToCheckout(this.getAttribute('data-cta-id'))">
+    <svg class="wa-svg" style="width:16px;height:16px" viewBox="0 0 24 24"><path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/></svg>
+    Télécharger
   </button>
 </nav>
 
@@ -446,7 +446,7 @@ src="https://www.facebook.com/tr?id=1651374605332302&ev=PageView&noscript=1"/></
     <span class="rating-text"><strong>4,9</strong> · +129 avis</span>
   </div>
 
-  <p class="hero-sub">Le catalogue de référence pour préparer la construction de votre maison au Cameroun. Villas, duplex, plans, devis — tout est dedans.</p>
+  <p class="hero-sub">Le catalogue de référence pour préparer la construction de votre maison. Villas, duplex, plans, devis — tout est dedans en téléchargement immédiat.</p>
 
   <div class="vsl-wrap" id="vslWrap" onclick="playHeroVid()">
     <video id="heroVid" src="https://wooplans.b-cdn.net/cp%20book%20wooplans/vsl_cp_book_202605262345.mp4" playsinline webkit-playsinline preload="auto" muted autoplay loop style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity 0.5s"></video>
@@ -464,9 +464,9 @@ src="https://www.facebook.com/tr?id=1651374605332302&ev=PageView&noscript=1"/></
     <div class="price-new">39 000<span class="price-fcfa"> FCFA</span></div>
   </div>
 
-  <button class="hero-cta" data-cta-id="hero_cta" onclick="openOrder()">
-    <svg class="wa-svg" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
-    Commander maintenant
+  <button class="hero-cta" data-cta-id="hero_cta" onclick="redirectToCheckout(this.getAttribute('data-cta-id'))">
+    <svg class="wa-svg" viewBox="0 0 24 24"><path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/></svg>
+    Télécharger le Catalogue
   </button>
 
   <div class="social-badge">
@@ -607,22 +607,22 @@ src="https://www.facebook.com/tr?id=1651374605332302&ev=PageView&noscript=1"/></
   </div>
 </section>
 
-<!-- LIVRAISON -->
+<!-- TÉLÉCHARGEMENT -->
 <section class="s-teal">
-  <span class="section-label section-label-gold r">Livraison</span>
-  <h2 class="r"><span class="aw">Reçu chez vous,</span><br><span class="ag">partout au Cameroun</span></h2>
+  <span class="section-label section-label-gold r">Téléchargement</span>
+  <h2 class="r"><span class="aw">Accès instantané,</span><br><span class="ag">téléchargement immédiat</span></h2>
   <div class="delivery-opts" style="margin-top:20px">
     <div class="delivery-opt r">
-      <div class="delivery-icon">🚗</div>
-      <div><h4>Yaoundé — Livraison à domicile</h4><p>Reçu en 24–48h après confirmation de commande.</p></div>
+      <div class="delivery-icon">📥</div>
+      <div><h4>Fichier PDF Premium</h4><p>Téléchargement immédiat en haute résolution après validation du paiement.</p></div>
     </div>
     <div class="delivery-opt r d1">
-      <div class="delivery-icon">📦</div>
-      <div><h4>Autres villes — Expédition sécurisée</h4><p>Emballage renforcé. Délai estimé 3–5 jours selon la ville.</p></div>
+      <div class="delivery-icon">⚡</div>
+      <div><h4>Accès à vie &amp; Mises à jour</h4><p>Consultez et téléchargez votre catalogue à tout moment sur tous vos écrans.</p></div>
     </div>
   </div>
   <div class="cities-wrap r d2">
-    <span class="city-pill">Yaoundé</span><span class="city-pill">Douala</span><span class="city-pill">Bafoussam</span><span class="city-pill">Garoua</span><span class="city-pill">Bamenda</span><span class="city-pill">Ngaoundéré</span><span class="city-pill">Bertoua</span><span class="city-pill">Maroua</span><span class="city-pill">+ toutes villes</span>
+    <span class="city-pill">Format PDF</span><span class="city-pill">Rendus 3D</span><span class="city-pill">Plans détaillés</span><span class="city-pill">Devis estimatifs</span><span class="city-pill">Accès mobile</span><span class="city-pill">Accès PC / Mac</span><span class="city-pill">Accès à vie</span>
   </div>
 </section>
 
@@ -639,19 +639,19 @@ src="https://www.facebook.com/tr?id=1651374605332302&ev=PageView&noscript=1"/></
     </div>
       <div class="pricing-body">
       <div class="pricing-incs">
-        <div class="pinc">Catalogue Premium A3 couverture rigide</div>
+        <div class="pinc">Catalogue complet en haute résolution</div>
         <div class="pinc">50 modèles — villas &amp; duplex</div>
         <div class="pinc">Rendus 3D + Plans + Devis estimatifs</div>
-        <div class="pinc">Livraison partout au Cameroun</div>
+        <div class="pinc">Téléchargement immédiat (accès à vie)</div>
       </div>
-      <button class="cta-primary" data-cta-id="pricing_cta" onclick="openOrder()">
-        <svg class="wa-svg" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
-        Commander via WhatsApp
+      <button class="cta-primary" data-cta-id="pricing_cta" onclick="redirectToCheckout(this.getAttribute('data-cta-id'))">
+        <svg class="wa-svg" viewBox="0 0 24 24"><path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/></svg>
+        Télécharger le Catalogue
       </button>
       <div class="trust-row">
-        <div class="trust-item"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="var(--teal)" stroke-width="2.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>Paiement Mobile Money</div>
+        <div class="trust-item"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="var(--teal)" stroke-width="2.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>Paiement sécurisé</div>
         <div class="trust-item"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="var(--teal)" stroke-width="2.5"><polyline points="20,6 9,17 4,12"/></svg>Offre limitée</div>
-        <div class="trust-item"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="var(--teal)" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>Livraison rapide</div>
+        <div class="trust-item"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="var(--teal)" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>Téléchargement direct</div>
       </div>
     </div>
   </div>
@@ -664,15 +664,15 @@ src="https://www.facebook.com/tr?id=1651374605332302&ev=PageView&noscript=1"/></
   <div class="faq-list" style="margin-top:20px">
     <div class="faq-item r">
       <button class="faq-btn" onclick="toggleFaq(this)">Comment commander ?<span class="faq-chevron">▾</span></button>
-      <div class="faq-ans"><div class="faq-ans-inner">Cliquez sur "Commander", remplissez le formulaire, et vous êtes redirigé vers WhatsApp avec votre commande. Vous effectuez ensuite le paiement pour confirmer votre commande.</div></div>
+      <div class="faq-ans"><div class="faq-ans-inner">Cliquez sur le bouton de commande pour être redirigé vers notre page de paiement sécurisé. Une fois le paiement validé, vous recevrez immédiatement le lien de téléchargement.</div></div>
     </div>
     <div class="faq-item r d1">
       <button class="faq-btn" onclick="toggleFaq(this)">Quand vais-je recevoir mon catalogue ?<span class="faq-chevron">▾</span></button>
-      <div class="faq-ans"><div class="faq-ans-inner">À Yaoundé : 24 à 48h après confirmation. Autres villes : 3 à 5 jours ouvrés selon la destination. Votre catalogue est soigneusement emballé avant expédition.</div></div>
+      <div class="faq-ans"><div class="faq-ans-inner">Immédiatement après votre paiement. Vous serez redirigé vers la page de téléchargement du catalogue au format PDF et vous recevrez également un e-mail contenant votre lien d'accès à vie.</div></div>
     </div>
     <div class="faq-item r d2">
       <button class="faq-btn" onclick="toggleFaq(this)">Comment payer ?<span class="faq-chevron">▾</span></button>
-      <div class="faq-ans"><div class="faq-ans-inner">Orange Money ou MTN Mobile Money uniquement. Le paiement se fait lors de la commande sur WhatsApp pour confirmer votre commande.</div></div>
+      <div class="faq-ans"><div class="faq-ans-inner">Vous pouvez payer en ligne par Mobile Money ou par carte bancaire de manière totalement sécurisée.</div></div>
     </div>
     <div class="faq-item r">
       <button class="faq-btn" onclick="toggleFaq(this)">Le prix va augmenter ?<span class="faq-chevron">▾</span></button>
@@ -712,13 +712,13 @@ src="https://www.facebook.com/tr?id=1651374605332302&ev=PageView&noscript=1"/></
       </div>
       <div style="margin-top:6px;font-size:11px;color:rgba(255,255,255,0.5)" id="gaugeSub2">—</div>
     </div>
-    <button class="cta-primary cta-pulse r" data-cta-id="final_cta" onclick="openOrder()" style="max-width:420px">
-      <svg class="wa-svg" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
-      Commander via WhatsApp
+    <button class="cta-primary cta-pulse r" data-cta-id="final_cta" onclick="redirectToCheckout(this.getAttribute('data-cta-id'))" style="max-width:420px">
+      <svg class="wa-svg" viewBox="0 0 24 24"><path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/></svg>
+      Télécharger le Catalogue
     </button>
     <div class="trust-row r">
-      <div class="trust-item trust-item-light"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.5)" stroke-width="2.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>Paiement Mobile Money</div>
-      <div class="trust-item trust-item-light"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.5)" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>Livraison rapide</div>
+      <div class="trust-item trust-item-light"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.5)" stroke-width="2.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>Paiement sécurisé</div>
+      <div class="trust-item trust-item-light"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.5)" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>Téléchargement direct</div>
     </div>
   </div>
 </section>
@@ -729,9 +729,9 @@ src="https://www.facebook.com/tr?id=1651374605332302&ev=PageView&noscript=1"/></
     <div class="s-price">39 000 FCFA</div>
     <div class="s-was">au lieu de 78 000 FCFA</div>
   </div>
-  <button class="sticky-btn" data-cta-id="sticky_btn" onclick="openOrder()">
-    <svg style="width:16px;height:16px;fill:white;flex-shrink:0" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
-    Commander
+  <button class="sticky-btn" data-cta-id="sticky_btn" onclick="redirectToCheckout(this.getAttribute('data-cta-id'))">
+    <svg style="width:16px;height:16px;fill:white;flex-shrink:0" viewBox="0 0 24 24"><path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/></svg>
+    Télécharger
   </button>
 </div>
 
@@ -768,63 +768,26 @@ src="https://www.facebook.com/tr?id=1651374605332302&ev=PageView&noscript=1"/></
         <div class="err-msg">Veuillez entrer votre nom</div>
       </div>
       <div class="ff" id="ff-phone">
-        <label for="fPhone">Numéro WhatsApp</label>
+        <label for="fPhone">Numéro de téléphone / WhatsApp</label>
         <input type="tel" id="fPhone" placeholder="Ex : 655 123 456" autocomplete="tel">
         <div class="err-msg">Veuillez entrer votre numéro</div>
       </div>
-      <div class="ff" id="ff-city">
-        <label for="fCity">Ville / Lieu de livraison</label>
-        <div class="sel-wrap">
-          <select id="fCity">
-            <option value="">Sélectionnez votre ville</option>
-            <option>Yaoundé</option>
-            <option>Douala</option>
-            <option>Abidjan</option>
-            <option>Conakry</option>
-            <option>Autres villes</option>
-          </select>
-        </div>
-        <div class="err-msg">Sélectionnez votre ville</div>
-      </div>
-      <div class="ff" id="ff-pay">
-        <label>Moyen de paiement</label>
-        <div style="display:flex;gap:10px;margin-top:2px">
-          <label class="pay-opt" id="pay-orange">
-            <input type="radio" name="payment" value="Orange Money" checked>
-            <div class="pay-card">
-              <span class="pay-icon"><img src="https://wooplans.b-cdn.net/logos/logo%20om%20bon.jpg" alt="Orange Money" style="width:44px;height:44px;object-fit:contain" onerror="this.style.display='none';this.nextElementSibling.style.display='block'"><span style="display:none;font-size:22px">🟠</span></span>
-              <span class="pay-name">Orange Money</span>
-            </div>
-          </label>
-          <label class="pay-opt" id="pay-mtn">
-            <input type="radio" name="payment" value="MTN MoMo">
-            <div class="pay-card">
-              <span class="pay-icon"><img src="https://wooplans.b-cdn.net/logos/momo%20logo.jpg" alt="MTN MoMo" style="width:44px;height:44px;object-fit:contain" onerror="this.style.display='none';this.nextElementSibling.style.display='block'"><span style="display:none;font-size:22px">🟡</span></span>
-              <span class="pay-name">MTN MoMo</span>
-            </div>
-          </label>
-        </div>
+      <div class="ff" id="ff-email">
+        <label for="fEmail">Adresse E-mail</label>
+        <input type="email" id="fEmail" placeholder="Ex : marie@gmail.com" autocomplete="email">
+        <div class="err-msg">Veuillez entrer une adresse e-mail valide</div>
       </div>
       <div class="order-sum">
         <div class="os-lbl">
-          <strong>Catalogue Premium</strong>
+          <strong>Catalogue Premium (Téléchargement PDF)</strong>
         </div>
         <div class="os-price">39 000 FCFA</div>
       </div>
-      <div class="desktop-help" id="desktopHelp">
-        <strong>Vous êtes sur ordinateur ?</strong>
-        <p>Votre demande sera bien enregistrée. Si WhatsApp ne s'ouvre pas ici, copiez le message ou le numéro puis finalisez depuis votre téléphone.</p>
-        <div class="desktop-actions">
-          <button type="button" class="desktop-copy-btn" onclick="copySupportNumber()">Copier le numéro</button>
-          <button type="button" class="desktop-copy-btn" onclick="copyOrderMessage()">Copier le message</button>
-        </div>
-        <div class="lead-status" id="leadStatus"></div>
-      </div>
       <button class="submit-btn" onclick="submitOrder()">
-        <svg class="wa-svg" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
-        Confirmer sur WhatsApp
+        <svg class="wa-svg" style="width:18px;height:18px;fill:white;flex-shrink:0" viewBox="0 0 24 24"><path d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zm-6 9c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zm3.1-9H8.9V6c0-1.71 1.39-3.1 3.1-3.1 1.71 0 3.1 1.39 3.1 3.1v2z"/></svg>
+        Payer et Télécharger
       </button>
-      <p class="form-note">Vous serez redirigé vers WhatsApp pour effectuer le paiement</p>
+      <p class="form-note">Vous serez redirigé vers notre plateforme de paiement sécurisé</p>
     </div>
   </div>
 </div>
@@ -930,11 +893,44 @@ function playHeroVid(){
 }
 function playVSL(){ playHeroVid(); }
 
+function redirectToCheckout(ctaId) {
+  const eventId='cpbook_'+Date.now()+'_'+Math.random().toString(36).slice(2,9);
+  if(typeof fbq==='function'){
+    fbq('track','InitiateCheckout',{
+      content_name:'Catalogue Premium Wooplans',
+      content_category:'Catalogue',
+      value:39000,
+      currency:'XAF',
+      num_items:1,
+      payment_method: 'Chariow'
+    });
+    fbq('trackCustom','cpbook_Lead',{
+      content_name:'Catalogue Premium Wooplans',
+      content_category:'Catalogue',
+      value:39000,
+      currency:'XAF',
+      city:'Digital',
+      payment_method:'Chariow',
+      redirect_channel:'Chariow'
+    },{eventID:eventId});
+  }
+  // CAPI server-side
+  fetch('/api/cpbook-event',{
+    method:'POST',
+    headers:{'Content-Type':'application/json'},
+    body:JSON.stringify({event_id:eventId,name:'Lead Direct',phone:'',city:'Digital',payment_method:'Chariow'})
+  }).catch(()=>{});
+
+  if(typeof window.cpbookTrackRedirect==='function'){
+    window.cpbookTrackRedirect({channel:'chariow',city:'Digital',payment_method:'Chariow'});
+  }
+  window.location.href = 'https://wooplans.mychariow.shop/prd_41k85hc0/checkout';
+}
+
 /* ── ORDER ── */
 function openOrder(){
   const leadStatus=document.getElementById('leadStatus');
   if(leadStatus){leadStatus.className='lead-status';leadStatus.textContent='';}
-  toggleDesktopHelp();
   document.getElementById('orderOv').classList.add('active');
   document.body.style.overflow='hidden';
 }
@@ -954,55 +950,29 @@ const WHATSAPP_NUMBER_DISPLAY='+237 653 76 99 98';
 const CURRENT_DEVICE=window.innerWidth<768?'mobile':window.innerWidth<1024?'tablet':'desktop';
 let lastOrderMessage='';
 function getOrderData(){
-  const payMethod=document.querySelector('input[name="payment"]:checked');
   return {
     name:document.getElementById('fName').value.trim(),
     phone:document.getElementById('fPhone').value.trim(),
-    city:document.getElementById('fCity').value,
-    payment_method:payMethod?payMethod.value:'Orange Money'
+    email:document.getElementById('fEmail').value.trim(),
+    city:'Digital',
+    payment_method:'Chariow'
   };
 }
-function buildOrderMessage(data){
-  return 'Bonjour Wooplans ! 👋\n\nJe voudrais commander le *Catalogue Premium Wooplans* (50 plans de maison — Édition 2026).\n\n'+
-    '📋 *Mes informations :*\n• Nom : '+data.name+'\n• Téléphone : '+data.phone+'\n• Livraison : '+data.city+'\n• Paiement : '+data.payment_method+'\n\n'+
-    '💰 *Montant :* 39 000 FCFA (offre de lancement -50%)\n\nMerci de confirmer les modalités. 🙏';
-}
-function setLeadStatus(msg,type){
-  const el=document.getElementById('leadStatus');
-  if(!el)return;
-  el.textContent=msg;
-  el.className='lead-status active '+(type||'info');
-}
-function toggleDesktopHelp(force){
-  const help=document.getElementById('desktopHelp');
-  if(!help)return;
-  help.classList.toggle('active',force!=null?force:CURRENT_DEVICE==='desktop');
-}
-async function copyTextValue(text,successMsg,actionName){
-  if(!text)return;
-  try{
-    if(navigator.clipboard&&navigator.clipboard.writeText){
-      await navigator.clipboard.writeText(text);
-      setLeadStatus(successMsg,'ok');
-      if(typeof window.cpbookTrackDesktopAssist==='function')window.cpbookTrackDesktopAssist(actionName,{copied:true});
-      return true;
-    }
-  }catch(e){}
-  setLeadStatus('Copie automatique indisponible. Utilisez le numéro '+WHATSAPP_NUMBER_DISPLAY+'.','info');
-  if(typeof window.cpbookTrackDesktopAssist==='function')window.cpbookTrackDesktopAssist(actionName,{copied:false});
-  return false;
-}
-function copySupportNumber(){return copyTextValue(WHATSAPP_NUMBER_DISPLAY,'Numéro copié. Vous pouvez l’utiliser depuis votre téléphone.','copy_number');}
-function copyOrderMessage(){if(!lastOrderMessage)lastOrderMessage=buildOrderMessage(getOrderData());return copyTextValue(lastOrderMessage,'Message copié. Collez-le dans WhatsApp sur votre téléphone.','copy_message');}
 function submitOrder(){
-  const v1=chk('fName','ff-name'),v2=chk('fPhone','ff-phone'),v3=chk('fCity','ff-city');
+  const v1=chk('fName','ff-name'),v2=chk('fPhone','ff-phone'),v3=chk('fEmail','ff-email');
   if(!v1||!v2||!v3)return;
+
+  const emailVal=document.getElementById('fEmail').value.trim();
+  const emailFf=document.getElementById('ff-email');
+  if(!emailVal||!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailVal)){
+    emailFf.classList.add('has-error');
+    return;
+  }
+  emailFf.classList.remove('has-error');
+
   const orderData=getOrderData();
-  const msgText=buildOrderMessage(orderData);
-  lastOrderMessage=msgText;
-  const msg=encodeURIComponent(msgText);
-  // ── Tracking dual : Browser Pixel + Conversions API (déduplication par event_id) ──
   const eventId='cpbook_'+Date.now()+'_'+Math.random().toString(36).slice(2,9);
+
   if(typeof fbq==='function'){
     fbq('track','InitiateCheckout',{
       content_name:'Catalogue Premium Wooplans',
@@ -1010,45 +980,38 @@ function submitOrder(){
       value:39000,
       currency:'XAF',
       num_items:1,
-      payment_method: orderData.payment_method
+      payment_method: 'Chariow'
     });
     fbq('trackCustom','cpbook_Lead',{
       content_name:'Catalogue Premium Wooplans',
       content_category:'Catalogue',
       value:39000,
       currency:'XAF',
-      city:orderData.city,
-      payment_method:orderData.payment_method,
-      redirect_channel:'WhatsApp'
+      city:'Digital',
+      payment_method:'Chariow',
+      redirect_channel:'Chariow'
     },{eventID:eventId});
   }
   if(typeof window.cpbookTrackOrderLead==='function'){
     window.cpbookTrackOrderLead(orderData,{
-      leadChannel:CURRENT_DEVICE==='desktop'?'desktop_whatsapp_fallback':'whatsapp',
-      desktopFallback:CURRENT_DEVICE==='desktop',
-      waNumber:WHATSAPP_NUMBER_DISPLAY
+      leadChannel:'chariow',
+      desktopFallback:false,
+      waNumber:''
     });
   }
-  // CAPI server-side : non-bloquant, ne retarde pas la redirection WhatsApp
   fetch('/api/cpbook-event',{
     method:'POST',
     headers:{'Content-Type':'application/json'},
-    body:JSON.stringify({event_id:eventId,name:orderData.name,phone:orderData.phone,city:orderData.city,payment_method:orderData.payment_method})
+    body:JSON.stringify({event_id:eventId,name:orderData.name,phone:orderData.phone,city:'Digital',payment_method:'Chariow'})
   }).catch(()=>{});
+
   if(typeof window.cpbookTrackRedirect==='function'){
-    window.cpbookTrackRedirect({channel:'whatsapp',city:orderData.city,payment_method:orderData.payment_method});
-  }
-  const waWin=window.open('https://wa.me/'+WHATSAPP_NUMBER+'?text='+msg,'_blank');
-  if(CURRENT_DEVICE==='desktop'){
-    copyTextValue(msgText,'Demande enregistrée. Message copié au cas où WhatsApp ne s’ouvre pas ici.','copy_message_auto');
-    setLeadStatus('Lead enregistré. Si WhatsApp ne s’ouvre pas sur cet ordinateur, envoyez le message copié au '+WHATSAPP_NUMBER_DISPLAY+' depuis votre téléphone.','info');
-    if(typeof window.cpbookTrackDesktopAssist==='function')window.cpbookTrackDesktopAssist('desktop_submit',{window_opened:!!waWin});
-    return;
+    window.cpbookTrackRedirect({channel:'chariow',city:'Digital',payment_method:'Chariow'});
   }
   closeOrder();
+  window.location.href = 'https://wooplans.mychariow.shop/prd_41k85hc0/checkout';
 }
 document.addEventListener('keydown',e=>{if(e.key==='Escape'){closeVideo();closeOrder()}});
-toggleDesktopHelp();
 
 /* ── VIDEO THUMBNAILS — play/pause trick (no canvas, no CORS needed) ── */
 (function(){

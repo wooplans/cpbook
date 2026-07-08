@@ -12,6 +12,11 @@ export default {
       return new Response('Method Not Allowed', { status: 405 });
     }
 
+    if (url.pathname === '/digital' || url.pathname === '/digital/') {
+      url.pathname = '/digital.html';
+      return env.ASSETS.fetch(new Request(url.toString(), request));
+    }
+
     return env.ASSETS.fetch(request);
   }
 };
