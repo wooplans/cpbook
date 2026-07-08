@@ -449,7 +449,7 @@ src="https://www.facebook.com/tr?id=1651374605332302&ev=PageView&noscript=1"/></
   <p class="hero-sub">Le catalogue de référence pour préparer la construction de votre maison. Villas, duplex, plans, devis — tout est dedans en téléchargement immédiat.</p>
 
   <div class="vsl-wrap" id="vslWrap" onclick="playHeroVid()">
-    <video id="heroVid" src="https://wooplans.b-cdn.net/cp%20book%20wooplans/vsl_cp_book_202605262345.mp4" playsinline webkit-playsinline preload="auto" muted autoplay loop style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity 0.5s"></video>
+    <video id="heroVid" src="https://wooplans.b-cdn.net/cp%20book%20wooplans/vsl%20cpbook%20digital.mp4" playsinline webkit-playsinline preload="auto" autoplay loop style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity 0.5s"></video>
     <div class="vsl-inner" id="vslOverlay" onclick="playHeroVid()" style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;transition:background 0.5s">
       <div class="vsl-play"></div>
       <span class="vsl-lbl">Voir la présentation du catalogue</span>
@@ -664,7 +664,7 @@ src="https://www.facebook.com/tr?id=1651374605332302&ev=PageView&noscript=1"/></
   <div class="faq-list" style="margin-top:20px">
     <div class="faq-item r">
       <button class="faq-btn" onclick="toggleFaq(this)">Comment commander ?<span class="faq-chevron">▾</span></button>
-      <div class="faq-ans"><div class="faq-ans-inner">Cliquez sur le bouton de commande pour être redirigé vers notre page de paiement sécurisé. Une fois le paiement validé, vous recevrez immédiatement le lien de téléchargement.</div></div>
+      <div class="faq-ans"><div class="faq-ans-inner">Cliquez sur le bouton "Télécharger" pour être redirigé vers notre page de paiement sécurisé. Une fois le paiement validé, vous recevrez immédiatement le lien de téléchargement.</div></div>
     </div>
     <div class="faq-item r d1">
       <button class="faq-btn" onclick="toggleFaq(this)">Quand vais-je recevoir mon catalogue ?<span class="faq-chevron">▾</span></button>
@@ -1019,8 +1019,8 @@ document.addEventListener('keydown',e=>{if(e.key==='Escape'){closeVideo();closeO
     var vid=document.getElementById('heroVid');
     var ov=document.getElementById('vslOverlay');
     if(!vid) return;
-    vid.muted=true;
-    vid.controls=false;
+    vid.muted=false;
+    vid.controls=true;
     vid.style.opacity='1';
     if(ov) ov.style.display='none';
     var start=vid.play();
