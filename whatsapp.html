@@ -963,9 +963,9 @@ function getOrderData(){
   };
 }
 function buildOrderMessage(data){
-  return 'Bonjour Wooplans ! 👋\n\nJe voudrais commander le *Catalogue Premium Wooplans* (50 plans de maison — Édition 2026).\n\n'+
-    '📋 *Mes informations :*\n• Nom : '+data.name+'\n• Téléphone : '+data.phone+'\n• Pays : '+data.city+'\n• Paiement : '+data.payment_method+'\n\n'+
-    '💰 *Montant :* 39 000 FCFA (offre de lancement -50%)\n\nMerci de confirmer les modalités. 🙏';
+  return 'Salut Wooplans ! 👋\nJe voudrais éffectuer le paiement du Catalogue Premium.\n\n'+
+    '📋 Mes informations :\n* Nom : '+data.name+'\n* Téléphone : '+data.phone+'\n* Pays : '+data.city+'\n* Paiement : '+data.payment_method+'\n\n'+
+    '💰 Montant : 39 000 FCFA ( Prix promo )\nMerci de confirmer les modalités. 🙏';
 }
 function setLeadStatus(msg,type){
   const el=document.getElementById('leadStatus');
