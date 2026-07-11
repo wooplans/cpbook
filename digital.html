@@ -767,9 +767,28 @@ src="https://www.facebook.com/tr?id=1651374605332302&ev=PageView&noscript=1"/></
         <input type="text" id="fName" placeholder="Ex : Marie Nguema" autocomplete="name">
         <div class="err-msg">Veuillez entrer votre nom</div>
       </div>
+      <div class="ff" id="ff-country">
+        <label for="fCountry">Pays de résidence</label>
+        <select id="fCountry" autocomplete="country" onchange="updatePhoneField()">
+          <option value="CM" data-dial="237" selected>Cameroun (+237)</option>
+          <option value="CI" data-dial="225">Côte d’Ivoire (+225)</option>
+          <option value="SN" data-dial="221">Sénégal (+221)</option>
+          <option value="BJ" data-dial="229">Bénin (+229)</option>
+          <option value="TG" data-dial="228">Togo (+228)</option>
+          <option value="BF" data-dial="226">Burkina Faso (+226)</option>
+          <option value="ML" data-dial="223">Mali (+223)</option>
+          <option value="GN" data-dial="224">Guinée (+224)</option>
+          <option value="GA" data-dial="241">Gabon (+241)</option>
+          <option value="CG" data-dial="242">Congo (+242)</option>
+          <option value="CD" data-dial="243">R.D. Congo (+243)</option>
+          <option value="NE" data-dial="227">Niger (+227)</option>
+          <option value="TD" data-dial="235">Tchad (+235)</option>
+        </select>
+        <div class="err-msg">Sélectionnez votre pays</div>
+      </div>
       <div class="ff" id="ff-phone">
         <label for="fPhone">Numéro de téléphone / WhatsApp</label>
-        <input type="tel" id="fPhone" placeholder="Ex : 655 123 456" autocomplete="tel">
+        <div style="display:flex;align-items:center;gap:8px"><span id="phoneDial" style="min-width:52px;padding:13px 8px;border:1px solid var(--border);border-radius:8px;background:var(--bg);font-weight:700;color:var(--dark);text-align:center">+237</span><input type="tel" id="fPhone" placeholder="Ex : 655 123 456" autocomplete="tel" inputmode="tel" style="flex:1"></div>
         <div class="err-msg">Veuillez entrer votre numéro</div>
       </div>
       <div class="ff" id="ff-email">
@@ -920,21 +939,29 @@ const WHATSAPP_NUMBER_DISPLAY='+237 653 76 99 98';
 const CURRENT_DEVICE=window.innerWidth<768?'mobile':window.innerWidth<1024?'tablet':'desktop';
 let lastOrderMessage='';
 function getOrderData(){
+  const country=document.getElementById('fCountry');
+  const dial=country.options[country.selectedIndex].dataset.dial;
+  const local=document.getElementById('fPhone').value.replace(/\D/g,'').replace(/^0+/,'');
   return {
     name:document.getElementById('fName').value.trim(),
-    phone:document.getElementById('fPhone').value.trim(),
+    phone:'+'+dial+local,
+    country:country.value,
     email:document.getElementById('fEmail').value.trim(),
     city:'Digital',
     payment_method:'MoneyFusion'
   };
 }
+function selectedDial(){return document.getElementById('fCountry').options[document.getElementById('fCountry').selectedIndex].dataset.dial}
+function updatePhoneField(){document.getElementById('phoneDial').textContent='+'+selectedDial();document.getElementById('fPhone').value='';document.getElementById('fPhone').focus()}
 function getCookie(name){
   const row=document.cookie.split('; ').find(item=>item.startsWith(name+'='));
   return row ? row.split('=').slice(1).join('=') : '';
 }
 async function submitOrder(){
-  const v1=chk('fName','ff-name'),v2=chk('fPhone','ff-phone'),v3=chk('fEmail','ff-email');
-  if(!v1||!v2||!v3)return;
+  const v1=chk('fName','ff-name'),vCountry=chk('fCountry','ff-country'),v2=chk('fPhone','ff-phone'),v3=chk('fEmail','ff-email');
+  const phoneDigits=document.getElementById('fPhone').value.replace(/\D/g,'');
+  if(phoneDigits.length<7||phoneDigits.length>12){document.getElementById('ff-phone').classList.add('has-error');return}
+  if(!v1||!vCountry||!v2||!v3)return;
 
   const emailVal=document.getElementById('fEmail').value.trim();
   const emailFf=document.getElementById('ff-email');
@@ -957,6 +984,7 @@ async function submitOrder(){
       body:JSON.stringify({
         name:orderData.name,
         phone:orderData.phone,
+        country:orderData.country,
         email:orderData.email,
         tracking:{event_source_url:location.href,fbp:getCookie('_fbp'),fbc:getCookie('_fbc')}
       })
