@@ -913,7 +913,9 @@ function playHeroVid(){
 function playVSL(){ playHeroVid(); }
 
 function redirectToCheckout(ctaId) {
-  openOrder();
+  const eventId='cpbook_'+Date.now()+'_'+Math.random().toString(36).slice(2,9);
+  if(typeof fbq==='function') fbq('track','InitiateCheckout',{content_name:'Catalogue Premium Wooplans',content_category:'Catalogue',value:39000,currency:'XAF',payment_method:'Chariow'},{eventID:eventId});
+  window.location.href='https://wooplans.mychariow.shop/prd_41k85hc0/checkout';
 }
 
 /* ── ORDER ── */
