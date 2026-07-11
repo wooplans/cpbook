@@ -42,7 +42,7 @@ async function handleMoneyFusionPayment(request,env){
   const body=await request.json().catch(()=>null); if(!body)return mfJson({error:'Requête invalide.'},400);
   const name=String(body.name||'').trim(), phone=String(body.phone||'').replace(/[^\d+]/g,''), email=String(body.email||'').trim().toLowerCase();
   if(!name||phone.length<8||!email.includes('@'))return mfJson({error:'Nom, téléphone et e-mail sont obligatoires.'},400);
-  const provider=String(env.PAYMENT_PROVIDER||'moneyfusion').toLowerCase();
+  const provider=String(env.PAYMENT_PROVIDER||'chariow').toLowerCase();
   if(provider==='chariow') return mfJson({provider:'chariow',payment_url:env.CHARIOW_CHECKOUT_URL||'https://wooplans.mychariow.shop/prd_41k85hc0/checkout'});
   const origin=new URL(request.url).origin, tracking=body.tracking&&typeof body.tracking==='object'?body.tracking:{};
   const payload={totalPrice:MF_AMOUNT,article:[{'Catalogue Premium PDF':MF_AMOUNT}],numeroSend:phone,nomclient:name,personal_Info:[{orderId:'cpbook-'+Date.now(),email,phone,fbp:String(tracking.fbp||''),fbc:String(tracking.fbc||''),event_source_url:String(tracking.event_source_url||origin+'/digital')}],return_url:origin+'/confirmation',webhook_url:origin+'/api/moneyfusion-webhook'};
