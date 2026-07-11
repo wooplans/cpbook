@@ -54,7 +54,7 @@ async function handleMoneyFusionPayment(request, env) {
     numeroSend: phone,
     nomclient: name,
     personal_Info: [{ orderId: 'cpbook-' + Date.now(), email, phone, fbp: String(tracking.fbp || ''), fbc: String(tracking.fbc || ''), event_source_url: String(tracking.event_source_url || origin + '/digital') }],
-    return_url: origin + '/digital?payment=return',
+    return_url: origin + '/confirmation',
     webhook_url: origin + '/api/moneyfusion-webhook'
   };
   const response = await fetch(env.MONEYFUSION_API_URL || MONEYFUSION_API, { method:'POST', headers:{'content-type':'application/json',accept:'application/json'}, body:JSON.stringify(payload) });
