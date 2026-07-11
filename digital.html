@@ -894,37 +894,7 @@ function playHeroVid(){
 function playVSL(){ playHeroVid(); }
 
 function redirectToCheckout(ctaId) {
-  const eventId='cpbook_'+Date.now()+'_'+Math.random().toString(36).slice(2,9);
-  if(typeof fbq==='function'){
-    fbq('track','InitiateCheckout',{
-      content_name:'Catalogue Premium Wooplans',
-      content_category:'Catalogue',
-      value:39000,
-      currency:'XAF',
-      num_items:1,
-      payment_method: 'Chariow'
-    },{eventID:eventId});
-    fbq('trackCustom','cpbook_Lead',{
-      content_name:'Catalogue Premium Wooplans',
-      content_category:'Catalogue',
-      value:39000,
-      currency:'XAF',
-      city:'Digital',
-      payment_method:'Chariow',
-      redirect_channel:'Chariow'
-    },{eventID:eventId});
-  }
-  // CAPI server-side
-  fetch('/api/cpbook-event',{
-    method:'POST',
-    headers:{'Content-Type':'application/json'},
-    body:JSON.stringify({event_id:eventId,name:'Lead Direct',phone:'',city:'Digital',payment_method:'Chariow'})
-  }).catch(()=>{});
-
-  if(typeof window.cpbookTrackRedirect==='function'){
-    window.cpbookTrackRedirect({channel:'chariow',city:'Digital',payment_method:'Chariow'});
-  }
-  window.location.href = 'https://wooplans.mychariow.shop/prd_41k85hc0/checkout';
+  openOrder();
 }
 
 /* ── ORDER ── */
@@ -955,10 +925,14 @@ function getOrderData(){
     phone:document.getElementById('fPhone').value.trim(),
     email:document.getElementById('fEmail').value.trim(),
     city:'Digital',
-    payment_method:'Chariow'
+    payment_method:'MoneyFusion'
   };
 }
-function submitOrder(){
+function getCookie(name){
+  const row=document.cookie.split('; ').find(item=>item.startsWith(name+'='));
+  return row ? row.split('=').slice(1).join('=') : '';
+}
+async function submitOrder(){
   const v1=chk('fName','ff-name'),v2=chk('fPhone','ff-phone'),v3=chk('fEmail','ff-email');
   if(!v1||!v2||!v3)return;
 
@@ -971,45 +945,33 @@ function submitOrder(){
   emailFf.classList.remove('has-error');
 
   const orderData=getOrderData();
-  const eventId='cpbook_'+Date.now()+'_'+Math.random().toString(36).slice(2,9);
-
-  if(typeof fbq==='function'){
-    fbq('track','InitiateCheckout',{
-      content_name:'Catalogue Premium Wooplans',
-      content_category:'Catalogue',
-      value:39000,
-      currency:'XAF',
-      num_items:1,
-      payment_method: 'Chariow'
+  const button=document.querySelector('.order-body .submit-btn');
+  const note=document.querySelector('.order-body .form-note');
+  button.disabled=true;
+  button.textContent='Paiement en préparation…';
+  note.textContent='Connexion sécurisée à MoneyFusion…';
+  try{
+    const response=await fetch('/api/moneyfusion-payment',{
+      method:'POST',
+      headers:{'Content-Type':'application/json'},
+      body:JSON.stringify({
+        name:orderData.name,
+        phone:orderData.phone,
+        email:orderData.email,
+        tracking:{event_source_url:location.href,fbp:getCookie('_fbp'),fbc:getCookie('_fbc')}
+      })
     });
-    fbq('trackCustom','cpbook_Lead',{
-      content_name:'Catalogue Premium Wooplans',
-      content_category:'Catalogue',
-      value:39000,
-      currency:'XAF',
-      city:'Digital',
-      payment_method:'Chariow',
-      redirect_channel:'Chariow'
-    },{eventID:eventId});
+    const data=await response.json().catch(()=>({}));
+    if(!response.ok||!data.payment_url)throw new Error(data.error||'Paiement indisponible');
+    if(typeof fbq==='function')fbq('track','InitiateCheckout',{content_name:'Catalogue Premium Wooplans',content_ids:['cpbook-premium-2026'],content_type:'product',value:39000,currency:'XAF',payment_method:'MoneyFusion'});
+    if(data.token)sessionStorage.setItem('cpbook_payment_token',data.token);
+    window.location.href=data.payment_url;
+  }catch(error){
+    note.textContent=error.message||'Impossible de lancer le paiement. Réessayez.';
+    note.style.color='#b42318';
+    button.disabled=false;
+    button.textContent='Payer et Télécharger';
   }
-  if(typeof window.cpbookTrackOrderLead==='function'){
-    window.cpbookTrackOrderLead(orderData,{
-      leadChannel:'chariow',
-      desktopFallback:false,
-      waNumber:''
-    });
-  }
-  fetch('/api/cpbook-event',{
-    method:'POST',
-    headers:{'Content-Type':'application/json'},
-    body:JSON.stringify({event_id:eventId,name:orderData.name,phone:orderData.phone,city:'Digital',payment_method:'Chariow'})
-  }).catch(()=>{});
-
-  if(typeof window.cpbookTrackRedirect==='function'){
-    window.cpbookTrackRedirect({channel:'chariow',city:'Digital',payment_method:'Chariow'});
-  }
-  closeOrder();
-  window.location.href = 'https://wooplans.mychariow.shop/prd_41k85hc0/checkout';
 }
 document.addEventListener('keydown',e=>{if(e.key==='Escape'){closeVideo();closeOrder()}});
 
@@ -1161,6 +1123,6 @@ document.addEventListener('visibilitychange',function(){if(document.visibilitySt
 window.addEventListener('pagehide',sessionEnd,{once:true});
 })();
 </script>
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js/v4513226cdae34746b4dedf0b4dfa099e1781791509496" integrity="sha512-ZE9pZaUXND66v380QUtch/5sE9tPFh2zg45pR2PB0CVkCtOREv2AJKkSidISWkysEuQ0EH8faUU5du78bx87UQ==" data-cf-beacon='{"version":"2024.11.0","token":"ba52867831a14ca58435b02506cff909","r":1,"server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
 </body>
 </html>
-
