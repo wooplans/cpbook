@@ -1006,7 +1006,7 @@ document.addEventListener('keydown',e=>{if(e.key==='Escape'){closeVideo();closeO
 async function checkReturnedPayment(){
   const params=new URLSearchParams(location.search);
   const token=params.get('token')||params.get('tokenPay')||params.get('payment_token')||sessionStorage.getItem('cpbook_payment_token');
-  if(!token||(!params.has('payment')&&!params.has('token')&&!params.has('tokenPay')))return;
+  if(!token||(!params.has('payment')&&!params.has('token')&&!params.has('tokenPay')&&location.pathname!=='/confirmation'))return;
   openOrder();
   const body=document.querySelector('.order-body');
   body.innerHTML='<p class="form-note" style="text-align:center">Nous vérifions votre paiement sécurisé…</p>';
