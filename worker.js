@@ -3,6 +3,7 @@ export default {
     const url = new URL(request.url);
 
     if (url.pathname === '/api/moneyfusion-payment' && request.method === 'POST') return handleMoneyFusionPayment(request, env);
+    if (url.pathname === '/confirmation' || url.pathname === '/confirmation/') { url.pathname = '/digital.html'; return env.ASSETS.fetch(new Request(url.toString(), request)); }
     if (url.pathname === '/api/moneyfusion-status' && request.method === 'GET') return handleMoneyFusionStatus(request);
     if (url.pathname === '/api/moneyfusion-webhook' && request.method === 'POST') return handleMoneyFusionWebhook(request, env);
     if (url.pathname === '/api/catalogue-download' && request.method === 'GET') return handleCatalogueDownload(request, env);
@@ -109,7 +110,7 @@ async function handleMoneyFusionPayment(request,env){
   const name=String(body.name||'').trim(), phone=String(body.phone||'').replace(/[^\d+]/g,''), email=String(body.email||'').trim().toLowerCase();
   if(!name||phone.length<8||!email.includes('@'))return mfJson({error:'Nom, téléphone et e-mail sont obligatoires.'},400);
   const origin=new URL(request.url).origin, tracking=body.tracking&&typeof body.tracking==='object'?body.tracking:{};
-  const payload={totalPrice:MF_AMOUNT,article:[{'Catalogue Premium PDF':MF_AMOUNT}],numeroSend:phone,nomclient:name,personal_Info:[{orderId:'cpbook-'+Date.now(),email,phone,fbp:String(tracking.fbp||''),fbc:String(tracking.fbc||''),event_source_url:String(tracking.event_source_url||origin+'/digital')}],return_url:origin+'/digital?payment=return',webhook_url:origin+'/api/moneyfusion-webhook'};
+  const payload={totalPrice:MF_AMOUNT,article:[{'Catalogue Premium PDF':MF_AMOUNT}],numeroSend:phone,nomclient:name,personal_Info:[{orderId:'cpbook-'+Date.now(),email,phone,fbp:String(tracking.fbp||''),fbc:String(tracking.fbc||''),event_source_url:String(tracking.event_source_url||origin+'/digital')}],return_url:origin+'/confirmation',webhook_url:origin+'/api/moneyfusion-webhook'};
   const response=await fetch(env.MONEYFUSION_API_URL||MF_API,{method:'POST',headers:{'content-type':'application/json',accept:'application/json'},body:JSON.stringify(payload)});
   const data=await response.json().catch(()=>({})); if(!response.ok||data.statut===false)return mfJson({error:data.message||'MoneyFusion n’a pas pu préparer le paiement.'},response.ok?502:response.status);
   return mfJson({token:data.token,payment_url:data.url,message:data.message||'Paiement en cours'});
