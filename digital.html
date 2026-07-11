@@ -1003,6 +1003,29 @@ async function submitOrder(){
 }
 document.addEventListener('keydown',e=>{if(e.key==='Escape'){closeVideo();closeOrder()}});
 
+async function checkReturnedPayment(){
+  const params=new URLSearchParams(location.search);
+  const token=params.get('token')||params.get('tokenPay')||params.get('payment_token')||sessionStorage.getItem('cpbook_payment_token');
+  if(!token||(!params.has('payment')&&!params.has('token')&&!params.has('tokenPay')))return;
+  openOrder();
+  const body=document.querySelector('.order-body');
+  body.innerHTML='<p class="form-note" style="text-align:center">Nous vérifions votre paiement sécurisé…</p>';
+  for(let attempt=0;attempt<20;attempt++){
+    try{
+      const response=await fetch('/api/moneyfusion-status?token='+encodeURIComponent(token),{cache:'no-store'});
+      const data=await response.json().catch(()=>({}));
+      if(data.status==='paid'){
+        body.innerHTML='<div class="order-sum"><div class="os-lbl"><strong>Paiement confirmé</strong><span style="font-size:11px;color:var(--gray);display:block;margin-top:4px">Vos deux catalogues sont prêts</span></div></div><a class="submit-btn" style="display:flex;text-decoration:none;margin-bottom:10px" href="/api/catalogue-download?file=villa&token='+encodeURIComponent(token)+'">Télécharger le catalogue Villas</a><a class="submit-btn" style="display:flex;text-decoration:none" href="/api/catalogue-download?file=duplex&token='+encodeURIComponent(token)+'">Télécharger le catalogue Duplex</a>';
+        return;
+      }
+      if(data.status==='failure'||data.status==='no paid')break;
+    }catch(error){}
+    await new Promise(resolve=>setTimeout(resolve,3000));
+  }
+  body.innerHTML='<p class="form-note" style="text-align:center;color:#b42318">Le paiement est encore en attente. Actualisez cette page dans quelques instants.</p>';
+}
+window.addEventListener('DOMContentLoaded',checkReturnedPayment);
+
 /* ── VIDEO THUMBNAILS — play/pause trick (no canvas, no CORS needed) ── */
 (function(){
   function autoPlayHeroVideo(){
@@ -1154,3 +1177,4 @@ window.addEventListener('pagehide',sessionEnd,{once:true});
 <script defer src="https://static.cloudflareinsights.com/beacon.min.js/v4513226cdae34746b4dedf0b4dfa099e1781791509496" integrity="sha512-ZE9pZaUXND66v380QUtch/5sE9tPFh2zg45pR2PB0CVkCtOREv2AJKkSidISWkysEuQ0EH8faUU5du78bx87UQ==" data-cf-beacon='{"version":"2024.11.0","token":"ba52867831a14ca58435b02506cff909","r":1,"server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
 </body>
 </html>
+
