@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
-<title>Wooplans — 50 Plans de Maison (Téléchargement Instantané)</title>
-<meta name="description" content="Le catalogue de référence pour préparer la construction de votre maison. 50 modèles, villas, duplex, plans, devis en téléchargement PDF direct.">
+<title>50+ Plans de Maisons avec leurs vrais devis | Wooplans</title>
+<meta name="description" content="Accédez à 50+ plans de maisons avec leurs vrais devis, rendus 3D et plans détaillés. Valeur réelle 500 000 FCFA, prix du jour 39 000 FCFA.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
@@ -30,9 +30,9 @@ body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--dark);overf
 /* ── TOPBAR (hidden in hero, shown after) ── */
 .topbar{
   position:fixed;top:0;left:0;right:0;z-index:300;
-  background:var(--teal);
+  background:#8f2f1e;
   padding:12px 20px;
-  display:flex;align-items:center;justify-content:space-between;
+  display:flex;align-items:center;justify-content:center;
   box-shadow:0 2px 12px rgba(0,0,0,0.2);
   transform:translateY(-100%);
   transition:transform 0.35s cubic-bezier(0.4,0,0.2,1);
@@ -42,6 +42,8 @@ body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--dark);overf
 .topbar-logo img{display:block;width:auto;height:34px;max-width:196px}
 .topbar-btn{background:var(--orange);color:var(--white);font-family:'Plus Jakarta Sans',sans-serif;font-weight:700;font-size:13px;padding:10px 18px;border:none;border-radius:6px;cursor:pointer;display:flex;align-items:center;gap:7px;transition:background 0.2s,transform 0.15s;white-space:nowrap}
 .topbar-btn:active{transform:scale(0.97);background:var(--orange-dk)}
+.topbar-fomo{display:flex;align-items:center;justify-content:center;gap:10px;color:var(--white);font-family:'Plus Jakarta Sans',sans-serif;font-size:13px;font-weight:800;text-align:center}
+.topbar-fomo strong{font-size:18px;letter-spacing:.04em;color:#FFD39B}
 
 /* ── HERO ── */
 .hero{
@@ -120,6 +122,54 @@ body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--dark);overf
 .gauge-sub{margin-top:6px;font-size:12px;color:var(--gray);display:flex;align-items:center;gap:5px}
 .gauge-dot{width:7px;height:7px;background:var(--red);border-radius:50%;animation:blink 1.2s ease-in-out infinite;flex-shrink:0}
 @keyframes blink{0%,100%{opacity:1}50%{opacity:0.2}}
+
+/* VALUE STACK / COUNTDOWN / GUARANTEE */
+.value-stack{background:var(--white);border:1px solid rgba(15,91,89,.14);border-radius:18px;padding:24px;box-shadow:0 14px 40px rgba(15,91,89,.12);margin-top:26px}
+.value-stack h3{font-family:'Plus Jakarta Sans',sans-serif;font-size:22px;line-height:1.15;color:var(--dark);margin-bottom:8px}
+.value-stack-intro{font-size:14px;line-height:1.65;color:var(--gray);margin-bottom:18px}
+.value-table{width:100%;border-collapse:collapse;font-size:13px}
+.value-table td{padding:11px 0;border-bottom:1px solid var(--border);vertical-align:top}
+.value-table td:last-child{text-align:right;font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;color:var(--teal);white-space:nowrap}
+.value-table tr.total td{font-weight:800;color:var(--dark);border-bottom:0;padding-top:16px}
+.value-table tr.total td:last-child{font-size:18px;color:var(--teal)}
+.value-table tr.price td{border-top:2px solid var(--orange);border-bottom:0;padding-top:14px;font-weight:800}
+.value-table tr.price td:last-child{font-size:22px;color:var(--orange)}
+.value-foot{font-size:13px;line-height:1.6;color:var(--gray);margin-top:16px}
+.countdown{display:flex;align-items:center;justify-content:center;gap:9px;background:#8f2f1e;border:2px solid #ffbd78;border-radius:12px;padding:12px 16px;margin:0 auto 18px;max-width:420px;color:var(--white);font-family:'Plus Jakarta Sans',sans-serif;font-size:13px;font-weight:800;box-shadow:0 8px 22px rgba(143,47,30,.32)}
+.countdown strong{font-size:22px;letter-spacing:.04em;color:var(--white);text-shadow:0 1px 1px rgba(0,0,0,.18)}
+.countdown-final{background:rgba(255,255,255,.08);border:1px dashed rgba(255,211,155,.9);color:#FFD39B;box-shadow:none;max-width:360px;font-size:12px}
+.countdown-final strong{color:#FFD39B;text-shadow:none}
+.hero-value-anchor{font-size:13px;color:rgba(255,255,255,.72);margin:-8px 0 18px}
+.guarantee-box{display:flex;align-items:flex-start;gap:12px;background:#FFF8ED;border:1px solid rgba(240,138,46,.35);border-radius:12px;padding:15px 16px;margin-top:18px;color:var(--dark)}
+.guarantee-box strong{display:block;font-family:'Plus Jakarta Sans',sans-serif;font-size:14px;margin-bottom:4px}
+.guarantee-box p{font-size:12px;line-height:1.55;color:var(--gray)}
+.guarantee-mark{font-size:22px;line-height:1}
+.written-testimonials{margin-top:24px;display:flex;gap:14px;overflow-x:auto;scroll-snap-type:x mandatory;padding:4px 2px 12px;scrollbar-width:none}
+.written-testimonials::-webkit-scrollbar{display:none}
+.written-testimonial{min-width:min(82vw,330px);scroll-snap-align:start;background:var(--bg);border:1px solid var(--border);border-radius:16px;padding:18px;box-shadow:var(--shadow)}
+.written-person{display:flex;align-items:center;gap:10px;margin-bottom:12px}
+.written-person img{width:44px;height:44px;border-radius:50%;object-fit:cover;border:2px solid var(--white)}
+.written-person strong{display:block;font-family:'Plus Jakarta Sans',sans-serif;font-size:14px;color:var(--dark)}
+.written-person span{display:block;font-size:12px;color:var(--gray);margin-top:2px}
+.written-testimonial blockquote{font-size:14px;line-height:1.65;color:var(--dark);font-style:italic}
+.written-testimonial small{display:block;margin-top:10px;font-size:10px;line-height:1.4;color:var(--red)}
+.written-dots{text-align:center;font-size:18px;letter-spacing:4px;color:var(--orange);margin-top:2px}
+.sticky-countdown{font-size:11px;color:var(--red);font-weight:700;margin-top:2px}
+.support-guarantee{max-width:680px;margin:24px auto 0;background:var(--white);border-radius:18px;padding:26px 24px;color:var(--dark);box-shadow:0 14px 36px rgba(0,0,0,.12)}
+.support-guarantee h3{font-family:'Plus Jakarta Sans',sans-serif;font-size:22px;line-height:1.2;margin-bottom:10px}
+.support-guarantee p{font-size:14px;line-height:1.65;color:var(--gray);margin-bottom:18px}
+.support-links{display:flex;justify-content:center;flex-wrap:wrap;gap:12px}
+.support-link{display:inline-flex;align-items:center;justify-content:center;min-height:44px;padding:10px 16px;border-radius:9px;font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;font-size:13px;text-decoration:none}
+.support-link.email{background:rgba(15,91,89,.1);color:var(--teal);border:1px solid rgba(15,91,89,.18)}
+.support-link.whatsapp{background:#25D366;color:#fff}
+.guarantee-compact{display:flex;align-items:center;justify-content:center;gap:7px;margin:14px auto 0;color:var(--gray);font-size:12px;font-weight:700}
+.guarantee-compact .guarantee-mark{font-size:16px;color:var(--teal)}
+.hero-guarantee-compact{color:rgba(255,255,255,.62);margin-top:14px}
+.hero-guarantee-compact .guarantee-mark{color:rgba(255,255,255,.7)}
+@keyframes stickyShake{0%,88%,100%{transform:translateX(0)}90%{transform:translateX(-2px)}92%{transform:translateX(2px)}94%{transform:translateX(-2px)}96%{transform:translateX(0)}}
+.sticky-btn{animation:stickyShake 6s ease-in-out infinite}
+@media(prefers-reduced-motion:reduce){.sticky-btn{animation:none}}
+@media(max-width:560px){.value-stack{padding:18px}.value-table{font-size:12px}.value-table td{padding:9px 0}.countdown{font-size:12px}.countdown strong{font-size:18px}}
 
 /* ── SECTIONS ── */
 section{padding:56px 20px}
@@ -424,13 +474,10 @@ src="https://www.facebook.com/tr?id=1651374605332302&ev=PageView&noscript=1"/></
 
 <!-- TOPBAR (appears after hero) -->
 <nav class="topbar" id="topbar">
-  <div class="topbar-logo">
-    <img src="./assets/wooplans-logo-negative.webp" alt="Wooplans" width="196" height="34" loading="eager" decoding="async">
+  <div class="topbar-fomo" data-countdown>
+    <span>Prix promo · encore</span>
+    <strong>24:00:00</strong>
   </div>
-  <button class="topbar-btn" data-cta-id="topbar_btn" onclick="redirectToCheckout(this.getAttribute('data-cta-id'))">
-    <svg class="wa-svg" style="width:16px;height:16px" viewBox="0 0 24 24"><path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/></svg>
-    Télécharger
-  </button>
 </nav>
 
 <!-- HERO -->
@@ -439,27 +486,29 @@ src="https://www.facebook.com/tr?id=1651374605332302&ev=PageView&noscript=1"/></
     <span>📘 Catalogue Premium · Édition 2026</span>
   </div>
 
-  <h1>50 Plans de Maison<br>dans un seul <span class="hl">catalogue</span></h1>
+  <h1>OBTENEZ 50+ PLANS DE VILLA ET DUPLEX<br>AVEC LEURS <span class="hl">VRAIS DEVIS.</span></h1>
 
   <div class="hero-rating">
     <span class="rating-stars">★★★★★</span>
     <span class="rating-text"><strong>4,9</strong> · +129 avis</span>
   </div>
 
-  <p class="hero-sub">Le catalogue de référence pour préparer la construction de votre maison. Villas, duplex, plans, devis — tout est dedans en téléchargement immédiat.</p>
+  <p class="hero-sub">Comparez les modèles, visualisez votre future maison et estimez votre budget avant de lancer votre chantier.</p>
 
   <div class="vsl-wrap" id="vslWrap" onclick="playHeroVid()">
     <video id="heroVid" src="https://wooplans.b-cdn.net/cp%20book%20wooplans/vsl%20cpbook%20digital.mp4" playsinline webkit-playsinline preload="auto" autoplay loop style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity 0.5s"></video>
     <div class="vsl-inner" id="vslOverlay" onclick="playHeroVid()" style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;transition:background 0.5s">
       <div class="vsl-play"></div>
-      <span class="vsl-lbl">Voir la présentation du catalogue</span>
+      <span class="vsl-lbl">Regardez exactement ce que vous allez recevoir.</span>
     </div>
   </div>
 
+  <div class="hero-value-anchor">Valeur réelle d'une sélection professionnelle : <strong>500 000 FCFA</strong></div>
+
   <div class="hero-price">
     <div class="price-row">
-      <span class="price-old">78 000 FCFA</span>
-      <span class="price-badge">–50%</span>
+      <span class="price-old">500 000 FCFA</span>
+      <span class="price-badge">–92%</span>
     </div>
     <div class="price-new">39 000<span class="price-fcfa"> FCFA</span></div>
   </div>
@@ -468,6 +517,8 @@ src="https://www.facebook.com/tr?id=1651374605332302&ev=PageView&noscript=1"/></
     <svg class="wa-svg" viewBox="0 0 24 24"><path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/></svg>
     Télécharger le Catalogue
   </button>
+
+  <div class="guarantee-compact hero-guarantee-compact"><span class="guarantee-mark">✓</span><span>Garantie 7 jours satisfait ou remboursé</span></div>
 
   <div class="social-badge">
     <div class="avatar-stack">
@@ -500,6 +551,22 @@ src="https://www.facebook.com/tr?id=1651374605332302&ev=PageView&noscript=1"/></
     </div>
   </div>
 </section>
+
+<div class="value-stack r" style="margin:26px 20px 0">
+  <h3>Ce catalogue coûte normalement 500 000 FCFA</h3>
+  <p class="value-stack-intro">Réunir autant de plans, de rendus et de devis auprès d'un professionnel demande du temps et une prestation dédiée. Le catalogue vous donne cette base de décision immédiatement.</p>
+  <table class="value-table" aria-label="Valeur réelle du catalogue">
+    <tbody>
+      <tr><td>Sélection de 50+ plans</td><td>250 000 FCFA</td></tr>
+      <tr><td>Rendus 3D et présentation</td><td>100 000 FCFA</td></tr>
+      <tr><td>Plans détaillés et dimensions</td><td>75 000 FCFA</td></tr>
+      <tr><td>Devis estimatifs pour comparer</td><td>75 000 FCFA</td></tr>
+      <tr class="total"><td>Valeur totale de comparaison</td><td>500 000 FCFA</td></tr>
+      <tr class="price"><td>Prix du catalogue aujourd'hui</td><td>39 000 FCFA</td></tr>
+    </tbody>
+  </table>
+  <p class="value-foot"><strong>Vous ne payez pas 500 000 FCFA, mais seulement 39 000 FCFA aujourd'hui.</strong></p>
+</div>
 
 <!-- POUR QUI -->
 <section class="s-bg">
@@ -607,22 +674,46 @@ src="https://www.facebook.com/tr?id=1651374605332302&ev=PageView&noscript=1"/></
   </div>
 </section>
 
-<!-- TÉLÉCHARGEMENT -->
-<section class="s-teal">
-  <span class="section-label section-label-gold r">Téléchargement</span>
-  <h2 class="r"><span class="aw">Accès instantané,</span><br><span class="ag">téléchargement immédiat</span></h2>
-  <div class="delivery-opts" style="margin-top:20px">
-    <div class="delivery-opt r">
-      <div class="delivery-icon">📥</div>
-      <div><h4>Fichier PDF Premium</h4><p>Téléchargement immédiat en haute résolution après validation du paiement.</p></div>
-    </div>
-    <div class="delivery-opt r d1">
-      <div class="delivery-icon">⚡</div>
-      <div><h4>Accès à vie &amp; Mises à jour</h4><p>Consultez et téléchargez votre catalogue à tout moment sur tous vos écrans.</p></div>
-    </div>
+<!-- AVIS ECRITS -->
+<section class="s-bg">
+  <span class="section-label r">Ils construisent en Afrique</span>
+  <h2 class="r">Des clients qui ont pu <span class="ao">comparer avant de choisir</span></h2>
+  <div class="written-testimonials r" aria-label="Témoignages clients par ville">
+    <article class="written-testimonial">
+      <div class="written-person"><img src="./assets/avatars/avatar-1.jpeg" alt="Avatar client Abidjan"><div><strong>Kouadio</strong><span>Abidjan, Côte d'Ivoire</span></div></div>
+      <blockquote>« Je cherchais plusieurs modèles avant de commencer les démarches. Les devis m'ont permis de comparer beaucoup plus facilement. »</blockquote>
+    </article>
+    <article class="written-testimonial">
+      <div class="written-person"><img src="./assets/avatars/avatar-2.jpeg" alt="Avatar client Conakry"><div><strong>Mamadou</strong><span>Conakry, Guinée</span></div></div>
+      <blockquote>« Le catalogue m'a donné une vue claire des styles et du budget avant de contacter un entrepreneur. »</blockquote>
+    </article>
+    <article class="written-testimonial">
+      <div class="written-person"><img src="./assets/avatars/avatar-3.jpeg" alt="Avatar client Dakar"><div><strong>Diaye</strong><span>Dakar, Sénégal</span></div></div>
+      <blockquote>« Je pouvais enfin montrer des exemples concrets à ma famille et avancer sur un choix précis. »</blockquote>
+    </article>
+    <article class="written-testimonial">
+      <div class="written-person"><img src="./assets/avatars/avatar-4.jpeg" alt="Avatar client Yaoundé"><div><strong>Ebwolè</strong><span>Yaoundé, Cameroun</span></div></div>
+      <blockquote>« Les plans et les devis m'ont aidé à poser les bonnes questions avant le chantier. »</blockquote>
+    </article>
+    <article class="written-testimonial">
+      <div class="written-person"><img src="./assets/avatars/avatar-5.jpeg" alt="Avatar client Douala"><div><strong>Maponé</strong><span>Douala, Cameroun</span></div></div>
+      <blockquote>« J'ai pu comparer plusieurs maisons au même endroit au lieu de choisir dans la précipitation. »</blockquote>
+    </article>
   </div>
-  <div class="cities-wrap r d2">
-    <span class="city-pill">Format PDF</span><span class="city-pill">Rendus 3D</span><span class="city-pill">Plans détaillés</span><span class="city-pill">Devis estimatifs</span><span class="city-pill">Accès mobile</span><span class="city-pill">Accès PC / Mac</span><span class="city-pill">Accès à vie</span>
+  <div class="written-dots" aria-hidden="true">•••</div>
+</section>
+
+<!-- GARANTIE ET SUPPORT -->
+<section class="s-teal">
+  <span class="section-label section-label-gold r">Garantie Wooplans</span>
+  <h2 class="r"><span class="aw">Achetez</span> <span class="ag">sans risque.</span></h2>
+  <div class="support-guarantee r">
+    <h3>Garantie 7 jours satisfait ou remboursé</h3>
+    <p>Accédez au catalogue et vérifiez son contenu. Si le produit ne correspond pas à la promesse, contactez notre support sous 7 jours pour demander une solution ou un remboursement.</p>
+    <div class="support-links">
+      <a class="support-link email" href="mailto:info@wooplans.com">✉ info@wooplans.com</a>
+      <a class="support-link whatsapp" href="https://wa.me/237694327885" target="_blank" rel="noopener">Contacter le support WhatsApp</a>
+    </div>
   </div>
 </section>
 
@@ -634,13 +725,13 @@ src="https://www.facebook.com/tr?id=1651374605332302&ev=PageView&noscript=1"/></
     <div class="pricing-top">
       <div class="lbl">Catalogue Premium Wooplans · Édition 2026</div>
       <div class="p-main">39 000<span class="p-fcfa"> FCFA</span></div>
-      <div class="p-was">au lieu de 78 000 FCFA</div>
-      <div class="pricing-badge blink-offer">Offre de lancement — -50%</div>
+      <div class="p-was">valeur réelle 500 000 FCFA</div>
+      <div class="pricing-badge blink-offer">Économie : 461 000 FCFA</div>
     </div>
       <div class="pricing-body">
       <div class="pricing-incs">
         <div class="pinc">Catalogue complet en haute résolution</div>
-        <div class="pinc">50 modèles — villas &amp; duplex</div>
+        <div class="pinc">50+ plans — villas &amp; duplex</div>
         <div class="pinc">Rendus 3D + Plans + Devis estimatifs</div>
         <div class="pinc">Téléchargement immédiat (accès à vie)</div>
       </div>
@@ -653,6 +744,7 @@ src="https://www.facebook.com/tr?id=1651374605332302&ev=PageView&noscript=1"/></
         <div class="trust-item"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="var(--teal)" stroke-width="2.5"><polyline points="20,6 9,17 4,12"/></svg>Offre limitée</div>
         <div class="trust-item"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="var(--teal)" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>Téléchargement direct</div>
       </div>
+      <div class="guarantee-compact"><span class="guarantee-mark">✓</span><span>Garantie 7 jours satisfait ou remboursé</span></div>
     </div>
   </div>
 </section>
@@ -676,7 +768,7 @@ src="https://www.facebook.com/tr?id=1651374605332302&ev=PageView&noscript=1"/></
     </div>
     <div class="faq-item r">
       <button class="faq-btn" onclick="toggleFaq(this)">Le prix va augmenter ?<span class="faq-chevron">▾</span></button>
-      <div class="faq-ans"><div class="faq-ans-inner">Oui. 39 000 FCFA est le prix de lancement, valable uniquement sur le stock initial. Une fois l'offre terminée, le catalogue revient à 78 000 FCFA.</div></div>
+      <div class="faq-ans"><div class="faq-ans-inner">Oui. Le tarif spécial de 39 000 FCFA est valable jusqu'à la fin du compte à rebours du jour. Les campagnes promotionnelles peuvent être reconduites, mais le tarif et les conditions peuvent changer.</div></div>
     </div>
   </div>
 </section>
@@ -693,15 +785,16 @@ src="https://www.facebook.com/tr?id=1651374605332302&ev=PageView&noscript=1"/></
 
   <span class="section-label section-label-gold r" style="display:block;text-align:center">Votre maison commence ici</span>
   <h2 class="r" style="color:var(--white);text-align:center;margin-bottom:8px"><span class="ag">50 plans.</span> Un seul catalogue.</h2>
-  <p class="section-intro section-intro-light r" style="text-align:center;margin-bottom:24px">Livré chez vous partout au Cameroun.</p>
+  <p class="section-intro section-intro-light r" style="text-align:center;margin-bottom:24px">Accès immédiat après paiement.</p>
 
   <div style="max-width:400px;margin:0 auto">
     <div class="r" style="display:flex;align-items:center;justify-content:center;gap:12px;margin-bottom:18px">
-      <span style="font-family:'Plus Jakarta Sans',sans-serif;font-weight:500;font-size:16px;color:rgba(255,255,255,0.4);text-decoration:line-through">78 000</span>
+      <span style="font-family:'Plus Jakarta Sans',sans-serif;font-weight:500;font-size:16px;color:rgba(255,255,255,0.4);text-decoration:line-through">500 000</span>
       <span style="font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;font-size:48px;color:var(--white);letter-spacing:-0.03em;line-height:1">39 000</span>
       <span style="font-family:'Plus Jakarta Sans',sans-serif;font-weight:600;font-size:16px;color:rgba(255,255,255,0.6)">FCFA</span>
     </div>
-    <!-- Mini gauge final section -->
+    <div class="countdown countdown-final" data-countdown style="margin-bottom:18px"><span>Tarif spécial du jour · encore</span> <strong>24:00:00</strong></div>
+    <!-- Legacy gauge hidden by the daily-offer script -->
     <div class="r" style="background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.15);border-radius:10px;padding:14px 16px;margin-bottom:18px;width:100%;max-width:400px;text-align:left">
       <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:8px">
         <span style="font-family:'Plus Jakarta Sans',sans-serif;font-weight:700;font-size:13px;color:rgba(255,255,255,0.9)">🎯 Catalogues disponibles</span>
@@ -727,7 +820,8 @@ src="https://www.facebook.com/tr?id=1651374605332302&ev=PageView&noscript=1"/></
 <div class="sticky-bar" id="stickyBar">
   <div class="sticky-price">
     <div class="s-price">39 000 FCFA</div>
-    <div class="s-was">au lieu de 78 000 FCFA</div>
+    <div class="s-was">valeur réelle 500 000 FCFA</div>
+    <div class="sticky-countdown" data-countdown>Encore <strong>24:00:00</strong></div>
   </div>
   <button class="sticky-btn" data-cta-id="sticky_btn" onclick="redirectToCheckout(this.getAttribute('data-cta-id'))">
     <svg style="width:16px;height:16px;fill:white;flex-shrink:0" viewBox="0 0 24 24"><path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/></svg>
@@ -767,9 +861,28 @@ src="https://www.facebook.com/tr?id=1651374605332302&ev=PageView&noscript=1"/></
         <input type="text" id="fName" placeholder="Ex : Marie Nguema" autocomplete="name">
         <div class="err-msg">Veuillez entrer votre nom</div>
       </div>
+      <div class="ff" id="ff-country">
+        <label for="fCountry">Pays de résidence</label>
+        <select id="fCountry" autocomplete="country" onchange="updatePhoneField()">
+          <option value="CM" data-dial="237" selected>Cameroun (+237)</option>
+          <option value="CI" data-dial="225">Côte d’Ivoire (+225)</option>
+          <option value="SN" data-dial="221">Sénégal (+221)</option>
+          <option value="BJ" data-dial="229">Bénin (+229)</option>
+          <option value="TG" data-dial="228">Togo (+228)</option>
+          <option value="BF" data-dial="226">Burkina Faso (+226)</option>
+          <option value="ML" data-dial="223">Mali (+223)</option>
+          <option value="GN" data-dial="224">Guinée (+224)</option>
+          <option value="GA" data-dial="241">Gabon (+241)</option>
+          <option value="CG" data-dial="242">Congo (+242)</option>
+          <option value="CD" data-dial="243">R.D. Congo (+243)</option>
+          <option value="NE" data-dial="227">Niger (+227)</option>
+          <option value="TD" data-dial="235">Tchad (+235)</option>
+        </select>
+        <div class="err-msg">Sélectionnez votre pays</div>
+      </div>
       <div class="ff" id="ff-phone">
         <label for="fPhone">Numéro de téléphone / WhatsApp</label>
-        <input type="tel" id="fPhone" placeholder="Ex : 655 123 456" autocomplete="tel">
+        <div style="display:flex;align-items:center;gap:8px"><span id="phoneDial" style="min-width:52px;padding:13px 8px;border:1px solid var(--border);border-radius:8px;background:var(--bg);font-weight:700;color:var(--dark);text-align:center">+237</span><input type="tel" id="fPhone" placeholder="Ex : 655 123 456" autocomplete="tel" inputmode="tel" style="flex:1"></div>
         <div class="err-msg">Veuillez entrer votre numéro</div>
       </div>
       <div class="ff" id="ff-email">
@@ -793,25 +906,25 @@ src="https://www.facebook.com/tr?id=1651374605332302&ev=PageView&noscript=1"/></
 </div>
 
 <script>
-/* ── GAUGE ── */
+/* DAILY OFFER COUNTDOWN */
 (function(){
-  // Stock: 25 catalogues à 0h, descend à 7 à 23h59
-  var MAX_STOCK=25, MIN_STOCK=7;
-  var now=new Date();
-  var minOfDay=now.getHours()*60+now.getMinutes();
-  var progress=minOfDay/(24*60);
-  var rem=Math.round(MAX_STOCK-(progress*(MAX_STOCK-MIN_STOCK)));
-  // Jauge SE VIDE: représente les catalogues RESTANTS
-  var pct=Math.round((rem/MAX_STOCK)*100);
-  var subTxt='Prix de lancement — offre valable aujourd\'hui uniquement';
-
-  ['','2'].forEach(function(sfx){
-    var gc=document.getElementById('gaugeCount'+sfx);
-    var gf=document.getElementById('gaugeFill'+sfx);
-    var gs=document.getElementById('gaugeSub'+sfx);
-    if(gc) gc.textContent=rem+' Restants';
-    if(gs) gs.textContent=subTxt;
-    if(gf) setTimeout(function(){gf.style.width=pct+'%'},sfx===''?300:600);
+  var countdowns=document.querySelectorAll('[data-countdown]');
+  function tick(){
+    var now=new Date();
+    var end=new Date(now); end.setHours(24,0,0,0);
+    var seconds=Math.max(0,Math.floor((end-now)/1000));
+    var h=String(Math.floor(seconds/3600)).padStart(2,'0');
+    var m=String(Math.floor((seconds%3600)/60)).padStart(2,'0');
+    var s=String(seconds%60).padStart(2,'0');
+    countdowns.forEach(function(el){
+      var target=el.querySelector('strong');
+      if(target) target.textContent=h+':'+m+':'+s;
+    });
+  }
+  tick(); setInterval(tick,1000);
+  document.querySelectorAll('.gauge-section').forEach(function(el){el.style.display='none';});
+  document.querySelectorAll('.final-section .gauge-count-blink').forEach(function(el){
+    var box=el.closest('.r'); if(box) box.style.display='none';
   });
 })();
 
@@ -894,7 +1007,8 @@ function playHeroVid(){
 function playVSL(){ playHeroVid(); }
 
 function redirectToCheckout(ctaId) {
-  openOrder();
+  if(typeof fbq==='function') fbq('track','InitiateCheckout',{content_name:'Catalogue Premium Wooplans',content_ids:['cpbook-premium-2026'],content_type:'product',value:39000,currency:'XAF',cta_id:ctaId||'unknown'});
+  window.location.href='https://wooplans.mychariow.shop/prd_41k85hc0/checkout';
 }
 
 /* ── ORDER ── */
@@ -920,21 +1034,29 @@ const WHATSAPP_NUMBER_DISPLAY='+237 653 76 99 98';
 const CURRENT_DEVICE=window.innerWidth<768?'mobile':window.innerWidth<1024?'tablet':'desktop';
 let lastOrderMessage='';
 function getOrderData(){
+  const country=document.getElementById('fCountry');
+  const dial=country.options[country.selectedIndex].dataset.dial;
+  const local=document.getElementById('fPhone').value.replace(/\D/g,'').replace(/^0+/,'');
   return {
     name:document.getElementById('fName').value.trim(),
-    phone:document.getElementById('fPhone').value.trim(),
+    phone:'+'+dial+local,
+    country:country.value,
     email:document.getElementById('fEmail').value.trim(),
     city:'Digital',
     payment_method:'MoneyFusion'
   };
 }
+function selectedDial(){return document.getElementById('fCountry').options[document.getElementById('fCountry').selectedIndex].dataset.dial}
+function updatePhoneField(){document.getElementById('phoneDial').textContent='+'+selectedDial();document.getElementById('fPhone').value='';document.getElementById('fPhone').focus()}
 function getCookie(name){
   const row=document.cookie.split('; ').find(item=>item.startsWith(name+'='));
   return row ? row.split('=').slice(1).join('=') : '';
 }
 async function submitOrder(){
-  const v1=chk('fName','ff-name'),v2=chk('fPhone','ff-phone'),v3=chk('fEmail','ff-email');
-  if(!v1||!v2||!v3)return;
+  const v1=chk('fName','ff-name'),vCountry=chk('fCountry','ff-country'),v2=chk('fPhone','ff-phone'),v3=chk('fEmail','ff-email');
+  const phoneDigits=document.getElementById('fPhone').value.replace(/\D/g,'');
+  if(phoneDigits.length<7||phoneDigits.length>12){document.getElementById('ff-phone').classList.add('has-error');return}
+  if(!v1||!vCountry||!v2||!v3)return;
 
   const emailVal=document.getElementById('fEmail').value.trim();
   const emailFf=document.getElementById('ff-email');
@@ -957,6 +1079,7 @@ async function submitOrder(){
       body:JSON.stringify({
         name:orderData.name,
         phone:orderData.phone,
+        country:orderData.country,
         email:orderData.email,
         tracking:{event_source_url:location.href,fbp:getCookie('_fbp'),fbc:getCookie('_fbc')}
       })
@@ -974,6 +1097,29 @@ async function submitOrder(){
   }
 }
 document.addEventListener('keydown',e=>{if(e.key==='Escape'){closeVideo();closeOrder()}});
+
+async function checkReturnedPayment(){
+  const params=new URLSearchParams(location.search);
+  const token=params.get('token')||params.get('tokenPay')||params.get('payment_token')||sessionStorage.getItem('cpbook_payment_token');
+  if(!token||(!params.has('payment')&&!params.has('token')&&!params.has('tokenPay')&&location.pathname!=='/confirmation'))return;
+  openOrder();
+  const body=document.querySelector('.order-body');
+  body.innerHTML='<p class="form-note" style="text-align:center">Nous vérifions votre paiement sécurisé…</p>';
+  for(let attempt=0;attempt<20;attempt++){
+    try{
+      const response=await fetch('/api/moneyfusion-status?token='+encodeURIComponent(token),{cache:'no-store'});
+      const data=await response.json().catch(()=>({}));
+      if(data.status==='paid'){
+        body.innerHTML='<div class="order-sum"><div class="os-lbl"><strong>Paiement confirmé</strong><span style="font-size:11px;color:var(--gray);display:block;margin-top:4px">Vos deux catalogues sont prêts</span></div></div><a class="submit-btn" style="display:flex;text-decoration:none;margin-bottom:10px" href="/api/catalogue-download?file=villa&token='+encodeURIComponent(token)+'">Télécharger le catalogue Villas</a><a class="submit-btn" style="display:flex;text-decoration:none" href="/api/catalogue-download?file=duplex&token='+encodeURIComponent(token)+'">Télécharger le catalogue Duplex</a>';
+        return;
+      }
+      if(data.status==='failure'||data.status==='no paid')break;
+    }catch(error){}
+    await new Promise(resolve=>setTimeout(resolve,3000));
+  }
+  body.innerHTML='<p class="form-note" style="text-align:center;color:#b42318">Le paiement est encore en attente. Actualisez cette page dans quelques instants.</p>';
+}
+window.addEventListener('DOMContentLoaded',checkReturnedPayment);
 
 /* ── VIDEO THUMBNAILS — play/pause trick (no canvas, no CORS needed) ── */
 (function(){

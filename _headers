@@ -1,0 +1,11 @@
+/assets/digital/*
+  Cache-Control: public, max-age=31536000, immutable
+
+/assets/avatars/*
+  Cache-Control: public, max-age=31536000, immutable
+
+/index-digital.html
+  Cache-Control: public, max-age=300, must-revalidate
+
+/digital
+  Cache-Control: public, max-age=300, must-revalidate

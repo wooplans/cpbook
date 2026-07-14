@@ -1,0 +1,483 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Catalogue Digital Wooplans - Telechargement apres paiement</title>
+  <meta name="description" content="Achetez le Catalogue Digital Wooplans et recevez le lien de telechargement apres confirmation du paiement Mobile Money.">
+  <style>
+    :root {
+      --ink: #15130f;
+      --muted: #6a6256;
+      --paper: #fffaf0;
+      --white: #ffffff;
+      --gold: #c99b3b;
+      --gold-dark: #8d651a;
+      --green: #166534;
+      --line: #e7d9bd;
+      --shadow: 0 24px 70px rgba(35, 25, 10, .18);
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      color: var(--ink);
+      background: var(--paper);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.5;
+    }
+
+    a { color: inherit; }
+    .wrap { width: min(1120px, calc(100% - 32px)); margin: 0 auto; }
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      background: rgba(255, 250, 240, .92);
+      border-bottom: 1px solid rgba(199, 155, 59, .22);
+      backdrop-filter: blur(14px);
+    }
+    .nav {
+      min-height: 68px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+    }
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 900;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+    .brand-mark {
+      width: 34px;
+      height: 34px;
+      display: grid;
+      place-items: center;
+      color: #2b1e06;
+      background: linear-gradient(135deg, #f8dc85, #b9821f);
+      border-radius: 7px;
+      box-shadow: 0 8px 22px rgba(141, 101, 26, .25);
+    }
+    .nav-links { display: flex; align-items: center; gap: 18px; color: var(--muted); font-size: 14px; }
+    .nav-links a { text-decoration: none; }
+    .btn {
+      appearance: none;
+      border: 0;
+      border-radius: 7px;
+      background: linear-gradient(135deg, #e6bc58, #a77519);
+      color: #201500;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 48px;
+      padding: 0 20px;
+      font-weight: 900;
+      text-decoration: none;
+      box-shadow: 0 16px 34px rgba(141, 101, 26, .28);
+    }
+    .btn.secondary {
+      background: var(--white);
+      border: 1px solid var(--line);
+      color: var(--ink);
+      box-shadow: none;
+    }
+
+    .hero {
+      padding: 70px 0 42px;
+      background:
+        radial-gradient(circle at 16% 22%, rgba(232, 188, 88, .25), transparent 28%),
+        linear-gradient(180deg, #fff8e9 0%, #f7ecd3 100%);
+    }
+    .hero-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.04fr) minmax(300px, .72fr);
+      gap: 42px;
+      align-items: center;
+    }
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--gold-dark);
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: .08em;
+      font-size: 13px;
+    }
+    h1 {
+      margin: 14px 0 18px;
+      max-width: 820px;
+      font-size: clamp(42px, 7vw, 78px);
+      line-height: .95;
+      letter-spacing: 0;
+    }
+    .lead {
+      max-width: 690px;
+      margin: 0 0 26px;
+      color: #4b4439;
+      font-size: clamp(18px, 2vw, 22px);
+    }
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; margin: 28px 0; }
+    .trust-row {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 10px;
+      max-width: 680px;
+    }
+    .trust {
+      background: rgba(255, 255, 255, .62);
+      border: 1px solid rgba(199, 155, 59, .24);
+      border-radius: 8px;
+      padding: 13px;
+      font-weight: 800;
+      color: #2a241a;
+    }
+    .trust span { display: block; color: var(--muted); font-size: 13px; font-weight: 650; }
+
+    .cover-wrap {
+      position: relative;
+      min-height: 460px;
+      display: grid;
+      place-items: center;
+    }
+    .cover {
+      width: min(330px, 88vw);
+      aspect-ratio: 3 / 4;
+      position: relative;
+      border-radius: 8px;
+      background:
+        linear-gradient(145deg, rgba(255,255,255,.18), rgba(255,255,255,0) 34%),
+        linear-gradient(150deg, #24180a, #805716 50%, #e2b84e);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+      transform: rotate(-3deg);
+    }
+    .cover:before {
+      content: "";
+      position: absolute;
+      inset: 20px;
+      border: 1px solid rgba(255,255,255,.36);
+      border-radius: 6px;
+    }
+    .cover-title {
+      position: absolute;
+      left: 34px;
+      right: 34px;
+      top: 42px;
+      color: white;
+      font-size: 38px;
+      line-height: .98;
+      font-weight: 950;
+    }
+    .cover-meta {
+      position: absolute;
+      left: 34px;
+      right: 34px;
+      bottom: 34px;
+      color: #fff1c5;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: .08em;
+      font-size: 13px;
+    }
+    .file-chip {
+      position: absolute;
+      right: 8px;
+      bottom: 34px;
+      background: var(--white);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 12px 14px;
+      box-shadow: 0 18px 42px rgba(30, 20, 5, .18);
+      font-weight: 900;
+    }
+    .file-chip span { display: block; color: var(--green); font-size: 13px; }
+
+    section { padding: 64px 0; }
+    .section-head { max-width: 720px; margin-bottom: 28px; }
+    .section-head h2 { margin: 8px 0 10px; font-size: clamp(30px, 4vw, 48px); line-height: 1.04; }
+    .section-head p { margin: 0; color: var(--muted); font-size: 18px; }
+    .grid-3 { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; }
+    .item {
+      background: var(--white);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 22px;
+      box-shadow: 0 10px 34px rgba(35, 25, 10, .06);
+    }
+    .item strong { display: block; margin-bottom: 8px; font-size: 19px; }
+    .item p { margin: 0; color: var(--muted); }
+
+    .checkout {
+      background: #17120a;
+      color: var(--white);
+      padding: 72px 0;
+    }
+    .checkout-grid {
+      display: grid;
+      grid-template-columns: minmax(0, .9fr) minmax(320px, .72fr);
+      gap: 28px;
+      align-items: start;
+    }
+    .price-box {
+      background: #22190c;
+      border: 1px solid rgba(232, 188, 88, .28);
+      border-radius: 8px;
+      padding: 26px;
+    }
+    .price { font-size: clamp(42px, 6vw, 66px); line-height: 1; margin: 8px 0; font-weight: 950; color: #f5c95c; }
+    .old-price { color: #bdb5a8; text-decoration: line-through; font-weight: 800; }
+    .steps { display: grid; gap: 12px; margin-top: 24px; }
+    .step {
+      display: grid;
+      grid-template-columns: 38px 1fr;
+      gap: 12px;
+      align-items: start;
+      color: #e9ddc7;
+    }
+    .step b {
+      width: 38px;
+      height: 38px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      background: #f5c95c;
+      color: #201500;
+    }
+    form {
+      background: var(--white);
+      color: var(--ink);
+      border-radius: 8px;
+      padding: 24px;
+      box-shadow: var(--shadow);
+    }
+    label { display: block; margin: 0 0 7px; font-weight: 850; }
+    input, select {
+      width: 100%;
+      min-height: 48px;
+      border: 1px solid #d9c9a8;
+      border-radius: 7px;
+      padding: 0 12px;
+      color: var(--ink);
+      background: #fffdf8;
+      font: inherit;
+    }
+    .field { margin-bottom: 15px; }
+    .pay-methods { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+    .pay-methods label {
+      min-height: 50px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      border: 1px solid #d9c9a8;
+      border-radius: 7px;
+      padding: 0 12px;
+      margin: 0;
+      cursor: pointer;
+      background: #fffdf8;
+    }
+    .note { color: var(--muted); font-size: 13px; margin: 12px 0 0; }
+    .download-lock {
+      margin-top: 18px;
+      border: 1px dashed rgba(232, 188, 88, .55);
+      border-radius: 8px;
+      padding: 16px;
+      color: #f8ead0;
+      background: rgba(255,255,255,.04);
+    }
+
+    .faq { display: grid; gap: 10px; }
+    details {
+      background: var(--white);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 18px;
+    }
+    summary { cursor: pointer; font-weight: 900; }
+    details p { margin: 12px 0 0; color: var(--muted); }
+    footer { padding: 30px 0; color: var(--muted); border-top: 1px solid var(--line); }
+
+    @media (max-width: 860px) {
+      .nav-links { display: none; }
+      .hero { padding-top: 42px; }
+      .hero-grid, .checkout-grid, .grid-3 { grid-template-columns: 1fr; }
+      .cover-wrap { min-height: 390px; }
+      .trust-row { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="wrap nav">
+      <div class="brand"><span class="brand-mark">W</span> Wooplans</div>
+      <nav class="nav-links" aria-label="Navigation">
+        <a href="#contenu">Contenu</a>
+        <a href="#paiement">Paiement</a>
+        <a href="#faq">FAQ</a>
+      </nav>
+      <a class="btn" href="#paiement">Acheter la version digitale</a>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="wrap hero-grid">
+        <div>
+          <span class="eyebrow">Version digitale - acces apres paiement</span>
+          <h1>Le catalogue Wooplans telechargeable en PDF.</h1>
+          <p class="lead">Commandez le catalogue premium, payez par Orange Money ou MTN MoMo, puis recevez votre lien de telechargement apres confirmation.</p>
+          <div class="hero-actions">
+            <a class="btn" href="#paiement">Payer et recevoir le catalogue</a>
+            <a class="btn secondary" href="#contenu">Voir ce qui est inclus</a>
+          </div>
+          <div class="trust-row">
+            <div class="trust">50 plans <span>Maisons, villas et duplex</span></div>
+            <div class="trust">PDF digital <span>A consulter sur telephone ou ordinateur</span></div>
+            <div class="trust">Bonus inclus <span>Guide chantier + acces numerique</span></div>
+          </div>
+        </div>
+        <div class="cover-wrap" aria-hidden="true">
+          <div class="cover">
+            <div class="cover-title">50 Plans de Maison</div>
+            <div class="cover-meta">Catalogue Digital 2026</div>
+          </div>
+          <div class="file-chip">PDF securise <span>Livraison apres paiement</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contenu">
+      <div class="wrap">
+        <div class="section-head">
+          <span class="eyebrow">Ce que vous recevez</span>
+          <h2>Tout le contenu du catalogue, sans attendre la livraison physique.</h2>
+          <p>La version digitale est pensee pour les clients qui veulent commencer rapidement leurs recherches et partager les modeles avec leur famille ou leur equipe projet.</p>
+        </div>
+        <div class="grid-3">
+          <div class="item">
+            <strong>Plans et modeles</strong>
+            <p>Une selection de 50 modeles de maisons adaptes aux projets au Cameroun.</p>
+          </div>
+          <div class="item">
+            <strong>Devis estimatifs</strong>
+            <p>Des indications budgetaires pour mieux preparer les premieres discussions.</p>
+          </div>
+          <div class="item">
+            <strong>Bonus digitaux</strong>
+            <p>Le guide chantier et les ressources numeriques sont inclus avec la commande.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="paiement" class="checkout">
+      <div class="wrap checkout-grid">
+        <div>
+          <span class="eyebrow">Paiement puis telechargement</span>
+          <h2 style="font-size:clamp(32px,5vw,54px);line-height:1.04;margin:10px 0 14px;">Votre lien est envoye apres confirmation du paiement.</h2>
+          <div class="price-box">
+            <div class="old-price">Prix normal : 60 000 FCFA</div>
+            <div class="price">39 000 FCFA</div>
+            <strong>Offre digitale de lancement</strong>
+          </div>
+          <div class="steps">
+            <div class="step"><b>1</b><div><strong>Remplissez le formulaire.</strong><br>Vos informations preparent la commande WhatsApp.</div></div>
+            <div class="step"><b>2</b><div><strong>Payez par Mobile Money.</strong><br>Orange Money ou MTN MoMo selon votre choix.</div></div>
+            <div class="step"><b>3</b><div><strong>Recevez le lien PDF.</strong><br>Le lien de telechargement est envoye apres verification du paiement.</div></div>
+          </div>
+          <div class="download-lock">
+            Acces telechargement verrouille : le lien PDF final doit etre envoye uniquement apres confirmation du paiement.
+          </div>
+        </div>
+
+        <form id="digitalOrderForm">
+          <div class="field">
+            <label for="name">Nom complet</label>
+            <input id="name" name="name" autocomplete="name" required>
+          </div>
+          <div class="field">
+            <label for="phone">Numero WhatsApp</label>
+            <input id="phone" name="phone" inputmode="tel" autocomplete="tel" placeholder="+237 6XX XXX XXX" required>
+          </div>
+          <div class="field">
+            <label for="email">Email de reception</label>
+            <input id="email" name="email" type="email" autocomplete="email" placeholder="vous@email.com">
+          </div>
+          <div class="field">
+            <label>Moyen de paiement</label>
+            <div class="pay-methods">
+              <label><input type="radio" name="payment" value="Orange Money" checked> Orange Money</label>
+              <label><input type="radio" name="payment" value="MTN MoMo"> MTN MoMo</label>
+            </div>
+          </div>
+          <button class="btn" type="submit" style="width:100%;">Continuer sur WhatsApp</button>
+          <p class="note">Le bouton ouvre WhatsApp avec votre commande pre-remplie. Remplacez le numero WhatsApp dans le script avant mise en ligne.</p>
+        </form>
+      </div>
+    </section>
+
+    <section id="faq">
+      <div class="wrap">
+        <div class="section-head">
+          <span class="eyebrow">Questions frequentes</span>
+          <h2>Avant de commander la version digitale.</h2>
+        </div>
+        <div class="faq">
+          <details open>
+            <summary>Le telechargement est-il automatique ?</summary>
+            <p>Sur cette version statique, le lien est envoye apres confirmation du paiement. Pour un telechargement automatique et securise, il faudra connecter un prestataire de paiement avec verification serveur.</p>
+          </details>
+          <details>
+            <summary>Quels moyens de paiement sont acceptes ?</summary>
+            <p>Orange Money et MTN MoMo sont prevus dans le formulaire de commande.</p>
+          </details>
+          <details>
+            <summary>Puis-je ouvrir le PDF sur telephone ?</summary>
+            <p>Oui, le catalogue digital est prevu pour etre consulte sur telephone, tablette ou ordinateur.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap">Wooplans - Catalogue Digital 2026</div>
+  </footer>
+
+  <script>
+    const WHATSAPP_NUMBER = '237600000000';
+    const OFFER_PRICE = '39 000 FCFA';
+
+    document.getElementById('digitalOrderForm').addEventListener('submit', function (event) {
+      event.preventDefault();
+
+      const form = new FormData(event.currentTarget);
+      const name = String(form.get('name') || '').trim();
+      const phone = String(form.get('phone') || '').trim();
+      const email = String(form.get('email') || '').trim();
+      const payment = String(form.get('payment') || 'Orange Money');
+
+      const message = [
+        'Bonjour, je veux commander le Catalogue Digital Wooplans.',
+        '',
+        'Offre : Catalogue PDF telechargeable',
+        'Prix : ' + OFFER_PRICE,
+        'Nom : ' + name,
+        'WhatsApp : ' + phone,
+        'Email : ' + (email || 'Non renseigne'),
+        'Paiement : ' + payment,
+        '',
+        'Merci de me confirmer le numero de paiement et de m envoyer le lien de telechargement apres confirmation.'
+      ].join('\n');
+
+      window.location.href = 'https://wa.me/' + WHATSAPP_NUMBER + '?text=' + encodeURIComponent(message);
+    });
+  </script>
+</body>
+</html>
