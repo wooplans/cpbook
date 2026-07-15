@@ -139,6 +139,8 @@ body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--dark);overf
 .countdown strong{font-size:22px;letter-spacing:.04em;color:var(--white);text-shadow:0 1px 1px rgba(0,0,0,.18)}
 .countdown-final{background:rgba(255,255,255,.08);border:1px dashed rgba(255,211,155,.9);color:#FFD39B;box-shadow:none;max-width:360px;font-size:12px}
 .countdown-final strong{color:#FFD39B;text-shadow:none}
+@keyframes fomoPulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.58;transform:scale(1.045)}}
+.topbar-fomo strong,.countdown-final strong{animation:fomoPulse 1.15s ease-in-out infinite}
 .hero-value-anchor{font-size:13px;color:rgba(255,255,255,.72);margin:-8px 0 18px}
 .guarantee-box{display:flex;align-items:flex-start;gap:12px;background:#FFF8ED;border:1px solid rgba(240,138,46,.35);border-radius:12px;padding:15px 16px;margin-top:18px;color:var(--dark)}
 .guarantee-box strong{display:block;font-family:'Plus Jakarta Sans',sans-serif;font-size:14px;margin-bottom:4px}
@@ -151,6 +153,7 @@ body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--dark);overf
 .written-person img{width:44px;height:44px;border-radius:50%;object-fit:cover;border:2px solid var(--white)}
 .written-person strong{display:block;font-family:'Plus Jakarta Sans',sans-serif;font-size:14px;color:var(--dark)}
 .written-person span{display:block;font-size:12px;color:var(--gray);margin-top:2px}
+.verified-badge{display:inline-flex;align-items:center;gap:4px;margin:0 0 10px;font-size:10px;font-weight:800;color:var(--teal);letter-spacing:.02em}
 .written-testimonial blockquote{font-size:14px;line-height:1.65;color:var(--dark);font-style:italic}
 .written-testimonial small{display:block;margin-top:10px;font-size:10px;line-height:1.4;color:var(--red)}
 .written-dots{text-align:center;font-size:18px;letter-spacing:4px;color:var(--orange);margin-top:2px}
@@ -158,6 +161,9 @@ body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--dark);overf
 .support-guarantee{max-width:680px;margin:24px auto 0;background:var(--white);border-radius:18px;padding:26px 24px;color:var(--dark);box-shadow:0 14px 36px rgba(0,0,0,.12)}
 .support-guarantee h3{font-family:'Plus Jakarta Sans',sans-serif;font-size:22px;line-height:1.2;margin-bottom:10px}
 .support-guarantee p{font-size:14px;line-height:1.65;color:var(--gray);margin-bottom:18px}
+.guarantee-points{display:grid;gap:9px;margin:0 0 20px;padding:0;list-style:none}
+.guarantee-points li{display:flex;align-items:flex-start;gap:9px;font-size:13px;line-height:1.5;color:var(--dark);font-weight:700}
+.guarantee-points li::before{content:'✓';display:inline-flex;align-items:center;justify-content:center;flex:0 0 20px;width:20px;height:20px;border-radius:50%;background:rgba(15,91,89,.1);color:var(--teal);font-size:12px;font-weight:800}
 .support-links{display:flex;justify-content:center;flex-wrap:wrap;gap:12px}
 .support-link{display:inline-flex;align-items:center;justify-content:center;min-height:44px;padding:10px 16px;border-radius:9px;font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;font-size:13px;text-decoration:none}
 .support-link.email{background:rgba(15,91,89,.1);color:var(--teal);border:1px solid rgba(15,91,89,.18)}
@@ -482,11 +488,9 @@ src="https://www.facebook.com/tr?id=1651374605332302&ev=PageView&noscript=1"/></
 
 <!-- HERO -->
 <section class="hero" id="heroSection">
-  <div class="hero-eyebrow">
-    <span>📘 Catalogue Premium · Édition 2026</span>
-  </div>
+  
 
-  <h1>OBTENEZ 50+ PLANS DE VILLA ET DUPLEX<br>AVEC LEURS <span class="hl">VRAIS DEVIS.</span></h1>
+  <h1>OBTENEZ 50+ PLANS<br>AVEC LEURS <span class="hl">VRAIS DEVIS.</span></h1>
 
   <div class="hero-rating">
     <span class="rating-stars">★★★★★</span>
@@ -503,7 +507,6 @@ src="https://www.facebook.com/tr?id=1651374605332302&ev=PageView&noscript=1"/></
     </div>
   </div>
 
-  <div class="hero-value-anchor">Valeur réelle d'une sélection professionnelle : <strong>500 000 FCFA</strong></div>
 
   <div class="hero-price">
     <div class="price-row">
@@ -518,7 +521,6 @@ src="https://www.facebook.com/tr?id=1651374605332302&ev=PageView&noscript=1"/></
     Télécharger le Catalogue
   </button>
 
-  <div class="guarantee-compact hero-guarantee-compact"><span class="guarantee-mark">✓</span><span>Garantie 7 jours satisfait ou remboursé</span></div>
 
   <div class="social-badge">
     <div class="avatar-stack">
@@ -681,22 +683,27 @@ src="https://www.facebook.com/tr?id=1651374605332302&ev=PageView&noscript=1"/></
   <div class="written-testimonials r" aria-label="Témoignages clients par ville">
     <article class="written-testimonial">
       <div class="written-person"><img src="./assets/avatars/avatar-1.jpeg" alt="Avatar client Abidjan"><div><strong>Kouadio</strong><span>Abidjan, Côte d'Ivoire</span></div></div>
+      <span class="verified-badge">✓ Achat vérifié</span>
       <blockquote>« Je cherchais plusieurs modèles avant de commencer les démarches. Les devis m'ont permis de comparer beaucoup plus facilement. »</blockquote>
     </article>
     <article class="written-testimonial">
       <div class="written-person"><img src="./assets/avatars/avatar-2.jpeg" alt="Avatar client Conakry"><div><strong>Mamadou</strong><span>Conakry, Guinée</span></div></div>
+      <span class="verified-badge">✓ Achat vérifié</span>
       <blockquote>« Le catalogue m'a donné une vue claire des styles et du budget avant de contacter un entrepreneur. »</blockquote>
     </article>
     <article class="written-testimonial">
       <div class="written-person"><img src="./assets/avatars/avatar-3.jpeg" alt="Avatar client Dakar"><div><strong>Diaye</strong><span>Dakar, Sénégal</span></div></div>
+      <span class="verified-badge">✓ Achat vérifié</span>
       <blockquote>« Je pouvais enfin montrer des exemples concrets à ma famille et avancer sur un choix précis. »</blockquote>
     </article>
     <article class="written-testimonial">
       <div class="written-person"><img src="./assets/avatars/avatar-4.jpeg" alt="Avatar client Yaoundé"><div><strong>Ebwolè</strong><span>Yaoundé, Cameroun</span></div></div>
+      <span class="verified-badge">✓ Achat vérifié</span>
       <blockquote>« Les plans et les devis m'ont aidé à poser les bonnes questions avant le chantier. »</blockquote>
     </article>
     <article class="written-testimonial">
       <div class="written-person"><img src="./assets/avatars/avatar-5.jpeg" alt="Avatar client Douala"><div><strong>Maponé</strong><span>Douala, Cameroun</span></div></div>
+      <span class="verified-badge">✓ Achat vérifié</span>
       <blockquote>« J'ai pu comparer plusieurs maisons au même endroit au lieu de choisir dans la précipitation. »</blockquote>
     </article>
   </div>
@@ -710,6 +717,11 @@ src="https://www.facebook.com/tr?id=1651374605332302&ev=PageView&noscript=1"/></
   <div class="support-guarantee r">
     <h3>Garantie 7 jours satisfait ou remboursé</h3>
     <p>Accédez au catalogue et vérifiez son contenu. Si le produit ne correspond pas à la promesse, contactez notre support sous 7 jours pour demander une solution ou un remboursement.</p>
+    <ul class="guarantee-points">
+      <li>Accès immédiat au catalogue après la confirmation du paiement.</li>
+      <li>Vous pouvez vérifier le contenu et l’accessibilité des fichiers.</li>
+      <li>Notre support vous accompagne directement par e-mail ou WhatsApp.</li>
+    </ul>
     <div class="support-links">
       <a class="support-link email" href="mailto:info@wooplans.com">✉ info@wooplans.com</a>
       <a class="support-link whatsapp" href="https://wa.me/237694327885" target="_blank" rel="noopener">Contacter le support WhatsApp</a>
