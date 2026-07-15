@@ -15,7 +15,7 @@ export default {
     }
 
     if (url.pathname === '/digital' || url.pathname === '/digital/') {
-      url.pathname = '/digital.html';
+      url.pathname = '/index-digital.html';
       return env.ASSETS.fetch(new Request(url.toString(), request));
     }
     if (url.pathname === '/whatsapp' || url.pathname === '/whatsapp/') {
