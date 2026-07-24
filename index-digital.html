@@ -157,6 +157,10 @@ body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--dark);overf
 .written-testimonial blockquote{font-size:14px;line-height:1.65;color:var(--dark);font-style:italic}
 .written-testimonial small{display:block;margin-top:10px;font-size:10px;line-height:1.4;color:var(--red)}
 .written-dots{text-align:center;font-size:18px;letter-spacing:4px;color:var(--orange);margin-top:2px}
+.section-rating{display:flex;align-items:center;gap:9px;margin:14px 0 22px;font-size:13px;color:var(--gray);font-weight:700}
+.section-rating-stars{color:var(--gold);font-size:19px;letter-spacing:1px;line-height:1}
+.section-rating strong{color:var(--dark);font-family:'Plus Jakarta Sans',sans-serif;font-weight:800}
+.testi-rating{margin-top:4px;color:var(--gold);font-size:12px;letter-spacing:1px;line-height:1}
 .sticky-countdown{font-size:11px;color:var(--red);font-weight:700;margin-top:2px}
 .support-guarantee{max-width:680px;margin:24px auto 0;background:var(--white);border-radius:18px;padding:26px 24px;color:var(--dark);box-shadow:0 14px 36px rgba(0,0,0,.12)}
 .support-guarantee h3{font-family:'Plus Jakarta Sans',sans-serif;font-size:22px;line-height:1.2;margin-bottom:10px}
@@ -345,6 +349,34 @@ h2{font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;font-size:clamp(24
 .pinc{display:flex;align-items:center;gap:10px;font-size:14px;color:var(--dark);font-weight:500}
 .pinc::before{content:'✓';width:22px;height:22px;background:rgba(15,91,89,0.1);color:var(--teal);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:800;flex-shrink:0}
 /* ── FINAL CTA SECTION ── */
+/* BONUS SPECIAL DU JOUR */
+.bonus-section{position:relative;overflow:hidden;background:linear-gradient(145deg,#082f2e 0%,var(--teal) 54%,#14706d 100%);color:var(--white)}
+.bonus-section::before{content:'';position:absolute;inset:0;background:radial-gradient(circle at 85% 15%,rgba(231,195,108,.2),transparent 34%),radial-gradient(circle at 8% 92%,rgba(240,138,46,.14),transparent 28%);pointer-events:none}
+.bonus-shell{position:relative;max-width:980px;margin:0 auto}
+.bonus-date-pill{display:inline-flex;align-items:center;gap:8px;margin-bottom:16px;padding:7px 12px;border:1px solid rgba(255,211,155,.55);border-radius:99px;background:rgba(255,255,255,.08);color:#FFD39B;font-family:'Plus Jakarta Sans',sans-serif;font-size:11px;font-weight:800;letter-spacing:.08em;text-transform:uppercase}
+.bonus-date-pill::before{content:'';width:7px;height:7px;border-radius:50%;background:#FFD39B;box-shadow:0 0 0 5px rgba(255,211,155,.12);animation:blink 1.2s ease-in-out infinite}
+.bonus-section h2{max-width:690px;margin-bottom:14px;color:var(--white)}
+.bonus-lead{max-width:680px;color:rgba(255,255,255,.76);font-size:15px;line-height:1.7;margin-bottom:26px}
+.bonus-grid{display:grid;gap:24px;align-items:center}
+.bonus-visual{position:relative;min-height:330px;border:1px solid rgba(255,255,255,.16);border-radius:22px;background:linear-gradient(145deg,rgba(255,255,255,.12),rgba(255,255,255,.04));box-shadow:0 24px 60px rgba(0,0,0,.26);overflow:hidden;padding:26px}
+.bonus-cover{position:absolute;left:50%;bottom:24px;width:min(52%,210px);height:270px;object-fit:cover;object-position:top;transform:translateX(-50%) rotate(-3deg);border:7px solid #fff;border-radius:12px;box-shadow:0 18px 40px rgba(0,0,0,.38);z-index:2}
+.bonus-house{position:absolute;width:132px;height:96px;object-fit:cover;border:5px solid #fff;border-radius:11px;box-shadow:0 12px 30px rgba(0,0,0,.28)}
+.bonus-house.one{left:18px;top:38px;transform:rotate(-7deg)}
+.bonus-house.two{right:16px;bottom:40px;transform:rotate(7deg);z-index:3}
+.bonus-calendar{position:absolute;right:20px;top:20px;z-index:4;width:112px;border-radius:14px;background:#fff;color:var(--dark);box-shadow:0 12px 30px rgba(0,0,0,.24);overflow:hidden;text-align:center}
+.bonus-calendar-head{display:block;padding:7px;background:var(--orange);color:#fff;font-family:'Plus Jakarta Sans',sans-serif;font-size:10px;font-weight:800;letter-spacing:.08em;text-transform:uppercase}
+.bonus-calendar strong{display:block;padding:10px 8px 2px;font-family:'Plus Jakarta Sans',sans-serif;font-size:28px;line-height:1;color:var(--teal)}
+.bonus-calendar small{display:block;padding:0 6px 10px;font-size:10px;color:var(--gray);font-weight:700;text-transform:capitalize}
+.bonus-plus{position:absolute;left:22px;bottom:26px;z-index:5;width:54px;height:54px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:var(--gold);color:var(--teal-dark);font-family:'Plus Jakarta Sans',sans-serif;font-size:32px;font-weight:800;box-shadow:0 0 0 9px rgba(231,195,108,.16)}
+.bonus-card{background:rgba(255,255,255,.09);border:1px solid rgba(255,255,255,.16);border-radius:18px;padding:22px}
+.bonus-card h3{font-family:'Plus Jakarta Sans',sans-serif;font-size:21px;line-height:1.25;margin-bottom:14px;color:var(--white)}
+.bonus-points{list-style:none;display:grid;gap:12px;margin-bottom:20px}
+.bonus-points li{display:flex;align-items:flex-start;gap:10px;color:rgba(255,255,255,.84);font-size:14px;line-height:1.5}
+.bonus-points li::before{content:'✓';display:flex;align-items:center;justify-content:center;flex:0 0 22px;width:22px;height:22px;border-radius:50%;background:var(--gold);color:var(--teal-dark);font-size:12px;font-weight:900}
+.bonus-deadline{padding:12px 14px;border-radius:10px;background:rgba(8,40,40,.48);border:1px dashed rgba(255,211,155,.62);color:#FFD39B;font-size:12px;line-height:1.55;text-align:center;font-weight:700}
+.bonus-cta{margin:20px 0 0;max-width:430px}
+@media(min-width:760px){.bonus-grid{grid-template-columns:minmax(0,1.05fr) minmax(320px,.95fr)}.bonus-visual{min-height:400px}.bonus-cover{height:330px;width:220px}}
+
 .final-section{background:var(--teal);padding:48px 20px;text-align:center}
 
 
@@ -494,7 +526,7 @@ src="https://www.facebook.com/tr?id=1651374605332302&ev=PageView&noscript=1"/></
 
   <div class="hero-rating">
     <span class="rating-stars">★★★★★</span>
-    <span class="rating-text"><strong>4,9</strong> · +129 avis</span>
+    <span class="rating-text"><strong>4,9</strong> · +450 avis</span>
   </div>
 
   <p class="hero-sub">Comparez les modèles, visualisez votre future maison et estimez votre budget avant de lancer votre chantier.</p>
@@ -533,6 +565,49 @@ src="https://www.facebook.com/tr?id=1651374605332302&ev=PageView&noscript=1"/></
   </div>
 </section>
 
+<!-- AVIS ECRITS - preuve sociale juste apres le hero -->
+<section class="s-bg" id="avis-clients">
+  <span class="section-label r">Ils construisent en Afrique</span>
+  <h2 class="r">Des clients satisfaits qui ont obtenu <span class="ao">le catalogue en Afrique</span></h2>
+  <div class="section-rating r" aria-label="Note moyenne de 4,9 sur 5">
+    <span class="section-rating-stars" aria-hidden="true">★★★★★</span>
+    <span><strong>4,9/5</strong> · plus de 450 avis</span>
+  </div>
+  <div class="written-testimonials r" aria-label="Témoignages clients par ville">
+    <article class="written-testimonial">
+      <div class="written-person"><img src="./assets/avatars/avatar-1.jpeg" alt="Avatar client Abidjan"><div><strong>Kouadio</strong><span>Abidjan, Côte d'Ivoire</span></div></div>
+      <span class="verified-badge">✓ Achat vérifié</span>
+      <div class="testi-rating" aria-label="5 étoiles sur 5">★★★★★</div>
+      <blockquote>« Je cherchais plusieurs modèles avant de commencer les démarches. Les devis m'ont permis de comparer beaucoup plus facilement. »</blockquote>
+    </article>
+    <article class="written-testimonial">
+      <div class="written-person"><img src="./assets/avatars/avatar-2.jpeg" alt="Avatar client Conakry"><div><strong>Mamadou</strong><span>Conakry, Guinée</span></div></div>
+      <span class="verified-badge">✓ Achat vérifié</span>
+      <div class="testi-rating" aria-label="5 étoiles sur 5">★★★★★</div>
+      <blockquote>« Le catalogue m'a donné une vue claire des styles et du budget avant de contacter un entrepreneur. »</blockquote>
+    </article>
+    <article class="written-testimonial">
+      <div class="written-person"><img src="./assets/avatars/avatar-3.jpeg" alt="Avatar client Dakar"><div><strong>Diaye</strong><span>Dakar, Sénégal</span></div></div>
+      <span class="verified-badge">✓ Achat vérifié</span>
+      <div class="testi-rating" aria-label="5 étoiles sur 5">★★★★★</div>
+      <blockquote>« Je pouvais enfin montrer des exemples concrets à ma famille et avancer sur un choix précis. »</blockquote>
+    </article>
+    <article class="written-testimonial">
+      <div class="written-person"><img src="./assets/avatars/avatar-4.jpeg" alt="Avatar client Yaoundé"><div><strong>Ebwolè</strong><span>Yaoundé, Cameroun</span></div></div>
+      <span class="verified-badge">✓ Achat vérifié</span>
+      <div class="testi-rating" aria-label="5 étoiles sur 5">★★★★★</div>
+      <blockquote>« Les plans et les devis m'ont aidé à poser les bonnes questions avant le chantier. »</blockquote>
+    </article>
+    <article class="written-testimonial">
+      <div class="written-person"><img src="./assets/avatars/avatar-5.jpeg" alt="Avatar client Douala"><div><strong>Maponé</strong><span>Douala, Cameroun</span></div></div>
+      <span class="verified-badge">✓ Achat vérifié</span>
+      <div class="testi-rating" aria-label="5 étoiles sur 5">★★★★★</div>
+      <blockquote>« J'ai pu comparer plusieurs maisons au même endroit au lieu de choisir dans la précipitation. »</blockquote>
+    </article>
+  </div>
+  <div class="written-dots" aria-hidden="true">•••</div>
+</section>
+
 <!-- CE QUE VOUS RECEVEZ -->
 <section class="s-bg">
   <span class="section-label r">Ce que vous recevez</span>
@@ -555,7 +630,7 @@ src="https://www.facebook.com/tr?id=1651374605332302&ev=PageView&noscript=1"/></
 </section>
 
 <div class="value-stack r" style="margin:26px 20px 0">
-  <h3>Ce catalogue coûte normalement 500 000 FCFA</h3>
+  <h3>Ce catalogue a une valeur de 500 000 FCFA</h3>
   <p class="value-stack-intro">Réunir autant de plans, de rendus et de devis auprès d'un professionnel demande du temps et une prestation dédiée. Le catalogue vous donne cette base de décision immédiatement.</p>
   <table class="value-table" aria-label="Valeur réelle du catalogue">
     <tbody>
@@ -632,6 +707,10 @@ src="https://www.facebook.com/tr?id=1651374605332302&ev=PageView&noscript=1"/></
 <section class="s-white">
   <span class="section-label r">Ils ont commandé</span>
   <h2 class="r">Ce qu'ils <span class="ao">en disent</span></h2>
+  <div class="section-rating r" aria-label="Note moyenne de 4,9 sur 5">
+    <span class="section-rating-stars" aria-hidden="true">★★★★★</span>
+    <span><strong>4,9/5</strong> · avis clients vérifiés</span>
+  </div>
   <div class="testi-grid-2x2" style="margin-top:20px">
     <div class="testi-card r" onclick="openVideo(0)">
       <div class="testi-video">
@@ -640,7 +719,7 @@ src="https://www.facebook.com/tr?id=1651374605332302&ev=PageView&noscript=1"/></
         <div class="testi-video-bg"></div><div class="testi-play"></div><span class="testi-video-lbl">▶ Vidéo</span>
       </div>
       <div class="testi-body">
-        <div class="testi-name">Ibrahim</div><div class="testi-loc">Cameroun</div>
+        <div class="testi-name">Ibrahim</div><div class="testi-rating" aria-label="5 étoiles sur 5">★★★★★</div>
       </div>
     </div>
     <div class="testi-card r d1" onclick="openVideo(1)">
@@ -650,7 +729,7 @@ src="https://www.facebook.com/tr?id=1651374605332302&ev=PageView&noscript=1"/></
         <div class="testi-video-bg"></div><div class="testi-play"></div><span class="testi-video-lbl">▶ Vidéo</span>
       </div>
       <div class="testi-body">
-        <div class="testi-name">Bassirou</div><div class="testi-loc">Cameroun</div>
+        <div class="testi-name">Bassirou</div><div class="testi-rating" aria-label="5 étoiles sur 5">★★★★★</div>
       </div>
     </div>
     <div class="testi-card r d2" onclick="openVideo(2)">
@@ -660,7 +739,7 @@ src="https://www.facebook.com/tr?id=1651374605332302&ev=PageView&noscript=1"/></
         <div class="testi-video-bg"></div><div class="testi-play"></div><span class="testi-video-lbl">▶ Vidéo</span>
       </div>
       <div class="testi-body">
-        <div class="testi-name">Francis</div><div class="testi-loc">Cameroun</div>
+        <div class="testi-name">Francis</div><div class="testi-rating" aria-label="5 étoiles sur 5">★★★★★</div>
       </div>
     </div>
     <div class="testi-card r d3" onclick="openVideo(3)">
@@ -670,44 +749,10 @@ src="https://www.facebook.com/tr?id=1651374605332302&ev=PageView&noscript=1"/></
         <div class="testi-video-bg"></div><div class="testi-play"></div><span class="testi-video-lbl">▶ Vidéo</span>
       </div>
       <div class="testi-body">
-        <div class="testi-name">Renaud</div><div class="testi-loc">Cameroun</div>
+        <div class="testi-name">Renaud</div><div class="testi-rating" aria-label="5 étoiles sur 5">★★★★★</div>
       </div>
     </div>
   </div>
-</section>
-
-<!-- AVIS ECRITS -->
-<section class="s-bg">
-  <span class="section-label r">Ils construisent en Afrique</span>
-  <h2 class="r">Des clients qui ont pu <span class="ao">comparer avant de choisir</span></h2>
-  <div class="written-testimonials r" aria-label="Témoignages clients par ville">
-    <article class="written-testimonial">
-      <div class="written-person"><img src="./assets/avatars/avatar-1.jpeg" alt="Avatar client Abidjan"><div><strong>Kouadio</strong><span>Abidjan, Côte d'Ivoire</span></div></div>
-      <span class="verified-badge">✓ Achat vérifié</span>
-      <blockquote>« Je cherchais plusieurs modèles avant de commencer les démarches. Les devis m'ont permis de comparer beaucoup plus facilement. »</blockquote>
-    </article>
-    <article class="written-testimonial">
-      <div class="written-person"><img src="./assets/avatars/avatar-2.jpeg" alt="Avatar client Conakry"><div><strong>Mamadou</strong><span>Conakry, Guinée</span></div></div>
-      <span class="verified-badge">✓ Achat vérifié</span>
-      <blockquote>« Le catalogue m'a donné une vue claire des styles et du budget avant de contacter un entrepreneur. »</blockquote>
-    </article>
-    <article class="written-testimonial">
-      <div class="written-person"><img src="./assets/avatars/avatar-3.jpeg" alt="Avatar client Dakar"><div><strong>Diaye</strong><span>Dakar, Sénégal</span></div></div>
-      <span class="verified-badge">✓ Achat vérifié</span>
-      <blockquote>« Je pouvais enfin montrer des exemples concrets à ma famille et avancer sur un choix précis. »</blockquote>
-    </article>
-    <article class="written-testimonial">
-      <div class="written-person"><img src="./assets/avatars/avatar-4.jpeg" alt="Avatar client Yaoundé"><div><strong>Ebwolè</strong><span>Yaoundé, Cameroun</span></div></div>
-      <span class="verified-badge">✓ Achat vérifié</span>
-      <blockquote>« Les plans et les devis m'ont aidé à poser les bonnes questions avant le chantier. »</blockquote>
-    </article>
-    <article class="written-testimonial">
-      <div class="written-person"><img src="./assets/avatars/avatar-5.jpeg" alt="Avatar client Douala"><div><strong>Maponé</strong><span>Douala, Cameroun</span></div></div>
-      <span class="verified-badge">✓ Achat vérifié</span>
-      <blockquote>« J'ai pu comparer plusieurs maisons au même endroit au lieu de choisir dans la précipitation. »</blockquote>
-    </article>
-  </div>
-  <div class="written-dots" aria-hidden="true">•••</div>
 </section>
 
 <!-- GARANTIE ET SUPPORT -->
@@ -718,9 +763,9 @@ src="https://www.facebook.com/tr?id=1651374605332302&ev=PageView&noscript=1"/></
     <h3>Garantie 7 jours satisfait ou remboursé</h3>
     <p>Accédez au catalogue et vérifiez son contenu. Si le produit ne correspond pas à la promesse, contactez notre support sous 7 jours pour demander une solution ou un remboursement.</p>
     <ul class="guarantee-points">
-      <li>Accès immédiat au catalogue après la confirmation du paiement.</li>
-      <li>Vous pouvez vérifier le contenu et l’accessibilité des fichiers.</li>
-      <li>Notre support vous accompagne directement par e-mail ou WhatsApp.</li>
+      <li>Accès immédiat.</li>
+      <li>Des plans professionnels.</li>
+      <li>On vous accompagne en cas de problème.</li>
     </ul>
     <div class="support-links">
       <a class="support-link email" href="mailto:info@wooplans.com">✉ info@wooplans.com</a>
@@ -746,6 +791,7 @@ src="https://www.facebook.com/tr?id=1651374605332302&ev=PageView&noscript=1"/></
         <div class="pinc">50+ plans — villas &amp; duplex</div>
         <div class="pinc">Rendus 3D + Plans + Devis estimatifs</div>
         <div class="pinc">Téléchargement immédiat (accès à vie)</div>
+        <div class="pinc"><strong>Bonus du jour :</strong>&nbsp; les nouveaux plans ajoutés chaque mois</div>
       </div>
       <button class="cta-primary" data-cta-id="pricing_cta" onclick="redirectToCheckout(this.getAttribute('data-cta-id'))">
         <svg class="wa-svg" viewBox="0 0 24 24"><path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/></svg>
@@ -757,6 +803,43 @@ src="https://www.facebook.com/tr?id=1651374605332302&ev=PageView&noscript=1"/></
         <div class="trust-item"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="var(--teal)" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>Téléchargement direct</div>
       </div>
       <div class="guarantee-compact"><span class="guarantee-mark">✓</span><span>Garantie 7 jours satisfait ou remboursé</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- BONUS SPECIAL -->
+<section class="bonus-section" id="bonusSpecial">
+  <div class="bonus-shell">
+    <div class="bonus-date-pill r">Bonus spécial valable uniquement ce <span data-bonus-date-short>jour de votre visite</span></div>
+    <h2 class="r">Achetez une fois aujourd’hui. <span class="ag">Découvrez de nouveaux plans chaque mois.</span></h2>
+    <p class="bonus-lead r">Votre catalogue ne reste pas figé : en commandant aujourd’hui, vous débloquez aussi la possibilité de recevoir les nouveaux plans que Wooplans ajoutera au fil des mois, sans devoir racheter un nouveau catalogue.</p>
+
+    <div class="bonus-grid">
+      <div class="bonus-visual r" aria-label="Le catalogue Wooplans enrichi de nouveaux plans chaque mois">
+        <img class="bonus-house one" src="./assets/digital/house-model-01.webp" alt="Nouveau modèle de maison Wooplans">
+        <img class="bonus-cover" src="./assets/digital/catalogue-cover.jpg" alt="Couverture du catalogue Premium Wooplans">
+        <img class="bonus-house two" src="./assets/digital/house-model-03.webp" alt="Autre nouveau modèle de maison Wooplans">
+        <div class="bonus-calendar" aria-hidden="true">
+          <span class="bonus-calendar-head">Nouveautés</span>
+          <strong data-bonus-day>—</strong>
+          <small data-bonus-month>chaque mois</small>
+        </div>
+        <div class="bonus-plus" aria-hidden="true">+</div>
+      </div>
+
+      <div class="bonus-card r d1">
+        <h3>Le bonus « Nouveaux Plans » est inclus sans supplément</h3>
+        <ul class="bonus-points">
+          <li>De nouveaux modèles de maisons à découvrir au rythme des publications Wooplans.</li>
+          <li>Les futurs ajouts réunis avec vos plans, rendus 3D et estimations pour continuer à comparer.</li>
+          <li>Aucun nouveau catalogue à racheter pour profiter des mises à jour envoyées.</li>
+        </ul>
+        <div class="bonus-deadline">Bonus valable uniquement ce <strong data-bonus-date-short>jour de votre visite</strong> jusqu’à 23 h 59.</div>
+        <button class="cta-primary cta-pulse bonus-cta" data-cta-id="bonus_cta" onclick="redirectToCheckout(this.getAttribute('data-cta-id'))">
+          <svg class="wa-svg" viewBox="0 0 24 24"><path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/></svg>
+          Obtenir le catalogue + le bonus
+        </button>
+      </div>
     </div>
   </div>
 </section>
@@ -781,6 +864,14 @@ src="https://www.facebook.com/tr?id=1651374605332302&ev=PageView&noscript=1"/></
     <div class="faq-item r">
       <button class="faq-btn" onclick="toggleFaq(this)">Le prix va augmenter ?<span class="faq-chevron">▾</span></button>
       <div class="faq-ans"><div class="faq-ans-inner">Oui. Le tarif spécial de 39 000 FCFA est valable jusqu'à la fin du compte à rebours du jour. Les campagnes promotionnelles peuvent être reconduites, mais le tarif et les conditions peuvent changer.</div></div>
+    </div>
+    <div class="faq-item r">
+      <button class="faq-btn" onclick="toggleFaq(this)">Et si je ne suis pas satisfait ?<span class="faq-chevron">▾</span></button>
+      <div class="faq-ans"><div class="faq-ans-inner">Un simple message WhatsApp dans les 7 jours et on vous rembourse intégralement. Aucune question posée.</div></div>
+    </div>
+    <div class="faq-item r">
+      <button class="faq-btn" onclick="toggleFaq(this)">Les devis sont fiables ?<span class="faq-chevron">▾</span></button>
+      <div class="faq-ans"><div class="faq-ans-inner">Ce sont des devis basés sur 10 ans d'expérience dans le BTP. Ils vous donnent une base solide pour négocier avec votre maçon ou votre entrepreneur.</div></div>
     </div>
   </div>
 </section>
@@ -918,6 +1009,22 @@ src="https://www.facebook.com/tr?id=1651374605332302&ev=PageView&noscript=1"/></
 </div>
 
 <script>
+/* DATE DU BONUS SPECIAL - se renouvelle automatiquement chaque jour */
+(function(){
+  function updateBonusDate(){
+    var now=new Date();
+  var fullDate=new Intl.DateTimeFormat('fr-FR',{day:'numeric',month:'long',year:'numeric'}).format(now);
+  var shortDate=new Intl.DateTimeFormat('fr-FR',{day:'numeric',month:'long'}).format(now);
+    var month=new Intl.DateTimeFormat('fr-FR',{month:'long'}).format(now);
+  document.querySelectorAll('[data-bonus-date]').forEach(function(el){el.textContent=fullDate;});
+  document.querySelectorAll('[data-bonus-date-short]').forEach(function(el){el.textContent=shortDate;});
+    document.querySelectorAll('[data-bonus-day]').forEach(function(el){el.textContent=String(now.getDate()).padStart(2,'0');});
+    document.querySelectorAll('[data-bonus-month]').forEach(function(el){el.textContent=month;});
+  }
+  updateBonusDate();
+  setInterval(updateBonusDate,60000);
+})();
+
 /* DAILY OFFER COUNTDOWN */
 (function(){
   var countdowns=document.querySelectorAll('[data-countdown]');
