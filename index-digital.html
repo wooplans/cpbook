@@ -355,6 +355,7 @@ h2{font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;font-size:clamp(24
 .bonus-shell{position:relative;max-width:980px;margin:0 auto}
 .bonus-date-pill{display:inline-flex;align-items:center;gap:8px;margin-bottom:16px;padding:7px 12px;border:1px solid rgba(255,211,155,.55);border-radius:99px;background:rgba(255,255,255,.08);color:#FFD39B;font-family:'Plus Jakarta Sans',sans-serif;font-size:11px;font-weight:800;letter-spacing:.08em;text-transform:uppercase}
 .bonus-date-pill::before{content:'';width:7px;height:7px;border-radius:50%;background:#FFD39B;box-shadow:0 0 0 5px rgba(255,211,155,.12);animation:blink 1.2s ease-in-out infinite}
+.bonus-date-copy{display:flex;flex-direction:column;line-height:1.25}
 .bonus-section h2{max-width:690px;margin-bottom:14px;color:var(--white)}
 .bonus-lead{max-width:680px;color:rgba(255,255,255,.76);font-size:15px;line-height:1.7;margin-bottom:26px}
 .bonus-grid{display:grid;gap:24px;align-items:center}
@@ -810,7 +811,7 @@ src="https://www.facebook.com/tr?id=1651374605332302&ev=PageView&noscript=1"/></
 <!-- BONUS SPECIAL -->
 <section class="bonus-section" id="bonusSpecial">
   <div class="bonus-shell">
-    <div class="bonus-date-pill r">Bonus spécial valable uniquement ce <span data-bonus-date-short>jour de votre visite</span></div>
+    <div class="bonus-date-pill r"><span class="bonus-date-copy"><span>Bonus spécial valable ce</span><span data-bonus-date-short>jour de votre visite</span></span></div>
     <h2 class="r">Achetez une fois aujourd’hui. <span class="ag">Découvrez de nouveaux plans chaque mois.</span></h2>
     <p class="bonus-lead r">Votre catalogue ne reste pas figé : en commandant aujourd’hui, vous débloquez aussi la possibilité de recevoir les nouveaux plans que Wooplans ajoutera au fil des mois, sans devoir racheter un nouveau catalogue.</p>
 
@@ -856,6 +857,10 @@ src="https://www.facebook.com/tr?id=1651374605332302&ev=PageView&noscript=1"/></
     <div class="faq-item r d1">
       <button class="faq-btn" onclick="toggleFaq(this)">Quand vais-je recevoir mon catalogue ?<span class="faq-chevron">▾</span></button>
       <div class="faq-ans"><div class="faq-ans-inner">Immédiatement après votre paiement. Vous serez redirigé vers la page de téléchargement du catalogue au format PDF et vous recevrez également un e-mail contenant votre lien d'accès à vie.</div></div>
+    </div>
+    <div class="faq-item r d2">
+      <button class="faq-btn" onclick="toggleFaq(this)">Comment vais-je recevoir les nouveaux plans chaque mois ?<span class="faq-chevron">▾</span></button>
+      <div class="faq-ans"><div class="faq-ans-inner">Après votre paiement, vous recevrez immédiatement le catalogue ainsi qu’une invitation à rejoindre notre groupe WhatsApp Premium. C’est dans ce groupe privé que vous recevrez les nouveaux plans ajoutés chaque mois, à vie et sans aucuns frais supplémentaires.</div></div>
     </div>
     <div class="faq-item r d2">
       <button class="faq-btn" onclick="toggleFaq(this)">Comment payer ?<span class="faq-chevron">▾</span></button>
