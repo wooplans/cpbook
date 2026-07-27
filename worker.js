@@ -17,7 +17,15 @@ export default {
     if (url.pathname === '/digital' || url.pathname === '/digital/') {
       url.pathname = '/index-digital.html';
       url.searchParams.delete('__cpbook_version');
-      return env.ASSETS.fetch(new Request(url.toString(), request));
+      const assetResponse = await env.ASSETS.fetch(new Request(url.toString(), request));
+      const headers = new Headers(assetResponse.headers);
+      headers.set('Cache-Control', 'no-store, no-cache, must-revalidate');
+      headers.set('CDN-Cache-Control', 'no-store');
+      return new Response(assetResponse.body, {
+        status: assetResponse.status,
+        statusText: assetResponse.statusText,
+        headers
+      });
     }
     if (url.pathname === '/whatsapp' || url.pathname === '/whatsapp/') {
       url.pathname = '/whatsapp.html';
