@@ -20,6 +20,24 @@ jobs:
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
           command: deploy
 
+      - name: Purge public digital page cache
+        shell: bash
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+        run: |
+          zone_id="$(curl --fail --silent --show-error \
+            --header "Authorization: Bearer ${CLOUDFLARE_API_TOKEN}" \
+            --header 'Content-Type: application/json' \
+            'https://api.cloudflare.com/client/v4/zones?name=wooplans.com' \
+            | jq -r '.result[0].id')"
+          test -n "$zone_id" && test "$zone_id" != "null"
+          curl --fail-with-body --silent --show-error \
+            --request POST \
+            --header "Authorization: Bearer ${CLOUDFLARE_API_TOKEN}" \
+            --header 'Content-Type: application/json' \
+            --data '{"files":["https://cpbook.wooplans.com/digital","https://cpbook.wooplans.com/digital/","https://cpbook.wooplans.com/index-digital.html"]}' \
+            "https://api.cloudflare.com/client/v4/zones/${zone_id}/purge_cache"
+
       - name: Verify public digital page
         shell: bash
         run: |
