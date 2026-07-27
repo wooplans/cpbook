@@ -1,4 +1,4 @@
-name: Deploy to Cloudflare Pages
+name: Deploy Cloudflare Worker
 
 on:
   push:
@@ -13,9 +13,9 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Identify Cloudflare Pages project
+      - name: Deploy Cloudflare Worker
         uses: cloudflare/wrangler-action@v3
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-          command: pages project list
+          command: deploy
