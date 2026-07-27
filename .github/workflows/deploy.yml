@@ -19,3 +19,16 @@ jobs:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
           command: deploy
+
+      - name: Verify public digital page
+        shell: bash
+        run: |
+          url="https://cpbook.wooplans.com/digital?deployment=${GITHUB_SHA}"
+          curl --fail --silent --show-error --location \
+            --header 'Cache-Control: no-cache' \
+            --dump-header /tmp/cpbook-headers.txt \
+            --output /tmp/cpbook-digital.html \
+            "$url"
+          cat /tmp/cpbook-headers.txt
+          grep -F 'id="bonusSpecial"' /tmp/cpbook-digital.html
+          grep -F '+450 avis' /tmp/cpbook-digital.html
