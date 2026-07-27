@@ -15,7 +15,7 @@ export default {
     }
 
     if (url.pathname === '/digital' || url.pathname === '/digital/') {
-      url.pathname = '/digital-v2.html';
+      url.pathname = '/index-digital.html';
       url.searchParams.delete('__cpbook_version');
       return env.ASSETS.fetch(new Request(url.toString(), request));
     }
