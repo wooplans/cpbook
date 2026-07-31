@@ -2,7 +2,7 @@ export default {
   async fetch(request, env) {
     const url = new URL(request.url);
 
-    if (url.pathname === '/api/geo' && request.method === 'GET') return json({ country: request.cf?.country || request.headers.get('CF-IPCountry') || null });
+    if (url.pathname === '/visitor-context' && request.method === 'GET') return json({ country: request.cf?.country || request.headers.get('CF-IPCountry') || null });
     if (url.pathname === '/api/moneyfusion-payment' && request.method === 'POST') return handleMoneyFusionPayment(request, env);
     if (url.pathname === '/confirmation' || url.pathname === '/confirmation/') { url.pathname = '/digital.html'; return env.ASSETS.fetch(new Request(url.toString(), request)); }
     if (url.pathname === '/api/moneyfusion-status' && request.method === 'GET') return handleMoneyFusionStatus(request);
