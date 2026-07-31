@@ -1047,11 +1047,12 @@ src="https://www.facebook.com/tr?id=1651374605332302&ev=PageView&noscript=1"/></
   };
 
   function applyMarket(countryCode){
-    var market=markets[String(countryCode||'').toUpperCase()];
+    var normalizedCountry=String(countryCode||'').toUpperCase();
+    if(normalizedCountry)document.documentElement.setAttribute('data-visitor-country',normalizedCountry);
+    var market=markets[normalizedCountry];
     if(!market)return;
     document.querySelectorAll('[data-geo-phrase]').forEach(function(el){el.textContent=market.phrase;});
     document.querySelectorAll('[data-geo-testimonial-location]').forEach(function(el){el.textContent=market.location;});
-    document.documentElement.setAttribute('data-visitor-country',String(countryCode).toUpperCase());
   }
 
   var forcedCountry=new URLSearchParams(window.location.search).get('geo');
