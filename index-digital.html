@@ -1058,7 +1058,7 @@ src="https://www.facebook.com/tr?id=1651374605332302&ev=PageView&noscript=1"/></
   if(forcedCountry){applyMarket(forcedCountry);return;}
   if(window.location.protocol!=='http:'&&window.location.protocol!=='https:')return;
 
-  fetch('/api/geo',{headers:{Accept:'application/json'},cache:'no-store'})
+  fetch('/visitor-context',{headers:{Accept:'application/json'},cache:'no-store'})
     .then(function(response){if(!response.ok)throw new Error('geo');return response.json();})
     .then(function(data){applyMarket(data&&data.country);})
     .catch(function(){/* Valeur par défaut : en Afrique. */});
