@@ -15,6 +15,20 @@ export default {
       return new Response('Method Not Allowed', { status: 405 });
     }
 
+    if (url.pathname === '/index-digital/admin' || url.pathname === '/index-digital/admin/' || url.pathname === '/digital/admin' || url.pathname === '/digital/admin/') {
+      url.pathname = '/index-digital-admin.html';
+      const adminResponse = await env.ASSETS.fetch(new Request(url.toString(), request));
+      const adminHeaders = new Headers(adminResponse.headers);
+      adminHeaders.set('Cache-Control', 'no-store, no-cache, must-revalidate');
+      adminHeaders.set('CDN-Cache-Control', 'no-store');
+      adminHeaders.set('X-Robots-Tag', 'noindex, nofollow, noarchive');
+      return new Response(adminResponse.body, {
+        status: adminResponse.status,
+        statusText: adminResponse.statusText,
+        headers: adminHeaders
+      });
+    }
+
     if (url.pathname === '/digital' || url.pathname === '/digital/') {
       url.pathname = '/index-digital.html';
       url.searchParams.delete('__cpbook_version');
@@ -49,15 +63,15 @@ const MF_STATUS='https://www.pay.moneyfusion.net/paiementNotif/';
 const MF_AMOUNT=39000;
 function mfJson(data,status=200){return new Response(JSON.stringify(data),{status,headers:{'content-type':'application/json; charset=utf-8','cache-control':'no-store'}})}
 async function handleMoneyFusionPayment(request,env){
-  const body=await request.json().catch(()=>null); if(!body)return mfJson({error:'Requête invalide.'},400);
+  const body=await request.json().catch(()=>null); if(!body)return mfJson({error:'RequÃªte invalide.'},400);
   const name=String(body.name||'').trim(), phone=String(body.phone||'').replace(/[^\d+]/g,''), email=String(body.email||'').trim().toLowerCase();
-  if(!name||phone.length<8||!email.includes('@'))return mfJson({error:'Nom, téléphone et e-mail sont obligatoires.'},400);
+  if(!name||phone.length<8||!email.includes('@'))return mfJson({error:'Nom, tÃ©lÃ©phone et e-mail sont obligatoires.'},400);
   const provider='chariow';
   if(provider==='chariow') return mfJson({provider:'chariow',payment_url:env.CHARIOW_CHECKOUT_URL||'https://wooplans.mychariow.shop/prd_41k85hc0/checkout'});
   const origin=new URL(request.url).origin, tracking=body.tracking&&typeof body.tracking==='object'?body.tracking:{};
   const payload={totalPrice:MF_AMOUNT,article:[{'Catalogue Premium PDF':MF_AMOUNT}],numeroSend:phone,nomclient:name,personal_Info:[{orderId:'cpbook-'+Date.now(),email,phone,fbp:String(tracking.fbp||''),fbc:String(tracking.fbc||''),event_source_url:String(tracking.event_source_url||origin+'/digital')}],return_url:origin+'/confirmation',webhook_url:origin+'/api/moneyfusion-webhook'};
   const response=await fetch(env.MONEYFUSION_API_URL||MF_API,{method:'POST',headers:{'content-type':'application/json',accept:'application/json'},body:JSON.stringify(payload)});
-  const data=await response.json().catch(()=>({})); if(!response.ok||data.statut===false)return mfJson({error:data.message||'MoneyFusion n’a pas pu préparer le paiement.'},response.ok?502:response.status);
+  const data=await response.json().catch(()=>({})); if(!response.ok||data.statut===false)return mfJson({error:data.message||'MoneyFusion nâ€™a pas pu prÃ©parer le paiement.'},response.ok?502:response.status);
   return mfJson({token:data.token,payment_url:data.url,message:data.message||'Paiement en cours'});
 }
 async function handleMoneyFusionStatus(request){
@@ -66,7 +80,7 @@ async function handleMoneyFusionStatus(request){
 }
 async function handleCatalogueDownload(request,env){
   const u=new URL(request.url),token=String(u.searchParams.get('token')||'').trim(); if(!token)return new Response('Transaction manquante.',{status:400});
-  const result=await fetch(MF_STATUS+encodeURIComponent(token)).then(r=>r.json()).catch(()=>({})); if(result.data?.statut!=='paid')return new Response('Paiement non confirmé.',{status:403});
+  const result=await fetch(MF_STATUS+encodeURIComponent(token)).then(r=>r.json()).catch(()=>({})); if(result.data?.statut!=='paid')return new Response('Paiement non confirmÃ©.',{status:403});
   const file=u.searchParams.get('file')==='duplex'?'duplex':'villa';
   const fallback=file==='duplex'?'https://drive.google.com/uc?export=download&id=1ArGsvuyEhnHd2IDy_9Tk0sHQQ8CNceM3':'https://drive.google.com/uc?export=download&id=18maln7qIHwKhKOVXOwtkvF85fq0XVuzr';
   return Response.redirect(file==='duplex'?(env.CATALOGUE_DUPLEX_URL||fallback):(env.CATALOGUE_VILLA_URL||fallback),302);
