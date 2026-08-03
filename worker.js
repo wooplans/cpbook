@@ -29,7 +29,7 @@ export default {
       });
     }
 
-    if (url.pathname === '/digital' || url.pathname === '/digital/') {
+    if (url.pathname === '/digital' || url.pathname === '/digital/' || url.pathname === '/index-digital' || url.pathname === '/index-digital/') {
       url.pathname = '/index-digital.html';
       url.searchParams.delete('__cpbook_version');
       const assetResponse = await env.ASSETS.fetch(new Request(url.toString(), request));
