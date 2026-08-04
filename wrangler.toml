@@ -11,3 +11,4 @@ FB_PIXEL_ID = "1025626273769966"
 directory = "."
 binding = "ASSETS"
 run_worker_first = true
+html_handling = "none"
