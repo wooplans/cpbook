@@ -12,3 +12,7 @@ directory = "."
 binding = "ASSETS"
 run_worker_first = true
 html_handling = "none"
+
+[[r2_buckets]]
+binding = "VIDEOS"
+bucket_name = "cpbook-videos"
