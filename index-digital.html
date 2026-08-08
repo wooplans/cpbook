@@ -577,7 +577,7 @@ src="https://www.facebook.com/tr?id=1025626273769966&ev=PageView&noscript=1"/></
   <p class="hero-sub">Comparez les modèles, visualisez votre future maison et estimez votre budget avant de lancer votre chantier.</p>
 
   <div class="vsl-wrap" id="vslWrap" onclick="playHeroVid()">
-     <video id="heroVid" data-src="/media/vsl-cpbook-digital.mp4" playsinline webkit-playsinline preload="none" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity 0.5s"></video>
+     <video id="heroVid" src="/media/vsl-cpbook-digital.mp4" data-src="/media/vsl-cpbook-digital.mp4" poster="/assets/digital/hero-catalogue.jpg" playsinline webkit-playsinline preload="metadata" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:1;transition:opacity 0.5s"></video>
     <div class="vsl-inner" id="vslOverlay" onclick="playHeroVid()" style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;transition:background 0.5s">
       <div class="vsl-play"></div>
       <span class="vsl-lbl">Regardez exactement ce que vous allez recevoir.</span>
@@ -823,7 +823,7 @@ src="https://www.facebook.com/tr?id=1025626273769966&ev=PageView&noscript=1"/></
   <div class="catalog-preview-wrap r d1">
     <div class="catalog-video-card">
       <div class="catalog-video-frame">
-        <video id="catalogPreviewVideo" controls playsinline preload="none" data-src="/media/catalogue-preview.mp4"></video>
+        <video id="catalogPreviewVideo" src="/media/catalogue-preview.mp4" controls playsinline preload="metadata" poster="/assets/digital/catalogue-cover.jpg" data-src="/media/catalogue-preview.mp4"></video>
       </div>
     </div>
   </div>
@@ -1405,8 +1405,8 @@ window.addEventListener('DOMContentLoaded',checkReturnedPayment);
     });
   },{rootMargin:'0px 0px 120px 0px'});
 
-  [0,1,2,3].forEach(function(i){
-    var v=document.getElementById('tvid'+i);
+  ['heroVid','catalogPreviewVideo','tvid0','tvid1','tvid2','tvid3'].forEach(function(id){
+    var v=document.getElementById(id);
     if(!v) return;
     if(io) io.observe(v); else showThumb(v,null);
   });
