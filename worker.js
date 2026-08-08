@@ -2,6 +2,7 @@ export default {
   async fetch(request, env) {
     const url = new URL(request.url);
 
+    if (url.pathname.startsWith('/media/')) return handleVideo(request, env);
     if (url.pathname === '/visitor-context' && request.method === 'GET') return json({ country: request.cf?.country || request.headers.get('CF-IPCountry') || null });
     if (url.pathname === '/api/moneyfusion-payment' && request.method === 'POST') return handleMoneyFusionPayment(request, env);
     if (url.pathname === '/confirmation' || url.pathname === '/confirmation/') { url.pathname = '/digital.html'; return env.ASSETS.fetch(new Request(url.toString(), request)); }
@@ -49,6 +50,61 @@ export default {
     return env.ASSETS.fetch(request);
   }
 };
+
+const VIDEO_KEY_RE = /^[a-z0-9][a-z0-9/_-]*\.mp4$/;
+
+async function handleVideo(request, env) {
+  if (request.method !== 'GET' && request.method !== 'HEAD') {
+    return new Response('Method Not Allowed', { status: 405, headers: { Allow: 'GET, HEAD' } });
+  }
+  if (!env.VIDEOS) return new Response('Video storage is not configured.', { status: 503 });
+
+  const url = new URL(request.url);
+  const key = decodeURIComponent(url.pathname.slice('/media/'.length));
+  if (!VIDEO_KEY_RE.test(key) || key.includes('..')) return new Response('Not Found', { status: 404 });
+
+  const rangeHeader = request.headers.get('Range');
+  const range = rangeHeader ? parseVideoRange(rangeHeader) : null;
+  if (rangeHeader && !range) {
+    return new Response('Invalid range.', { status: 416, headers: { 'Accept-Ranges': 'bytes' } });
+  }
+
+  const object = await env.VIDEOS.get(key, range ? { range } : undefined);
+  if (!object) return new Response('Not Found', { status: 404 });
+
+  const headers = new Headers();
+  object.writeHttpMetadata(headers);
+  headers.set('Content-Type', 'video/mp4');
+  headers.set('Accept-Ranges', 'bytes');
+  headers.set('Cache-Control', 'public, max-age=31536000, immutable');
+  headers.set('ETag', object.httpEtag);
+
+  let status = 200;
+  if (range) {
+    const start = object.range?.offset ?? 0;
+    const length = object.range?.length ?? object.size;
+    const end = Math.min(start + length, object.size) - 1;
+    headers.set('Content-Range', `bytes ${start}-${end}/${object.size}`);
+    headers.set('Content-Length', String(end - start + 1));
+    status = 206;
+  } else {
+    headers.set('Content-Length', String(object.size));
+  }
+
+  return new Response(request.method === 'HEAD' ? null : object.body, { status, headers });
+}
+
+function parseVideoRange(value) {
+  const match = /^bytes=(\d*)-(\d*)$/.exec(value.trim());
+  if (!match || (!match[1] && !match[2])) return null;
+  if (!match[1]) return { suffix: Number(match[2]) };
+  const offset = Number(match[1]);
+  if (!Number.isSafeInteger(offset) || offset < 0) return null;
+  if (!match[2]) return { offset };
+  const end = Number(match[2]);
+  if (!Number.isSafeInteger(end) || end < offset) return null;
+  return { offset, length: end - offset + 1 };
+}
 
 const MONEYFUSION_API = 'https://pay.moneyfusion.net/CP_BOOK_WOOPLANS/e25d949f16e781b6/pay/';
 const MONEYFUSION_STATUS = 'https://www.pay.moneyfusion.net/paiementNotif/';
