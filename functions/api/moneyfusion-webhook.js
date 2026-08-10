@@ -1,4 +1,5 @@
-const AMOUNT = 39000;
+const PAYMENT_AMOUNT = 29000;
+const PIXEL_VALUE = 39000;
 async function sha256(value) {
   if (!value) return '';
   const bytes = new TextEncoder().encode(String(value).trim().toLowerCase());
@@ -11,7 +12,7 @@ export async function onRequestPost({ request, env }) {
   if (payload.event !== 'payin.session.completed') return Response.json({ received: true });
   if (!payload.tokenPay) return Response.json({ received: false }, { status: 400 });
   const verification = await fetch(`https://www.pay.moneyfusion.net/paiementNotif/${encodeURIComponent(payload.tokenPay)}`).then(response => response.json()).catch(() => ({}));
-  if (verification.data?.statut !== 'paid' || Number(verification.data?.Montant) !== AMOUNT) return Response.json({ received: false }, { status: 400 });
+  if (verification.data?.statut !== 'paid' || Number(verification.data?.Montant) !== PAYMENT_AMOUNT) return Response.json({ received: false }, { status: 400 });
   const details = info(payload);
   const eventId = String(payload.tokenPay || details.orderId || crypto.randomUUID());
   if (env.META_ACCESS_TOKEN) {
@@ -26,7 +27,7 @@ export async function onRequestPost({ request, env }) {
       method: 'POST', headers: { 'content-type': 'application/json' }, body: JSON.stringify({ access_token: env.META_ACCESS_TOKEN, data: [{
         event_name: 'Purchase', event_time: Math.floor(Date.now() / 1000), event_id: eventId, action_source: 'website',
         event_source_url: details.event_source_url || new URL(request.url).origin + '/digital', user_data: userData,
-        custom_data: { currency: 'XAF', value: AMOUNT, content_name: 'Catalogue Premium Wooplans', content_ids: ['cpbook-premium-2026'], content_type: 'product', order_id: eventId },
+        custom_data: { currency: 'XAF', value: PIXEL_VALUE, content_name: 'Catalogue Premium Wooplans', content_ids: ['cpbook-premium-2026'], content_type: 'product', order_id: eventId },
       }] }),
     }).catch(() => null);
   }
