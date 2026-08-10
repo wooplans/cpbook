@@ -1,4 +1,4 @@
-const AMOUNT = 39000;
+const AMOUNT = 29000;
 const DEFAULT_API_URL = 'https://pay.moneyfusion.net/CP_BOOK_WOOPLANS/e25d949f16e781b6/pay/';
 
 function json(data, status = 200) {
@@ -18,7 +18,7 @@ export async function onRequestPost({ request, env }) {
   const tracking = body.tracking && typeof body.tracking === 'object' ? body.tracking : {};
   const payload = {
     totalPrice: AMOUNT,
-    article: [{ 'Catalogue Villas (PDF)': 19500, 'Catalogue Duplex (PDF)': 19500 }],
+    article: [{ 'Catalogue Villas (PDF)': 14500, 'Catalogue Duplex (PDF)': 14500 }],
     numeroSend: phone,
     nomclient: name,
     personal_Info: [{
