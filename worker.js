@@ -116,7 +116,7 @@ function json(data, status=200) {
 
 const MF_API='https://pay.moneyfusion.net/CP_BOOK_WOOPLANS/e25d949f16e781b6/pay/';
 const MF_STATUS='https://www.pay.moneyfusion.net/paiementNotif/';
-const MF_AMOUNT=39000;
+const MF_AMOUNT=29000;
 function mfJson(data,status=200){return new Response(JSON.stringify(data),{status,headers:{'content-type':'application/json; charset=utf-8','cache-control':'no-store'}})}
 async function handleMoneyFusionPayment(request,env){
   const body=await request.json().catch(()=>null); if(!body)return mfJson({error:'RequÃªte invalide.'},400);
@@ -146,7 +146,7 @@ async function handleMoneyFusionWebhook(request,env){
   const verified=await fetch(MF_STATUS+encodeURIComponent(payload.tokenPay)).then(r=>r.json()).catch(()=>({})); if(verified.data?.statut!=='paid'||Number(verified.data?.Montant)!==MF_AMOUNT)return mfJson({received:false},400);
   const details=Array.isArray(payload.personal_Info)?(payload.personal_Info[0]||{}):{};
   const fbToken=env.FB_ACCESS_TOKEN||env.META_ACCESS_TOKEN, fbPixel=env.FB_PIXEL_ID||env.META_PIXEL_ID;
-  if(fbToken&&fbPixel){const event={event_name:'Purchase',event_time:Math.floor(Date.now()/1000),event_id:String(payload.tokenPay),action_source:'website',event_source_url:details.event_source_url||'',user_data:{fbp:details.fbp||'',fbc:details.fbc||''},custom_data:{currency:'XAF',value:MF_AMOUNT,content_name:'Catalogue Premium Wooplans',content_ids:['cpbook-premium-2026'],content_type:'product',order_id:String(payload.tokenPay)}}; await fetch('https://graph.facebook.com/v23.0/'+fbPixel+'/events?access_token='+fbToken,{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify({data:[event]})}).catch(()=>null)}
+  if(fbToken&&fbPixel){const event={event_name:'Purchase',event_time:Math.floor(Date.now()/1000),event_id:String(payload.tokenPay),action_source:'website',event_source_url:details.event_source_url||'',user_data:{fbp:details.fbp||'',fbc:details.fbc||''},custom_data:{currency:'XAF',value:AMOUNT,content_name:'Catalogue Premium Wooplans',content_ids:['cpbook-premium-2026'],content_type:'product',order_id:String(payload.tokenPay)}}; await fetch('https://graph.facebook.com/v23.0/'+fbPixel+'/events?access_token='+fbToken,{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify({data:[event]})}).catch(()=>null)}
   return mfJson({received:true});
 }
 
