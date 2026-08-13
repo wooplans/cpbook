@@ -1,4 +1,4 @@
-const PAYMENT_AMOUNT = 29000;
+const PAYMENT_AMOUNT = 39000;
 const PIXEL_VALUE = 39000;
 async function sha256(value) {
   if (!value) return '';
