@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>50+ Plans de Maisons avec leurs vrais devis | Wooplans</title>
-<meta name="description" content="Accédez à 50+ plans de maisons avec leurs vrais devis, rendus 3D et plans détaillés. Valeur réelle 500 000 FCFA, prix du jour 29 000 FCFA.">
+<meta name="description" content="Accédez à 50+ plans de maisons avec leurs vrais devis, rendus 3D et plans détaillés. Valeur réelle 500 000 FCFA, prix du jour 39 000 FCFA.">
 <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@300;400;500&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
 <noscript><link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@300;400;500&display=swap" rel="stylesheet"></noscript>
@@ -73,9 +73,11 @@ body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--dark);overf
 
 /* VSL */
 .vsl-wrap{border-radius:12px;overflow:hidden;background:var(--teal-dark);aspect-ratio:16/9;position:relative;margin-bottom:24px;box-shadow:0 8px 32px rgba(0,0,0,0.35);cursor:pointer;width:100%;max-width:520px}
-.vsl-inner{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;background:linear-gradient(135deg,var(--teal-dark) 0%,#082828 100%);gap:14px}
+.vsl-inner{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;background:linear-gradient(135deg,rgba(4,31,31,.42) 0%,rgba(4,31,31,.72) 100%);gap:14px}
 .vsl-play{width:68px;height:68px;background:var(--orange);border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 0 0 14px rgba(240,138,46,0.18);transition:transform 0.2s,box-shadow 0.2s}
 .vsl-wrap:hover .vsl-play{transform:scale(1.08);box-shadow:0 0 0 20px rgba(240,138,46,0.12)}
+.vsl-video-badge{display:inline-flex;align-items:center;gap:7px;background:rgba(0,0,0,.72);border:1px solid rgba(255,255,255,.28);color:#fff;font-family:'Plus Jakarta Sans',sans-serif;font-size:11px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;padding:7px 11px;border-radius:99px;box-shadow:0 5px 16px rgba(0,0,0,.22)}
+.vsl-video-badge::before{content:'▶';color:var(--gold);font-size:10px}
 .vsl-play::after{content:'';border-left:24px solid white;border-top:15px solid transparent;border-bottom:15px solid transparent;margin-left:5px}
 .vsl-lbl{font-family:'Plus Jakarta Sans',sans-serif;font-weight:600;font-size:13px;color:rgba(255,255,255,0.55);letter-spacing:0.04em}
 .vsl-dur{position:absolute;bottom:10px;right:12px;background:rgba(0,0,0,0.55);color:white;font-size:11px;font-weight:600;padding:2px 8px;border-radius:4px}
@@ -450,6 +452,14 @@ h2{font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;font-size:clamp(24
 .order-ov.active{opacity:1;pointer-events:all}
 .order-sheet{width:100%;max-width:540px;margin:0 auto;background:var(--white);border-radius:20px 20px 0 0;overflow:hidden;transform:translateY(100%);transition:transform 0.35s cubic-bezier(0.32,0.72,0,1);max-height:95vh;overflow-y:auto}
 .order-ov.active .order-sheet{transform:translateY(0)}
+.checkout-ov{position:fixed;inset:0;z-index:650;background:rgba(6,24,24,.88);display:flex;align-items:center;justify-content:center;padding:14px;opacity:0;pointer-events:none;transition:opacity .25s ease;backdrop-filter:blur(5px)}
+.checkout-ov.active{opacity:1;pointer-events:auto}
+.checkout-dialog{position:relative;width:min(100%,560px);max-height:94vh;overflow-y:auto;background:#fff;border-radius:18px;padding:18px;box-shadow:0 28px 80px rgba(0,0,0,.38);transform:translateY(18px) scale(.98);transition:transform .25s ease}
+.checkout-ov.active .checkout-dialog{transform:translateY(0) scale(1)}
+.checkout-close{position:sticky;top:0;z-index:2;margin:0 0 10px auto;width:38px;height:38px;border:0;border-radius:50%;display:flex;align-items:center;justify-content:center;background:var(--dark);color:#fff;font-size:18px;cursor:pointer;box-shadow:0 4px 14px rgba(0,0,0,.18)}
+.checkout-heading{font-family:'Plus Jakarta Sans',sans-serif;font-size:19px;font-weight:800;color:var(--teal);text-align:center;margin:-38px 42px 14px}
+.checkout-note{text-align:center;color:var(--gray);font-size:12px;line-height:1.5;margin:0 12px 16px}
+#chariow-widget{min-height:220px}
 .order-handle{width:40px;height:4px;background:#E5E7EB;border-radius:99px;margin:14px auto 0}
 .order-head{padding:16px 20px 18px;background:var(--teal)}
 .order-head h3{font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;font-size:19px;color:var(--white);margin-bottom:3px}
@@ -579,8 +589,9 @@ src="https://www.facebook.com/tr?id=1025626273769966&ev=PageView&noscript=1"/></
   <div class="vsl-wrap" id="vslWrap" onclick="playHeroVid()">
      <video id="heroVid" src="/media/vsl-cpbook-digital.mp4" data-src="/media/vsl-cpbook-digital.mp4" poster="/assets/digital/hero-catalogue.jpg" playsinline webkit-playsinline preload="metadata" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:1;transition:opacity 0.5s"></video>
     <div class="vsl-inner" id="vslOverlay" onclick="playHeroVid()" style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;transition:background 0.5s">
+      <span class="vsl-video-badge">Vidéo de présentation</span>
       <div class="vsl-play"></div>
-      <span class="vsl-lbl">Regardez exactement ce que vous allez recevoir.</span>
+      <span class="vsl-lbl">Cliquez pour regarder la vidéo</span>
     </div>
   </div>
 
@@ -588,9 +599,9 @@ src="https://www.facebook.com/tr?id=1025626273769966&ev=PageView&noscript=1"/></
   <div class="hero-price">
     <div class="price-row">
       <span class="price-old">500 000 FCFA</span>
-      <span class="price-badge">–94%</span>
+      <span class="price-badge">–92%</span>
     </div>
-    <div class="price-new">29 000<span class="price-fcfa"> FCFA</span></div>
+    <div class="price-new">39 000<span class="price-fcfa"> FCFA</span></div>
   </div>
 
   <button class="hero-cta" data-cta-id="hero_cta" onclick="redirectToCheckout(this.getAttribute('data-cta-id'))">
@@ -781,10 +792,10 @@ src="https://www.facebook.com/tr?id=1025626273769966&ev=PageView&noscript=1"/></
       <tr><td>Plans détaillés et dimensions</td><td>75 000 FCFA</td></tr>
       <tr><td>Devis estimatifs pour comparer</td><td>75 000 FCFA</td></tr>
       <tr class="total"><td>Valeur totale de comparaison</td><td>500 000 FCFA</td></tr>
-      <tr class="price"><td>Prix du catalogue aujourd'hui</td><td>29 000 FCFA</td></tr>
+      <tr class="price"><td>Prix du catalogue aujourd'hui</td><td>39 000 FCFA</td></tr>
     </tbody>
   </table>
-  <p class="value-foot"><strong>Vous ne payez pas 500 000 FCFA, mais seulement 29 000 FCFA aujourd'hui.</strong></p>
+  <p class="value-foot"><strong>Vous ne payez pas 500 000 FCFA, mais seulement 39 000 FCFA aujourd'hui.</strong></p>
 </div>
 
 <!-- POUR QUI -->
@@ -823,7 +834,7 @@ src="https://www.facebook.com/tr?id=1025626273769966&ev=PageView&noscript=1"/></
   <div class="catalog-preview-wrap r d1">
     <div class="catalog-video-card">
       <div class="catalog-video-frame">
-        <video id="catalogPreviewVideo" src="/media/catalogue-preview.mp4" controls playsinline preload="metadata" poster="/assets/digital/catalogue-cover.jpg" data-src="/media/catalogue-preview.mp4"></video>
+        <video id="catalogPreviewVideo" src="/media/catalogue-preview.mp4" controls playsinline preload="metadata" poster="/assets/digital/catalogue-cover.jpg" data-src="/media/catalogue-preview.mp4" data-start="8" data-end="60" aria-label="Aperçu vidéo du catalogue, de 8 à 60 secondes, lu à vitesse 1,5"></video>
       </div>
     </div>
   </div>
@@ -871,9 +882,9 @@ src="https://www.facebook.com/tr?id=1025626273769966&ev=PageView&noscript=1"/></
   <div class="pricing-box r" style="margin-top:20px">
     <div class="pricing-top">
       <div class="lbl">Catalogue Premium Wooplans · Édition 2026</div>
-      <div class="p-main">29 000<span class="p-fcfa"> FCFA</span></div>
+      <div class="p-main">39 000<span class="p-fcfa"> FCFA</span></div>
       <div class="p-was">valeur réelle 500 000 FCFA</div>
-      <div class="pricing-badge blink-offer">Économie : 471 000 FCFA</div>
+      <div class="pricing-badge blink-offer">Économie : 461 000 FCFA</div>
     </div>
       <div class="pricing-body">
       <div class="pricing-incs">
@@ -957,7 +968,7 @@ src="https://www.facebook.com/tr?id=1025626273769966&ev=PageView&noscript=1"/></
     </div>
     <div class="faq-item r">
       <button class="faq-btn" onclick="toggleFaq(this)">Le prix va augmenter ?<span class="faq-chevron">▾</span></button>
-      <div class="faq-ans"><div class="faq-ans-inner">Oui. Le tarif spécial de 29 000 FCFA est valable jusqu'à la fin du compte à rebours du jour. Les campagnes promotionnelles peuvent être reconduites, mais le tarif et les conditions peuvent changer.</div></div>
+      <div class="faq-ans"><div class="faq-ans-inner">Oui. Le tarif spécial de 39 000 FCFA est valable jusqu'à la fin du compte à rebours du jour. Les campagnes promotionnelles peuvent être reconduites, mais le tarif et les conditions peuvent changer.</div></div>
     </div>
     <div class="faq-item r">
       <button class="faq-btn" onclick="toggleFaq(this)">Et si je ne suis pas satisfait ?<span class="faq-chevron">▾</span></button>
@@ -987,7 +998,7 @@ src="https://www.facebook.com/tr?id=1025626273769966&ev=PageView&noscript=1"/></
   <div style="max-width:400px;margin:0 auto">
     <div class="r" style="display:flex;align-items:center;justify-content:center;gap:12px;margin-bottom:18px">
       <span style="font-family:'Plus Jakarta Sans',sans-serif;font-weight:500;font-size:16px;color:rgba(255,255,255,0.4);text-decoration:line-through">500 000</span>
-      <span style="font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;font-size:48px;color:var(--white);letter-spacing:-0.03em;line-height:1">29 000</span>
+      <span style="font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;font-size:48px;color:var(--white);letter-spacing:-0.03em;line-height:1">39 000</span>
       <span style="font-family:'Plus Jakarta Sans',sans-serif;font-weight:600;font-size:16px;color:rgba(255,255,255,0.6)">FCFA</span>
     </div>
     <div class="countdown countdown-final" data-countdown style="margin-bottom:18px"><span>Tarif spécial du jour · encore</span> <strong>24H:00:00</strong></div>
@@ -1016,7 +1027,7 @@ src="https://www.facebook.com/tr?id=1025626273769966&ev=PageView&noscript=1"/></
 <!-- STICKY BAR -->
 <div class="sticky-bar" id="stickyBar">
   <div class="sticky-price">
-    <div class="s-price">29 000 FCFA</div>
+    <div class="s-price">39 000 FCFA</div>
     <div class="s-was">valeur réelle 500 000 FCFA</div>
     <div class="sticky-countdown" data-countdown>Encore <strong>24H:00:00</strong></div>
   </div>
@@ -1045,6 +1056,37 @@ src="https://www.facebook.com/tr?id=1025626273769966&ev=PageView&noscript=1"/></
 </div>
 
 <!-- ORDER SHEET -->
+<div class="checkout-ov" id="chariowCheckout" onclick="closeChariowCheckout(event)" aria-hidden="true">
+  <div class="checkout-dialog" role="dialog" aria-modal="true" aria-labelledby="checkoutHeading" onclick="event.stopPropagation()">
+    <button class="checkout-close" type="button" onclick="closeChariowCheckout()" aria-label="Fermer le paiement">✕</button>
+    <h3 class="checkout-heading" id="checkoutHeading">Finaliser ma commande</h3>
+    <p class="checkout-note">Paiement sécurisé · Catalogue Premium à 39 000 FCFA</p>
+    <div id="chariow-widget" data-product-id="prd_41k85hc0"
+        data-store-domain="wooplans.mychariow.shop"
+        data-style="frame"
+        data-border-style="rounded"
+        data-cta-width="xs"
+        data-cta-animation="none"
+        data-locale="en"
+        data-primary-color="#f08b2f"
+        data-background-color="#FFFFFF"></div>
+  </div>
+</div>
+
+<script>
+(function() {
+  var script = document.createElement('script');
+  script.src = 'https://js.chariowcdn.com/v1/widget.min.js';
+  script.async = true;
+  document.head.appendChild(script);
+
+  var link = document.createElement('link');
+  link.rel = 'stylesheet';
+  link.href = 'https://js.chariowcdn.com/v1/widget.min.css';
+  document.head.appendChild(link);
+})();
+</script>
+
 <div class="order-ov" id="orderOv" onclick="closeOrderBg(event)">
   <div class="order-sheet">
     <div class="order-handle"></div>
@@ -1091,7 +1133,7 @@ src="https://www.facebook.com/tr?id=1025626273769966&ev=PageView&noscript=1"/></
         <div class="os-lbl">
           <strong>Catalogue Premium (Téléchargement PDF)</strong>
         </div>
-        <div class="os-price">29 000 FCFA</div>
+        <div class="os-price">39 000 FCFA</div>
       </div>
       <button class="submit-btn" onclick="submitOrder()">
         <svg class="wa-svg" style="width:18px;height:18px;fill:white;flex-shrink:0" viewBox="0 0 24 24"><path d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zm-6 9c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zm3.1-9H8.9V6c0-1.71 1.39-3.1 3.1-3.1 1.71 0 3.1 1.39 3.1 3.1v2z"/></svg>
@@ -1257,7 +1299,20 @@ function playVSL(){ playHeroVid(); }
 
 function redirectToCheckout(ctaId) {
   if(typeof fbq==='function') fbq('track','InitiateCheckout',{content_name:'Catalogue Premium Wooplans',content_ids:['cpbook-premium-2026'],content_type:'product',value:39000,currency:'XAF',cta_id:ctaId||'unknown'});
-  window.location.href='https://wooplans.mychariow.shop/prd_41k85hc0/checkout';
+  var checkout=document.getElementById('chariowCheckout');
+  checkout.classList.add('active');
+  checkout.setAttribute('aria-hidden','false');
+  document.body.style.overflow='hidden';
+  var closeButton=checkout.querySelector('.checkout-close');
+  if(closeButton)window.setTimeout(function(){closeButton.focus();},50);
+}
+
+function closeChariowCheckout(event){
+  if(event&&event.target!==document.getElementById('chariowCheckout'))return;
+  var checkout=document.getElementById('chariowCheckout');
+  checkout.classList.remove('active');
+  checkout.setAttribute('aria-hidden','true');
+  document.body.style.overflow='';
 }
 
 /* ── ORDER ── */
@@ -1345,7 +1400,7 @@ async function submitOrder(){
     button.textContent='Payer et Télécharger';
   }
 }
-document.addEventListener('keydown',e=>{if(e.key==='Escape'){closeVideo();closeOrder()}});
+document.addEventListener('keydown',e=>{if(e.key==='Escape'){closeVideo();closeOrder();closeChariowCheckout()}});
 
 async function checkReturnedPayment(){
   const params=new URLSearchParams(location.search);
@@ -1369,6 +1424,34 @@ async function checkReturnedPayment(){
   body.innerHTML='<p class="form-note" style="text-align:center;color:#b42318">Le paiement est encore en attente. Actualisez cette page dans quelques instants.</p>';
 }
 window.addEventListener('DOMContentLoaded',checkReturnedPayment);
+
+/* ── APERÇU CATALOGUE : extrait 8s–60s à vitesse x1,5 ── */
+(function(){
+  var video=document.getElementById('catalogPreviewVideo');
+  if(!video)return;
+  var start=Number(video.dataset.start)||8;
+  var end=Number(video.dataset.end)||60;
+  var resetting=false;
+  function applyPlaybackSettings(){
+    video.defaultPlaybackRate=1.5;
+    video.playbackRate=1.5;
+    if(Number.isFinite(video.duration)&&video.currentTime<start)video.currentTime=start;
+  }
+  video.addEventListener('loadedmetadata',function(){video.currentTime=start;applyPlaybackSettings();});
+  video.addEventListener('play',function(){
+    if(video.currentTime<start||video.currentTime>=end)video.currentTime=start;
+    applyPlaybackSettings();
+  });
+  video.addEventListener('ratechange',function(){if(video.playbackRate!==1.5)video.playbackRate=1.5;});
+  video.addEventListener('seeking',function(){
+    if(resetting)return;
+    if(video.currentTime<start||video.currentTime>end){resetting=true;video.currentTime=video.currentTime<start?start:end;resetting=false;}
+  });
+  video.addEventListener('timeupdate',function(){
+    if(video.currentTime>=end){video.pause();video.currentTime=start;}
+  });
+  video.addEventListener('ended',function(){video.currentTime=start;});
+})();
 
 /* ── VIDEO THUMBNAILS — load only near the viewport ── */
 (function(){
