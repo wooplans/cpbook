@@ -116,7 +116,7 @@ function json(data, status=200) {
 
 const MF_API='https://pay.moneyfusion.net/CP_BOOK_WOOPLANS/e25d949f16e781b6/pay/';
 const MF_STATUS='https://www.pay.moneyfusion.net/paiementNotif/';
-const MF_AMOUNT=29000;
+const MF_AMOUNT=39000;
 function mfJson(data,status=200){return new Response(JSON.stringify(data),{status,headers:{'content-type':'application/json; charset=utf-8','cache-control':'no-store'}})}
 async function handleMoneyFusionPayment(request,env){
   const body=await request.json().catch(()=>null); if(!body)return mfJson({error:'RequÃªte invalide.'},400);
