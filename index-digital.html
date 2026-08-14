@@ -839,7 +839,7 @@ src="https://www.facebook.com/tr?id=1025626273769966&ev=PageView&noscript=1"/></
   <div class="catalog-preview-wrap r d1">
     <div class="catalog-video-card">
       <div class="catalog-video-frame">
-        <video id="catalogPreviewVideo" controls playsinline preload="none" poster="/assets/digital/catalogue-cover.jpg" data-src="/media/catalogue-preview.mp4" data-start="8" data-end="60" onclick="loadCatalogPreview()" aria-label="Aperçu vidéo du catalogue, de 8 à 60 secondes, lu à vitesse 1,5"></video>
+        <video id="catalogPreviewVideo" src="/media/catalogue-preview.mp4" controls playsinline preload="metadata" poster="/assets/digital/catalogue-cover.jpg" data-start="8" data-end="60" aria-label="Aperçu vidéo du catalogue, de 8 à 60 secondes, lu à vitesse 1,5"></video>
       </div>
     </div>
   </div>
@@ -1448,14 +1448,6 @@ async function checkReturnedPayment(){
 window.addEventListener('DOMContentLoaded',checkReturnedPayment);
 
 /* ── APERÇU CATALOGUE : extrait 8s–60s à vitesse x1,5 ── */
-function loadCatalogPreview(){
-  var video=document.getElementById('catalogPreviewVideo');
-  if(!video||video.dataset.loaded)return;
-  video.dataset.loaded='1';
-  video.src=video.dataset.src;
-  video.load();
-  video.addEventListener('canplay',function(){video.play().catch(function(){});},{once:true});
-}
 (function(){
   var video=document.getElementById('catalogPreviewVideo');
   if(!video)return;
