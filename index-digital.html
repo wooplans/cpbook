@@ -5,9 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>50+ Plans de Maisons avec leurs vrais devis | Wooplans</title>
 <meta name="description" content="Accédez à 50+ plans de maisons avec leurs vrais devis, rendus 3D et plans détaillés. Valeur réelle 500 000 FCFA, prix du jour 39 000 FCFA.">
-<link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@300;400;500&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
-<noscript><link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@300;400;500&display=swap" rel="stylesheet"></noscript>
+<link rel="preload" as="image" href="/assets/digital/hero-catalogue.webp" fetchpriority="high">
 <style>
 :root {
   --teal:      #0F5B59;
@@ -460,6 +458,7 @@ h2{font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;font-size:clamp(24
 .checkout-heading{font-family:'Plus Jakarta Sans',sans-serif;font-size:19px;font-weight:800;color:var(--teal);text-align:center;margin:-38px 42px 14px}
 .checkout-note{text-align:center;color:var(--gray);font-size:12px;line-height:1.5;margin:0 12px 16px}
 #chariow-widget{min-height:220px}
+#chariow-widget:empty::before{content:'Chargement du paiement sécurisé…';min-height:220px;display:flex;align-items:center;justify-content:center;color:var(--gray);font-size:13px;text-align:center}
 .order-handle{width:40px;height:4px;background:#E5E7EB;border-radius:99px;margin:14px auto 0}
 .order-head{padding:16px 20px 18px;background:var(--teal)}
 .order-head h3{font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;font-size:19px;color:var(--white);margin-bottom:3px}
@@ -539,25 +538,31 @@ h2{font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;font-size:clamp(24
 .pricing-badge.blink-offer{animation:offer-badge-blink 1.15s ease-in-out infinite}
 @media(max-width:759px){.cta-pulse,.pricing-badge.blink-offer,.sticky-btn{animation:none!important}}
 </style>
-<!-- Tracking is queued immediately but its third-party scripts load after the first paint. -->
+<!-- Tracking events are queued immediately; third-party libraries load after interaction or idle. -->
 <script>
 (function(){
+  var loaded=false;
   var loadTracking=function(){
+    if(loaded)return;
+    loaded=true;
     var queued=(window.fbq&&window.fbq.queue)||[];
     !function(f,b,e,v,n,t,s){if(f.fbq&&f.fbq.callMethod)return;n=f.fbq=function(){n.callMethod?
     n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
     n.push=n;n.loaded=!0;n.version='2.0';n.queue=queued;t=b.createElement(e);t.async=!0;
     t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
     document,'script','https://connect.facebook.net/en_US/fbevents.js');
-    window.fbq('init','1025626273769966');
-    window.fbq('track','PageView');
     var t=document.createElement('script');t.async=true;t.src='https://www.clarity.ms/tag/y284dj587r';
     document.head.appendChild(t);
   };
   window.fbq=window.fbq||function(){(window.fbq.queue=window.fbq.queue||[]).push(arguments)};
   window.clarity=window.clarity||function(){(window.clarity.q=window.clarity.q||[]).push(arguments)};
-  if('requestIdleCallback' in window) requestIdleCallback(loadTracking,{timeout:2500});
-  else window.setTimeout(loadTracking,1500);
+  window.fbq('init','1025626273769966');
+  window.fbq('track','PageView');
+  ['pointerdown','keydown','touchstart'].forEach(function(name){window.addEventListener(name,loadTracking,{once:true,passive:true});});
+  window.addEventListener('load',function(){
+    if('requestIdleCallback' in window)requestIdleCallback(loadTracking,{timeout:8000});
+    else window.setTimeout(loadTracking,8000);
+  },{once:true});
 })();
 </script>
 <noscript><img height="1" width="1" style="display:none"
@@ -587,7 +592,7 @@ src="https://www.facebook.com/tr?id=1025626273769966&ev=PageView&noscript=1"/></
   <p class="hero-sub">Comparez les modèles, visualisez votre future maison et estimez votre budget avant de lancer votre chantier.</p>
 
   <div class="vsl-wrap" id="vslWrap" onclick="playHeroVid()">
-     <video id="heroVid" src="/media/vsl-cpbook-digital.mp4" data-src="/media/vsl-cpbook-digital.mp4" poster="/assets/digital/hero-catalogue.jpg" playsinline webkit-playsinline preload="metadata" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:1;transition:opacity 0.5s"></video>
+     <video id="heroVid" data-src="/media/vsl-cpbook-digital.mp4" poster="/assets/digital/hero-catalogue.webp" playsinline webkit-playsinline preload="none" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:1;transition:opacity 0.5s"></video>
     <div class="vsl-inner" id="vslOverlay" onclick="playHeroVid()" style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;transition:background 0.5s">
       <span class="vsl-video-badge">Vidéo de présentation</span>
       <div class="vsl-play"></div>
@@ -834,7 +839,7 @@ src="https://www.facebook.com/tr?id=1025626273769966&ev=PageView&noscript=1"/></
   <div class="catalog-preview-wrap r d1">
     <div class="catalog-video-card">
       <div class="catalog-video-frame">
-        <video id="catalogPreviewVideo" src="/media/catalogue-preview.mp4" controls playsinline preload="metadata" poster="/assets/digital/catalogue-cover.jpg" data-src="/media/catalogue-preview.mp4" data-start="8" data-end="60" aria-label="Aperçu vidéo du catalogue, de 8 à 60 secondes, lu à vitesse 1,5"></video>
+        <video id="catalogPreviewVideo" controls playsinline preload="none" poster="/assets/digital/catalogue-cover.jpg" data-src="/media/catalogue-preview.mp4" data-start="8" data-end="60" onclick="loadCatalogPreview()" aria-label="Aperçu vidéo du catalogue, de 8 à 60 secondes, lu à vitesse 1,5"></video>
       </div>
     </div>
   </div>
@@ -1073,20 +1078,6 @@ src="https://www.facebook.com/tr?id=1025626273769966&ev=PageView&noscript=1"/></
   </div>
 </div>
 
-<script>
-(function() {
-  var script = document.createElement('script');
-  script.src = 'https://js.chariowcdn.com/v1/widget.min.js';
-  script.async = true;
-  document.head.appendChild(script);
-
-  var link = document.createElement('link');
-  link.rel = 'stylesheet';
-  link.href = 'https://js.chariowcdn.com/v1/widget.min.css';
-  document.head.appendChild(link);
-})();
-</script>
-
 <div class="order-ov" id="orderOv" onclick="closeOrderBg(event)">
   <div class="order-sheet">
     <div class="order-handle"></div>
@@ -1297,6 +1288,34 @@ function playHeroVid(){
 }
 function playVSL(){ playHeroVid(); }
 
+var chariowLoadPromise=null;
+function ensureChariowWidget(){
+  if(chariowLoadPromise)return chariowLoadPromise;
+  chariowLoadPromise=new Promise(function(resolve,reject){
+    if(!document.querySelector('link[data-chariow-style]')){
+      var link=document.createElement('link');
+      link.rel='stylesheet';
+      link.href='https://js.chariowcdn.com/v1/widget.min.css';
+      link.dataset.chariowStyle='1';
+      document.head.appendChild(link);
+    }
+    var existing=document.querySelector('script[data-chariow-script]');
+    if(existing){
+      if(existing.dataset.loaded==='1')resolve();
+      else{existing.addEventListener('load',resolve,{once:true});existing.addEventListener('error',reject,{once:true});}
+      return;
+    }
+    var script=document.createElement('script');
+    script.src='https://js.chariowcdn.com/v1/widget.min.js';
+    script.async=true;
+    script.dataset.chariowScript='1';
+    script.addEventListener('load',function(){script.dataset.loaded='1';resolve();},{once:true});
+    script.addEventListener('error',reject,{once:true});
+    document.head.appendChild(script);
+  });
+  return chariowLoadPromise;
+}
+
 function redirectToCheckout(ctaId) {
   if(typeof fbq==='function') fbq('track','InitiateCheckout',{content_name:'Catalogue Premium Wooplans',content_ids:['cpbook-premium-2026'],content_type:'product',value:39000,currency:'XAF',cta_id:ctaId||'unknown'});
   var checkout=document.getElementById('chariowCheckout');
@@ -1305,6 +1324,9 @@ function redirectToCheckout(ctaId) {
   document.body.style.overflow='hidden';
   var closeButton=checkout.querySelector('.checkout-close');
   if(closeButton)window.setTimeout(function(){closeButton.focus();},50);
+  ensureChariowWidget().catch(function(){
+    window.location.href='https://wooplans.mychariow.shop/prd_41k85hc0/checkout';
+  });
 }
 
 function closeChariowCheckout(event){
@@ -1426,6 +1448,14 @@ async function checkReturnedPayment(){
 window.addEventListener('DOMContentLoaded',checkReturnedPayment);
 
 /* ── APERÇU CATALOGUE : extrait 8s–60s à vitesse x1,5 ── */
+function loadCatalogPreview(){
+  var video=document.getElementById('catalogPreviewVideo');
+  if(!video||video.dataset.loaded)return;
+  video.dataset.loaded='1';
+  video.src=video.dataset.src;
+  video.load();
+  video.addEventListener('canplay',function(){video.play().catch(function(){});},{once:true});
+}
 (function(){
   var video=document.getElementById('catalogPreviewVideo');
   if(!video)return;
@@ -1488,7 +1518,7 @@ window.addEventListener('DOMContentLoaded',checkReturnedPayment);
     });
   },{rootMargin:'0px 0px 120px 0px'});
 
-  ['heroVid','catalogPreviewVideo','tvid0','tvid1','tvid2','tvid3'].forEach(function(id){
+  ['tvid0','tvid1','tvid2','tvid3'].forEach(function(id){
     var v=document.getElementById(id);
     if(!v) return;
     if(io) io.observe(v); else showThumb(v,null);
@@ -1501,6 +1531,11 @@ window.addEventListener('DOMContentLoaded',checkReturnedPayment);
      Supabase (quantitatif) + Microsoft Clarity (qualitatif)
      ══════════════════════════════════════════════════════════ -->
 <script>
+(function(){
+var analyticsStarted=false;
+function startAnalytics(){
+if(analyticsStarted)return;
+analyticsStarted=true;
 (function(){
 'use strict';
 var SB_URL='https://xlmwzvkqjnoijdldzrol.supabase.co';
@@ -1616,7 +1651,10 @@ function sessionEnd(){fetch(SB_URL+'/rest/v1/page_sessions?session_id=eq.'+SID,{
 document.addEventListener('visibilitychange',function(){if(document.visibilityState==='hidden')sessionEnd();});
 window.addEventListener('pagehide',sessionEnd,{once:true});
 })();
+}
+['pointerdown','keydown','touchstart'].forEach(function(name){window.addEventListener(name,startAnalytics,{once:true,passive:true});});
+window.addEventListener('load',function(){window.setTimeout(startAnalytics,8000);},{once:true});
+})();
 </script>
-<script defer src="https://static.cloudflareinsights.com/beacon.min.js/v4513226cdae34746b4dedf0b4dfa099e1781791509496" integrity="sha512-ZE9pZaUXND66v380QUtch/5sE9tPFh2zg45pR2PB0CVkCtOREv2AJKkSidISWkysEuQ0EH8faUU5du78bx87UQ==" data-cf-beacon='{"version":"2024.11.0","token":"ba52867831a14ca58435b02506cff909","r":1,"server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
 </body>
 </html>
