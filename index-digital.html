@@ -445,6 +445,24 @@ h2{font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;font-size:clamp(24
 .modal-loc{font-size:11px;color:var(--gray)}
 .modal-close{background:rgba(255,255,255,0.1);border:none;color:white;width:34px;height:34px;border-radius:50%;cursor:pointer;font-size:16px;display:flex;align-items:center;justify-content:center}
 
+/* ── OFFRE FLASH 29 000 FCFA ── */
+.promo-popup{position:fixed;inset:0;z-index:720;background:rgba(4,20,20,.76);display:flex;align-items:flex-end;justify-content:center;padding:14px;opacity:0;visibility:hidden;pointer-events:none;transition:opacity .25s ease,visibility .25s ease;backdrop-filter:blur(4px)}
+.promo-popup.active{opacity:1;visibility:visible;pointer-events:auto}
+.promo-card{position:relative;width:min(100%,460px);overflow:hidden;border:2px solid var(--gold);border-radius:20px;background:linear-gradient(145deg,#0F5B59 0%,#082F2E 100%);padding:28px 22px 22px;color:#fff;text-align:center;box-shadow:0 24px 70px rgba(0,0,0,.42);cursor:pointer;transform:translateY(30px) scale(.97);transition:transform .3s cubic-bezier(.2,.8,.2,1)}
+.promo-popup.active .promo-card{transform:translateY(0) scale(1)}
+.promo-card:focus-visible{outline:3px solid #fff;outline-offset:3px}
+.promo-close{position:absolute;top:10px;right:10px;width:34px;height:34px;border:1px solid rgba(255,255,255,.28);border-radius:50%;background:rgba(0,0,0,.22);color:#fff;font-size:18px;line-height:1;cursor:pointer;z-index:2}
+.promo-kicker{display:inline-flex;align-items:center;gap:6px;margin-bottom:12px;padding:6px 11px;border-radius:999px;background:var(--gold);color:#473006;font-family:'Plus Jakarta Sans',sans-serif;font-size:11px;font-weight:800;letter-spacing:.06em;text-transform:uppercase}
+.promo-title{font-family:'Plus Jakarta Sans',sans-serif;font-size:clamp(24px,7vw,34px);font-weight:800;line-height:1.08;margin:0 0 9px}
+.promo-saving{color:#FFD76A}
+.promo-copy{max-width:350px;margin:0 auto 15px;color:rgba(255,255,255,.83);font-size:14px;line-height:1.5}
+.promo-prices{display:flex;align-items:center;justify-content:center;gap:12px;margin-bottom:17px}
+.promo-old{color:rgba(255,255,255,.58);font-size:17px;text-decoration:line-through}
+.promo-new{font-family:'Plus Jakarta Sans',sans-serif;font-size:30px;font-weight:800;color:#fff}
+.promo-cta{display:flex;align-items:center;justify-content:center;width:100%;min-height:54px;border-radius:11px;background:var(--orange);color:#fff;font-family:'Plus Jakarta Sans',sans-serif;font-size:16px;font-weight:800;box-shadow:0 8px 24px rgba(240,139,47,.34)}
+.promo-note{display:block;margin-top:10px;color:rgba(255,255,255,.65);font-size:11px}
+@media(min-width:700px){.promo-popup{align-items:center}.promo-card{padding:34px 30px 26px}}
+
 /* ORDER SHEET */
 .order-ov{position:fixed;inset:0;background:rgba(0,0,0,0.82);z-index:500;display:flex;align-items:flex-end;opacity:0;pointer-events:none;transition:opacity 0.25s}
 .order-ov.active{opacity:1;pointer-events:all}
@@ -1042,6 +1060,22 @@ src="https://www.facebook.com/tr?id=1025626273769966&ev=PageView&noscript=1"/></
   </button>
 </div>
 
+<!-- OFFRE FLASH -->
+<div class="promo-popup" id="promoPopup" aria-hidden="true" onclick="closePromoPopup(event)">
+  <div class="promo-card" role="link" tabindex="0" data-cta-id="promo_popup_29000" aria-label="Profiter de la réduction immédiate et obtenir le catalogue à 29 000 FCFA" onclick="openPromoOffer(event)" onkeydown="handlePromoKey(event)">
+    <button class="promo-close" type="button" aria-label="Fermer l’offre" onclick="dismissPromoPopup(event)">✕</button>
+    <span class="promo-kicker">🎁 Offre spéciale</span>
+    <h2 class="promo-title">Économisez immédiatement<br><span class="promo-saving">10 000 FCFA</span></h2>
+    <p class="promo-copy">Profitez maintenant du Catalogue Premium complet à un tarif exceptionnel.</p>
+    <div class="promo-prices">
+      <span class="promo-old">39 000 FCFA</span>
+      <span class="promo-new">29 000 FCFA</span>
+    </div>
+    <span class="promo-cta">Activer ma réduction immédiate</span>
+    <span class="promo-note">Paiement sécurisé · Accès numérique à vie</span>
+  </div>
+</div>
+
 <!-- VIDEO MODAL -->
 <div class="modal-ov" id="videoModal" onclick="closeVideo(event)">
   <div class="modal-box" onclick="event.stopPropagation()">
@@ -1515,6 +1549,46 @@ window.addEventListener('DOMContentLoaded',checkReturnedPayment);
     if(!v) return;
     if(io) io.observe(v); else showThumb(v,null);
   });
+})();
+</script>
+
+<script>
+/* ── POPUP OFFRE IMMÉDIATE : 39 000 → 29 000 FCFA ── */
+(function(){
+  var popup=document.getElementById('promoPopup');
+  var promoUrl='https://wooplans.mychariow.shop/prd_41k85hc0?chw_pvar=8D0NXW';
+  var shown=false;
+  function sessionHasSeenPromo(){try{return sessionStorage.getItem('cpbook_promo_29000_seen')==='1';}catch(error){return false;}}
+  function rememberPromo(){try{sessionStorage.setItem('cpbook_promo_29000_seen','1');}catch(error){}}
+  function anotherModalIsOpen(){return !!document.querySelector('.modal-ov.active,.checkout-ov.active,.order-ov.active');}
+  window.showPromoPopup=function(){
+    if(!popup||shown||sessionHasSeenPromo())return;
+    if(anotherModalIsOpen()){window.setTimeout(window.showPromoPopup,3000);return;}
+    shown=true;
+    rememberPromo();
+    popup.classList.add('active');
+    popup.setAttribute('aria-hidden','false');
+    var card=popup.querySelector('.promo-card');
+    if(card)window.setTimeout(function(){card.focus({preventScroll:true});},250);
+    if(typeof clarity==='function')clarity('event','promo_popup_view_29000');
+  };
+  window.dismissPromoPopup=function(event){
+    if(event){event.preventDefault();event.stopPropagation();}
+    if(!popup)return;
+    popup.classList.remove('active');
+    popup.setAttribute('aria-hidden','true');
+    if(typeof clarity==='function')clarity('event','promo_popup_dismiss_29000');
+  };
+  window.closePromoPopup=function(event){if(event&&event.target===popup)window.dismissPromoPopup(event);};
+  window.openPromoOffer=function(event){
+    if(event){event.preventDefault();event.stopPropagation();}
+    if(typeof fbq==='function')fbq('track','InitiateCheckout',{content_name:'Catalogue Premium - Offre popup',content_ids:['cpbook-premium-2026-promo'],content_type:'product',value:29000,currency:'XAF',cta_id:'promo_popup_29000'});
+    if(typeof clarity==='function'){clarity('set','promo_offer','29000');clarity('event','promo_popup_click_29000');}
+    window.location.href=promoUrl;
+  };
+  window.handlePromoKey=function(event){if(event.key==='Enter'||event.key===' '){event.preventDefault();window.openPromoOffer(event);}};
+  document.addEventListener('keydown',function(event){if(event.key==='Escape'&&popup&&popup.classList.contains('active'))window.dismissPromoPopup(event);});
+  window.addEventListener('load',function(){window.setTimeout(window.showPromoPopup,8000);},{once:true});
 })();
 </script>
 
