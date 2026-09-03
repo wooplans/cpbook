@@ -1556,12 +1556,14 @@ window.addEventListener('DOMContentLoaded',checkReturnedPayment);
 /* ── POPUP OFFRE IMMÉDIATE : 39 000 → 29 000 FCFA ── */
 (function(){
   var popup=document.getElementById('promoPopup');
+  var promoEnabled=false; // Offre temporairement désactivée.
   var promoUrl='https://wooplans.mychariow.shop/prd_41k85hc0?chw_pvar=8D0NXW';
   var shown=false;
   function sessionHasSeenPromo(){try{return sessionStorage.getItem('cpbook_promo_29000_seen')==='1';}catch(error){return false;}}
   function rememberPromo(){try{sessionStorage.setItem('cpbook_promo_29000_seen','1');}catch(error){}}
   function anotherModalIsOpen(){return !!document.querySelector('.modal-ov.active,.checkout-ov.active,.order-ov.active');}
   window.showPromoPopup=function(){
+    if(!promoEnabled)return;
     if(!popup||shown||sessionHasSeenPromo())return;
     if(anotherModalIsOpen()){window.setTimeout(window.showPromoPopup,3000);return;}
     shown=true;
