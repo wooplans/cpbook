@@ -39,7 +39,7 @@ body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--dark);overf
 }
 .topbar.visible{transform:translateY(0)}
 .topbar-logo{display:flex;align-items:center;line-height:0}
-.topbar-logo img{display:block;width:auto;height:34px;max-width:196px}
+.topbar-logo img{display:block;width:auto;height:42px;max-width:236px}
 .topbar-btn{background:var(--orange);color:var(--white);font-family:'Plus Jakarta Sans',sans-serif;font-weight:700;font-size:13px;padding:10px 18px;border:none;border-radius:6px;cursor:pointer;display:flex;align-items:center;gap:7px;transition:background 0.2s,transform 0.15s;white-space:nowrap}
 .topbar-btn:active{transform:scale(0.97);background:var(--orange-dk)}
 
@@ -70,12 +70,21 @@ body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--dark);overf
 
 /* VSL */
 .vsl-wrap{border-radius:12px;overflow:hidden;background:var(--teal-dark);aspect-ratio:16/9;position:relative;margin-bottom:24px;box-shadow:0 8px 32px rgba(0,0,0,0.35);cursor:pointer;width:100%;max-width:520px}
+.vsl-video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:1;transition:opacity 0.5s}
 .vsl-inner{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;background:linear-gradient(135deg,var(--teal-dark) 0%,#082828 100%);gap:14px}
 .vsl-play{width:68px;height:68px;background:var(--orange);border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 0 0 14px rgba(240,138,46,0.18);transition:transform 0.2s,box-shadow 0.2s}
 .vsl-wrap:hover .vsl-play{transform:scale(1.08);box-shadow:0 0 0 20px rgba(240,138,46,0.12)}
 .vsl-play::after{content:'';border-left:24px solid white;border-top:15px solid transparent;border-bottom:15px solid transparent;margin-left:5px}
 .vsl-lbl{font-family:'Plus Jakarta Sans',sans-serif;font-weight:600;font-size:13px;color:rgba(255,255,255,0.55);letter-spacing:0.04em}
 .vsl-dur{position:absolute;bottom:10px;right:12px;background:rgba(0,0,0,0.55);color:white;font-size:11px;font-weight:600;padding:2px 8px;border-radius:4px}
+.vsl-sound-badge{position:absolute;top:12px;left:12px;z-index:3;display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,0.14);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,0.18);color:var(--white);font-family:'Plus Jakarta Sans',sans-serif;font-weight:700;font-size:12px;line-height:1;padding:10px 12px;border-radius:999px;box-shadow:0 8px 24px rgba(0,0,0,0.18);transition:transform 0.2s,background 0.2s}
+.vsl-sound-badge:hover{transform:translateY(-1px);background:rgba(255,255,255,0.2)}
+.vsl-sound-badge svg{width:16px;height:16px;flex-shrink:0;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.vsl-sound-badge[data-state="playing"]{background:rgba(15,91,89,0.86)}
+.vsl-sound-badge[data-state="playing"] .badge-off{display:none}
+.vsl-sound-badge[data-state="muted"] .badge-on{display:none}
+.vsl-sound-badge[data-state="muted"]{animation:pulseBadge 1.6s ease-in-out infinite}
+@keyframes pulseBadge{0%,100%{box-shadow:0 8px 24px rgba(0,0,0,0.18)}50%{box-shadow:0 8px 28px rgba(240,138,46,0.3)}}
 
 /* PRICE */
 .hero-price{display:flex;flex-direction:column;align-items:center;gap:6px;margin-bottom:20px}
@@ -449,7 +458,20 @@ src="https://www.facebook.com/tr?id=1651374605332302&ev=PageView&noscript=1"/></
   <p class="hero-sub">Le catalogue de référence pour préparer la construction de votre maison au Cameroun. Villas, duplex, plans, devis — tout est dedans.</p>
 
   <div class="vsl-wrap" id="vslWrap" onclick="playHeroVid()">
-    <video id="heroVid" src="https://wooplans.b-cdn.net/cp%20book%20wooplans/vsl_cp_book_202605262345.mp4" playsinline webkit-playsinline preload="auto" muted autoplay loop style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity 0.5s"></video>
+    <video id="heroVid" class="vsl-video" src="https://wooplans.b-cdn.net/cp%20book%20wooplans/vsl_cp_book_202605262345.mp4" playsinline webkit-playsinline preload="auto" muted autoplay loop></video>
+    <button class="vsl-sound-badge" id="heroSoundBadge" type="button" aria-label="Activer le son de la vidéo" onclick="toggleHeroSound(event)">
+      <svg class="badge-off" viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M11 5L6 9H2v6h4l5 4V5z"></path>
+        <path d="M16 9l6 6M22 9l-6 6"></path>
+      </svg>
+      <svg class="badge-on" viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M11 5L6 9H2v6h4l5 4V5z"></path>
+        <path d="M15.5 8.5a4.5 4.5 0 010 7"></path>
+        <path d="M18.5 5.5a9 9 0 010 13"></path>
+      </svg>
+      <span class="badge-off">Cliquez pour activer le son</span>
+      <span class="badge-on">Son activé</span>
+    </button>
     <div class="vsl-inner" id="vslOverlay" onclick="playHeroVid()" style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;transition:background 0.5s">
       <div class="vsl-play"></div>
       <span class="vsl-lbl">Voir la présentation du catalogue</span>
@@ -927,8 +949,37 @@ function playHeroVid(){
   vid.controls=true;
   vid.style.opacity='1';
   vid.play().catch(()=>{});
+  syncHeroSoundBadge(false);
 }
 function playVSL(){ playHeroVid(); }
+
+const heroVid=document.getElementById('heroVid');
+const heroSoundBadge=document.getElementById('heroSoundBadge');
+
+function syncHeroSoundBadge(isMuted){
+  if(!heroSoundBadge) return;
+  heroSoundBadge.dataset.state=isMuted ? 'muted' : 'playing';
+  heroSoundBadge.setAttribute('aria-label', isMuted ? 'Activer le son de la vidéo' : 'Couper le son de la vidéo');
+}
+
+function toggleHeroSound(e){
+  if(e) e.stopPropagation();
+  if(!heroVid) return;
+  heroVid.muted=!heroVid.muted;
+  heroVid.volume=heroVid.muted ? 0 : 1;
+  if(!heroVid.muted){
+    heroVid.play().catch(()=>{});
+  }
+  syncHeroSoundBadge(heroVid.muted);
+}
+
+if(heroVid){
+  heroVid.muted=true;
+  heroVid.volume=0;
+  heroVid.play().catch(()=>{});
+  syncHeroSoundBadge(true);
+  heroVid.addEventListener('click',toggleHeroSound);
+}
 
 /* ── ORDER ── */
 function openOrder(){
@@ -1200,4 +1251,3 @@ window.addEventListener('pagehide',sessionEnd,{once:true});
 </script>
 </body>
 </html>
-
